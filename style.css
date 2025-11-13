@@ -1,0 +1,309 @@
+/* --- 기본 및 변수 설정 --- */
+:root {
+    --primary-color: #005A9C; /* SNU 병원 대표 파란색 계열 */
+    --secondary-color: #007BFF;
+    --light-gray: #f4f7f6;
+    --dark-text: #333;
+    --light-text: #ffffff;
+    --warning-bg: #fffbe6;
+    --warning-border: #ffe58f;
+    --female-only-bg: #fff0f6;
+    --female-only-border: #ffadd2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-gray);
+    padding-top: 70px; /* 고정 헤더 높이만큼 패딩 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- 헤더 및 내비게이션 --- */
+header {
+    background-color: var(--light-text);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar {
+    display: none;
+    background-color: var(--light-text);
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar.active {
+    display: block;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.navbar li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 700;
+}
+
+.navbar li a:hover {
+    background-color: var(--light-gray);
+}
+
+/* 햄버거 메뉴 버튼 */
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* 햄버거 X로 변환 (JS에서 active 클래스 추가 시) */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* --- 메인 콘텐츠 섹션 --- */
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.hero .highlight {
+    font-weight: 700;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+.card-section {
+    margin-bottom: 40px;
+}
+
+.card-section h2 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* --- 카드 디자인 --- */
+.card {
+    background-color: var(--light-text);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.card.warning {
+    background-color: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+}
+
+.card.warning p {
+    font-weight: 700;
+    color: #a07400;
+}
+
+/* --- 버튼형 링크 --- */
+.button-link {
+    display: block;
+    background-color: var(--light-text);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.button-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+
+/* 주요 버튼 */
+.button-link.primary {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+.button-link.primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* 여성 전용 버튼 */
+.button-link.female-only {
+    background-color: var(--female-only-bg);
+    border-color: var(--female-only-border);
+    color: #c41d7f;
+}
+.button-link.female-only:hover {
+    background-color: #fff0f6;
+    border-color: #c41d7f;
+}
+
+/* --- 자료실 그리드 --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- 푸터 --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e0e0e0;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* --- 태블릿 및 데스크탑 반응형 --- */
+@media (min-width: 768px) {
+    body {
+        padding-top: 0; /* 데스크탑에서는 헤더 고정 해제 */
+    }
+
+    header {
+        position: relative;
+        box-shadow: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .header-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-toggle {
+        display: none; /* 햄버거 메뉴 숨기기 */
+    }
+
+    .navbar {
+        display: block; /* 내비게이션 항상 표시 */
+        width: auto;
+        box-shadow: none;
+        background-color: transparent;
+    }
+    
+    .navbar ul {
+        display: flex;
+        padding: 0;
+    }
+
+    .navbar li a {
+        padding: 10px 15px;
+        font-weight: 700;
+    }
+    .navbar li a:hover {
+        background-color: transparent;
+        color: var(--secondary-color);
+    }
+
+    /* 2단 그리드 */
+    .survey-list, .resource-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
