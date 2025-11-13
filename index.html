@@ -1,130 +1,347 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>분당서울대학교병원 기분장애클리닉</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* --- 기본 및 변수 설정 --- */
+:root {
+    --primary-color: #00695C; /* 메인 틸/그린 색상 */
+    --primary-dark: #004D40;  /* 더 짙은 헤더/로고용 */
+    --primary-light: #E0F2F1; /* 매우 옅은 배경/하이라이트 */
+    --accent-color: #00796B;  /* 버튼 등에 사용될 보조 색상 */
+    --light-gray: #F8F9FA;  /* 페이지 전체 배경 */
+    --card-bg: #ffffff;      /* 카드 배경 (흰색) */
+    --dark-text: #212529;    /* 기본 텍스트 (거의 검은색) */
+    --body-text: #495057;    /* 본문 텍스트 (조금 더 연함) */
+    --light-text: #ffffff;
+    --warning-bg: #FFFBE6;
+    --warning-border: #FFECB3;
+    --female-only-bg: #FCE4EC;
+    --female-only-border: #F8BBD0;
+    --border-color: #E0E0E0; /* 카드 테두리 */
+}
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">분당서울대학교병원 기분장애클리닉</a>
-            <button class="nav-toggle" aria-label="메뉴 열기">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#welcome">클리닉 소개</a></li>
-                <li><a href="#surveys">설문지 작성</a></li>
-                <li><a href="#results">결과 확인</a></li>
-                <li><a href="#resources">기분 관리 자료실</a></li>
-                <li><a href="#snubh">병원 홈페이지</a></li>
-            </ul>
-        </nav>
-    </header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main>
-        <section id="welcome" class="hero">
-            <h1>분당서울대학교병원 기분장애클리닉</h1>
-            <p>안녕하세요? 분당서울대학교병원 기분장애클리닉에 오신 것을 환영합니다.</p>
-            <p>이 자료는 클리닉 방문객의 진료를 돕고, 기분장애에 대한 정보를 제공하기 위해 만들어졌습니다.</p>
-            <p class="highlight">이 페이지(snumood.com)에 접속하시면 언제 어디에서나 보실 수 있습니다.</p>
-        </section>
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--body-text);
+    background-color: var(--light-gray);
+    padding-top: 70px; /* 고정 헤더 높이만큼 패딩 */
+}
 
-        <section id="surveys" class="card-section">
-            <h2>📝 설문지 작성</h2>
-            <div class="card">
-                <p>아래 설문지를 작성해보세요. 클리닉에 방문한 많은 분들이 이 설문검사에 참여하셨습니다. 스스로의 증상과 성격을 다른 분들과 비교하여 알 수 있게 됩니다.</p>
-                <p><strong>"1. 시작"</strong>부터 순서대로 작성해주세요.<br>
-                    (남성: 7번까지 / 여성: 8번까지)<br>
-                    설문지 검사에는 비용이 추가되지 않으며, 매 설문지마다 마지막에 <strong>'제출'</strong>을 꼭 눌러주세요.</p>
-            </div>
-            
-            <div class="survey-list">
-                <a href="https://docs.google.com/forms/u/1/d/11JqXNqc3z_0m0gts3WjAONNBsRWYFKwqph3zM8ovqlI/edit?usp=drive_web" target="_blank" class="button-link">1. 시작 - 성별, 나이, 기초 정보</a>
-                <a href="https://docs.google.com/forms/d/1iCTivUi9iTT9IurOZh6AmMJxY9b6LKy3k9n1Y0fFmP4/edit" target="_blank" class="button-link">2. 우울, 불안, 정서기질</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNkkwREEF_sDH1r3SpmFneFVzgFr_N3V7i4Yx9zke_r-pZpw/viewform?usp=sf_link" target="_blank" class="button-link">3. 기분안정성 상태</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxfJ7Whup62e80u5Q96q2pNBJWNoULAhQWn3jfYHRXAaWKUQ/viewform?usp=sf_link" target="_blank" class="button-link">4. 기분안정성 특성 및 행동</a>
-                <a href="https://docs.google.com/forms/d/1UEw3CBirdqigbM1RcMiU6d6ELwBWqn62QAdxvWLD3h0/edit" target="_blank" class="button-link">5. 아동기 외상, 대인관계민감성, 회복탄력성</a>
-                <a href="https://docs.google.com/forms/d/12OOZw5IkYJG3LDtKr7otUCzwGi6O85F97gaMtgGsBZA/edit" target="_blank" class="button-link">6. 정서조절, 행동패턴, 음주, 수면 양상</a>
-                <a href="https://docs.google.com/forms/d/1s_DtK7SYjOW9zXcsizKI-GAxUDdsC3b618HNZuVig54/edit?usp=drive_web" target="_blank" class="button-link">7. 계절변화, 집중, 성격, 아동기 성향</a>
-                <a href="https://docs.google.com/forms/d/19xXaW28Du2FmyiM3sW5zofuw2KiBfhtXtVi1ov09o4Q/edit" target="_blank" class="button-link female-only">8. 생리주기에 따른 변화 (여성만)</a>
-            </div>
-        </section>
+html {
+    scroll-behavior: smooth;
+}
 
-        <section id="results" class="card-section">
-            <h2>📊 설문결과 확인</h2>
-            <div class="card warning">
-                <p>설문결과 확인은 **구글 크롬(Chrome) 브라우저**에서 가장 잘 작동합니다. (Internet Explorer 사용 불가)</p>
-                <p>결과 확인이 잘 되지 않는 경우, **절대 설문을 다시 입력하지 마시고** 진료 시간에 담당 의사에게 문의하세요.</p>
-            </div>
-            <div class="card">
-                <p>아래 링크에서 설문결과 PDF 파일을 다운받을 수 있습니다. 설문 작성 시 입력했던 **병원등록번호(또는 이니셜생년월일)**와 **비밀번호**를 입력하고 "확인하기"를 누르세요. 잠시 후 생성되는 "PDF결과" 버튼을 누르면 다운로드됩니다.</p>
-                <a href="https://script.google.com/macros/s/AKfycbyrEFfRArO3p_ADQOwRas63dRU7g__2CqFfrqO6zG0Rdzj0LFi13KXJlg/exec" target="_blank" class="button-link primary">설문결과 확인하기 (외부 링크)</a>
-            </div>
-        </section>
+/* --- 헤더 및 내비게이션 --- */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-        <section id="resources" class="card-section">
-            <h2>📚 기분 관리 자료실</h2>
-            <p style="text-align: center; margin-bottom: 20px;">기분장애를 극복하기 위해서는 병에 대해 잘 알고, 스스로의 기분을 관찰하는 것이 중요합니다.</p>
-            
-            <div class="resource-grid">
-                <article class="card">
-                    <h3>기분 기록지 (기분수첩)</h3>
-                    <p>기분장애에 대한 설명과 기분을 기록할 수 있는 수첩입니다. PDF 파일을 다운로드 받아 프린트하거나 태블릿에서 작성해보세요.</p>
-                    <a href="https://drive.google.com/uc?id=1mk5KalSRj_VvookuTq8fGFJx1h46gJ3q&export=download" target="_blank" class="button-link">2024_기분 기록지.pdf 다운로드</a>
-                </article>
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
 
-                <article class="card">
-                    <h3>마음안정화 훈련 (국립정신건강센터)</h3>
-                    <p>불안, 공황, 충동 조절에 도움이 되는 복식호흡 및 근육이완 훈련입니다. 공황발작 시 사용하려면 평소에 틈틈이 (하루 10번 이상) 연습해야 합니다.</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/WRQif7AjNyE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/MrPOWfAXFpw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <a href="https://sites.google.com/view/ghgmq" target="_blank" class="button-link">훈련 링크 즐겨찾기</a>
-                </article>
+.logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-decoration: none;
+}
 
-                <article class="card">
-                    <h3>마음챙김 명상</h3>
-                    <p>기분 조절에 도움이 되는 '마음챙김' 치료에 대한 소개와 기초 코스 영상입니다.</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/pW5_MvJYNhA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/videoseries?list=PL5g0zsW7ergbfWLZlcLQiPOID9Si8-yKK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </article>
+.navbar {
+    display: none;
+    background-color: var(--card-bg);
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-                <article class="card">
-                    <h3>조울병의 변증법적 행동치료 워크북</h3>
-                    <p>기분장애 극복에 도움이 되는 기법들을 모아둔 책입니다. 직접 읽으면서 따라해볼 수 있습니다.</p>
-                    <a href="https://search.shopping.naver.com/book/catalog/32493514140" target="_blank" class="button-link">"조울병의 변증법적 행동치료 워크북" (네이버 도서)</a>
-                </article>
-            </div>
-        </section>
+.navbar.active {
+    display: block;
+}
 
-        <section id="snubh" class="card-section">
-            <h2>🏥 병원 홈페이지</h2>
-            <div class="card">
-                <p>분당서울대학교병원 정신건강의학과 기분장애클리닉의 공식 홈페이지입니다. 의료진 소개, 연구 성과 등의 정보를 확인하실 수 있습니다.</p>
-                <a href="https://www.snubh.org/dh/dcd27" target="_blank" class="button-link primary">공식 홈페이지 바로가기</a>
-            </div>
-        </section>
-    </main>
+.navbar ul {
+    list-style: none;
+    padding: 10px 0;
+}
 
-    <footer>
-        <p>&copy; 2025 분당서울대학교병원 기분장애클리닉. All rights reserved.</p>
-    </footer>
+.navbar li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.navbar li a:hover {
+    background-color: var(--light-gray);
+}
+
+/* 햄버거 메뉴 버튼 */
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* 햄버거 X로 변환 */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* --- 메인 콘텐츠 섹션 --- */
+main {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
+    background-color: var(--primary-dark);
+    color: var(--light-text);
+    padding: 40px 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.hero .highlight {
+    font-weight: 700;
+    opacity: 1;
+    margin-top: 15px;
+    color: #B2DFDB; /* 옅은 민트색 하이라이트 */
+}
+
+.card-section {
+    margin-bottom: 40px;
+}
+
+.card-section h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* --- 카드 디자인 --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+
+.card.warning {
+    background-color: var(--warning-bg);
+    border-color: var(--warning-border);
+}
+
+.card.warning p {
+    font-weight: 500;
+    color: #664d00;
+}
+
+/* --- 버튼형 링크 --- */
+.button-link {
+    display: block;
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.button-link:hover {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+}
+
+/* 주요 버튼 (설문결과, 병원홈페이지 등) */
+.button-link.primary {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+}
+.button-link.primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* 설문지 목록 (버튼이 너무 많으므로 좀 더 가볍게) */
+.survey-list .button-link {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+.survey-list .button-link:hover {
+    background-color: #B2DFDB;
+    border-color: #B2DFDB;
+}
+
+/* 여성 전용 버튼 */
+.survey-list .button-link.female-only {
+    background-color: var(--female-only-bg);
+    border-color: var(--female-only-border);
+    color: #880E4F;
+}
+
+/* --- 자료실 그리드 (영상 등) --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- 푸터 --- */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #E9ECEF;
+    color: #6C757D;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* --- 태블릿 및 데스크탑 반응형 --- */
+@media (min-width: 768px) {
+    body {
+        padding-top: 0; /* 데스크탑에서는 헤더 고정 해제 */
+    }
+
+    header {
+        position: relative;
+        box-shadow: none;
+    }
+    
+    /* 헤더와 내비게이션을 한 줄로 */
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-toggle {
+        display: none; /* 햄버거 메뉴 숨기기 */
+    }
+
+    .navbar {
+        display: block; /* 내비게이션 항상 표시 */
+        width: auto;
+        box-shadow: none;
+        background-color: transparent;
+        height: auto;
+    }
+    
+    .navbar ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar li a {
+        padding: 10px 15px;
+        font-weight: 700;
+        color: var(--body-text);
+    }
+    .navbar li a:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+
+    /* 2단 그리드 */
+    .survey-list, .resource-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
