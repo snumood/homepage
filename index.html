@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>분당서울대학교병원 기분장애클리닉</title>
     <style>
-        /* 1. 기본 & 타이포그래피 */
+        /* 1. 기본 & 타이포그래피 (Constraint 4: 세련된 색상 및 디자인) */
         :root {
-            --primary-color: #004a9e; /* SNUH 메인 블루 */
-            --primary-dark: #003366;
-            --light-bg: #f4f8ff;
-            --text-dark: #222222;
-            --text-light: #555555;
+            --primary-color: #00796B; /* Calming Teal: 신뢰감과 안정감 */
+            --primary-dark: #004D40;  /* Deep Teal */
+            --primary-light: #E0F2F1; /* Soft Teal Background */
+            
+            --secondary-color: #FFA000; /* Warm Amber: 따뜻함, 긍정적 */
+            
+            --text-dark: #333333;
+            --text-light: #666666;
             --white: #ffffff;
-            --border-light: #dee2e6;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --light-bg: #f9fbfb; /* Very subtle teal tint for alternating sections */
+            --border-light: #e0e0e0;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
         }
 
         * {
@@ -28,12 +33,11 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Segoe UI", Roboto, Oxygen,
-                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--white);
             color: var(--text-dark);
-            line-height: 1.7;
-            padding-top: 70px; /* 고정 헤더 높이만큼 패딩 */
+            line-height: 1.8; /* 가독성을 위한 줄 간격 */
+            padding-top: 70px; /* 고정 헤더 높이 */
         }
 
         /* 2. 헤더 & 네비게이션 (Constraint 3) */
@@ -43,7 +47,7 @@
             left: 0;
             width: 100%;
             background: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             z-index: 1000;
             display: flex;
             justify-content: center;
@@ -60,10 +64,11 @@
         }
 
         .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         #main-nav {
@@ -76,23 +81,23 @@
         }
 
         #main-nav li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
 
         #main-nav a {
             text-decoration: none;
             color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 1rem;
             padding: 5px 0;
-            border-bottom: 2px solid transparent;
+            border-bottom: 3px solid transparent;
             transition: color 0.3s, border-color 0.3s;
         }
 
         #main-nav a:hover,
         #main-nav a.active {
             color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
+            border-bottom-color: var(--secondary-color); /* 포인트 색상 */
         }
 
         /* 모바일 메뉴 버튼 */
@@ -102,6 +107,7 @@
             border: none;
             cursor: pointer;
             z-index: 1001;
+            padding: 10px;
         }
 
         #mobile-menu-toggle .bar {
@@ -111,16 +117,17 @@
             background-color: var(--primary-color);
             margin: 5px 0;
             transition: all 0.3s ease-in-out;
+            border-radius: 2px;
         }
 
-        /* 3. 레이아웃 & 섹션 */
+        /* 3. 레이아웃 & 섹션 (Constraint 2: 전체적인 틀 유지) */
         main {
             width: 100%;
         }
 
         section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #e9ecef;
+            padding: 80px 20px;
+            border-bottom: 1px solid var(--border-light);
         }
 
         section:nth-of-type(odd) {
@@ -132,67 +139,107 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
         h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        /* H2 제목 장식 */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
         }
 
         p {
             margin-bottom: 1.25rem;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-light);
         }
 
-        /* 4. 컴포넌트 (버튼, 비디오 등) */
+        /* 4. 컴포넌트 (Constraint 1: 문구 유지) */
+        
+        /* 메인 CTA 버튼 */
         .btn {
             display: inline-block;
             text-decoration: none;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: var(--white);
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
             text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.3);
             border: none;
             cursor: pointer;
             font-size: 1rem;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 121, 107, 0.4);
         }
 
-        .btn-full {
-            width: 100%;
-        }
-        
-        .btn-outline {
-            background-color: var(--white);
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* 설문지 그리드 */
+        /* 설문지 그리드 & 카드 디자인 */
         .survey-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 20px;
+        }
+        
+        .survey-card {
+            display: block;
+            text-decoration: none;
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 20px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .survey-card::before {
+            content: '→';
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .survey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .survey-card:hover::before {
+            opacity: 1;
+            right: 20px;
         }
 
         /* 비디오 컨테이너 */
@@ -202,9 +249,9 @@
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .video-container iframe {
@@ -218,10 +265,10 @@
 
         /* 5. 푸터 */
         #main-footer {
-            background-color: #343a40;
-            color: #adb5bd;
+            background-color: var(--primary-dark);
+            color: #b0bec5;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             font-size: 0.9rem;
         }
 
@@ -285,8 +332,20 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
 
+            section {
+                padding: 60px 20px;
+            }
+
             h2 {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
+            }
+            
+            #intro h1 {
+                font-size: 2.2rem;
+            }
+            
+            #intro p {
+                font-size: 1.05rem;
             }
             
             .survey-grid {
@@ -320,14 +379,14 @@
     </header>
 
     <main>
-        <section id="intro" style="padding-top: 80px;">
+        <section id="intro" style="background-color: var(--primary-light);">
             <div class="container" style="text-align: center;">
-                <h1 style="font-size: 2.5rem; color: var(--text-dark); margin-bottom: 20px;">
+                <h1 style="font-size: 2.8rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px; line-height: 1.3;">
                     분당서울대학교병원 기분장애클리닉
                 </h1>
-                <p>안녕하세요? 분당서울대학교병원 기분장애클리닉에 오신 것을 환영합니다.</p>
-                <p>이 자료는 기분장애클리닉에 방문하신 분들의 진료를 돕고, 기분장애에 대한 정보를 제공하기 위해 만들어졌습니다. (ver. 2.0)</p>
-                <p style="font-weight: 600; color: var(--primary-dark);">이 페이지 주소는 http://www.snumood.com 입니다. 이 페이지에 접속하시면, 언제 어디에서나 스마트폰이나 컴퓨터로 보실 수 있습니다.</p>
+                <p style="font-size: 1.15rem; color: var(--primary-color);">안녕하세요? 분당서울대학교병원 기분장애클리닉에 오신 것을 환영합니다.</p>
+                <p style="font-size: 1.05rem; color: var(--text-light);">이 자료는 기분장애클리닉에 방문하신 분들의 진료를 돕고, 기분장애에 대한 정보를 제공하기 위해 만들어졌습니다. (ver. 2.0)</p>
+                <p style="font-weight: 600; color: var(--primary-dark); margin-top: 20px;">이 페이지 주소는 http://www.snumood.com 입니다.<br> 이 페이지에 접속하시면, 언제 어디에서나 스마트폰이나 컴퓨터로 보실 수 있습니다.</p>
             </div>
         </section>
 
@@ -338,35 +397,35 @@
                 <p>"1. 시작 - 성별, 나이, 기초정보" 부터, 남성은 "7. 계절변화, 집중, 성격, 아동기 성향 "까지, 여성은 "8. 생리주기에 따른 변화"까지 모두 빠짐없이 순서대로 작성해주세요.</p>
                 <p>설문지 검사에는 어떤 비용도 추가되지 않습니다. 아래 링크를 하나 씩 순서대로 누르면 설문지 페이지가 하나씩 열립니다. <strong>차근차근 지시에 따라 작성하고 매설문지마다 꼭 마지막에 제 출을 누르세요.</strong></p>
                 
-                <div class="survey-grid">
-                    <a href="https://docs.google.com/forms/u/1/d/11JqXNqc3z_0m0gts3WjAONNBsRWYFKwqph3zM8ovqlI/edit?usp=drive_web" class="btn btn-outline" target="_blank" rel="noopener noreferrer">1. 시작 - 성별, 나이, 기초 정보</a>
-                    <a href="https://docs.google.com/forms/d/1iCTivUi9iTT9IurOZh6AmMJxY9b6LKy3k9n1Y0fFmP4/edit" class="btn btn-outline" target="_blank" rel="noopener noreferrer">2. 우울, 불안, 정서기질</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNkkwREEF_sDH1r3SpmFneFVzgFr_N3V7i4Yx9zke_r-pZpw/viewform?usp=sf_link" class="btn btn-outline" target="_blank" rel="noopener noreferrer">3. 기분안정성 상태</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxfJ7Whup62e80u5Q96q2pNBJWNoULAhQWn3jfYHRXAaWKUQ/viewform?usp=sf_link" class="btn btn-outline" target="_blank" rel="noopener noreferrer">4. 기분안정성 특성 및 행동</a>
-                    <a href="https://docs.google.com/forms/d/1UEw3CBirdqigbM1RcMiU6d6ELwBWqn62QAdxvWLD3h0/edit" class="btn btn-outline" target="_blank" rel="noopener noreferrer">5. 아동기 외상, 대인관계민감성, 회복탄력성</a>
-                    <a href="https://docs.google.com/forms/d/12OOZw5IkYJG3LDtKr7otUCzwGi6O85F97gaMtgGsBZA/edit" class="btn btn-outline" target="_blank" rel="noopener noreferrer">6. 정서조절, 행동패턴, 음주, 수면 양상</a>
-                    <a href="https://docs.google.com/forms/d/1s_DtK7SYjOW9zXcsizKI-GAxUDdsC3b618HNZuVig54/edit?usp=drive_web" class="btn btn-outline" target="_blank" rel="noopener noreferrer">7. 계절변화, 집중, 성격, 아동기 성향</a>
+                <div class="survey-grid" style="margin-top: 30px;">
+                    <a href="https://docs.google.com/forms/u/1/d/11JqXNqc3z_0m0gts3WjAONNBsRWYFKwqph3zM8ovqlI/edit?usp=drive_web" class="survey-card" target="_blank" rel="noopener noreferrer">1. 시작 - 성별, 나이, 기초 정보</a>
+                    <a href="https://docs.google.com/forms/d/1iCTivUi9iTT9IurOZh6AmMJxY9b6LKy3k9n1Y0fFmP4/edit" class="survey-card" target="_blank" rel="noopener noreferrer">2. 우울, 불안, 정서기질</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNkkwREEF_sDH1r3SpmFneFVzgFr_N3V7i4Yx9zke_r-pZpw/viewform?usp=sf_link" class="survey-card" target="_blank" rel="noopener noreferrer">3. 기분안정성 상태</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxfJ7Whup62e80u5Q96q2pNBJWNoULAhQWn3jfYHRXAaWKUQ/viewform?usp=sf_link" class="survey-card" target="_blank" rel="noopener noreferrer">4. 기분안정성 특성 및 행동</a>
+                    <a href="https://docs.google.com/forms/d/1UEw3CBirdqigbM1RcMiU6d6ELwBWqn62QAdxvWLD3h0/edit" class="survey-card" target="_blank" rel="noopener noreferrer">5. 아동기 외상, 대인관계민감성, 회복탄력성</a>
+                    <a href="https://docs.google.com/forms/d/12OOZw5IkYJG3LDtKr7otUCzwGi6O85F97gaMtgGsBZA/edit" class="survey-card" target="_blank" rel="noopener noreferrer">6. 정서조절, 행동패턴, 음주, 수면 양상</a>
+                    <a href="https://docs.google.com/forms/d/1s_DtK7SYjOW9zXcsizKI-GAxUDdsC3b618HNZuVig54/edit?usp=drive_web" class="survey-card" target="_blank" rel="noopener noreferrer">7. 계절변화, 집중, 성격, 아동기 성향</a>
                 </div>
-                <p style="margin-top: 20px; font-style: italic;">마지막 설문은 생리주기에 따른 변화에 대한 설문입니다. 여성분들만 작성해주세요.</p>
-                <a href="https://docs.google.com/forms/d/19xXaW28Du2FmyiM3sW5zofuw2KiBfhtXtVi1ov09o4Q/edit" class="btn btn-outline" target="_blank" rel="noopener noreferrer">8. 생리주기에 따른 변화</a>
+                <p style="margin-top: 30px; font-style: italic;">마지막 설문은 생리주기에 따른 변화에 대한 설문입니다. 여성분들만 작성해주세요.</p>
+                <a href="https://docs.google.com/forms/d/19xXaW28Du2FmyiM3sW5zofuw2KiBfhtXtVi1ov09o4Q/edit" class="survey-card" target="_blank" rel="noopener noreferrer" style="max-width: 300px;">8. 생리주기에 따른 변화</a>
             </div>
         </section>
 
         <section id="results">
-            <div class="container">
+            <div class="container" style="text-align: center;">
                 <h2>설문결과 확인</h2>
                 <p>아래 링크에서 설문결과 PDF 파일을 다운받아 확인하실 수 있습니다. 설문을 작성할 때 입력했던 <strong>병원등록번호 또는 이니셜생년월일</strong>과 <strong>비밀번호</strong>를 입력하고 <strong>"확인하기"</strong>를 누르세요. 잠시 기다리시면 <strong>"PDF결과"</strong> 버튼이 생성됩니다. 이 버튼을 누르면 <strong>결과지를 다운받을 수 있습니다.</strong></p>
                 <p>익스플로러 브라우저에서는 동작하지 않고 구글 크롬브라우저에서 가장 잘 작동합니다. <strong style="color: #d90429;">결과 확인이 잘 되지 않는 경우 절대 설문을 다시 입력하지 마시고, 진료 시간에 담당 의사에게 문의하세요.</strong> <strong> 진료 시간에 담당의사에게 설명을 듣거나 진료 후 임상심리연구원에게 설명을 들을 수 있습니다.</strong></p>
-                <a href="https://script.google.com/macros/s/AKfycbyrEFfRArO3p_ADQOwRas63dRU7g__2CqFfrqO6zG0Rdzj0LFi13KXJlg/exec" class="btn" target="_blank" rel="noopener noreferrer">설문결과 확인 (크롬 브라우저 사용)</a>
+                <a href="https://script.google.com/macros/s/AKfycbyrEFfRArO3p_ADQOwRas63dRU7g__2CqFfrqO6zG0Rdzj0LFi13KXJlg/exec" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">설문결과 확인 (크롬 브라우저 사용)</a>
             </div>
         </section>
 
         <section id="mood-chart">
-            <div class="container">
+            <div class="container" style="text-align: center;">
                 <h2>기분 기록지</h2>
                 <p>기분장애를 극복하기 위해서는 기분장애라는 병에 대해서 잘 알고, 스스로의 기분을 잘 관찰하는 것이 중요합니다.</p>
                 <p>아래 책자에는 기분장애에 대한 자세한 설명과 직접 기분을 기록할 수 있는 기분수첩이 수록되어있습니다. 파일을 다운로드 받아 읽고, 기분수첩을 작성해보세요. 프린트하여 사용하거나 태블릿에서 작성하실 수도 있습니다.</p>
-                <a href="https://drive.google.com/open?id=1mk5KalSRj_VvookuTq8fGFJx1h46gJ3q" class="btn" target="_blank" rel="noopener noreferrer">2024_기분 기록지.pdf (다운로드)</a>
+                <a href="https://drive.google.com/open?id=1mk5KalSRj_VvookuTq8fGFJx1h46gJ3q" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">2024_기분 기록지.pdf (다운로드)</a>
             </div>
         </section>
         
@@ -374,8 +433,8 @@
             <div class="container">
                 <h2>마음안정화 훈련 (호흡/이완)</h2>
                 <p>국립정신건강센터에서 제공하는 마음안정화를 위한 복식호흡훈련 및 근육이완훈련 동영상입니다. 간단한 기법이지만 불안, 공황, 충동을 조절하는데 큰 도움이 될 수 있습니다.</p>
-                <p>
-                    <a href="https://sites.google.com/view/ghgmq" target="_blank" rel="noopener noreferrer">https://sites.google.com/view/ghgmq</a>
+                <p style="text-align: center; font-size: 1.1rem; font-weight: 600;">
+                    <a href="https://sites.google.com/view/ghgmq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">훈련 링크: https://sites.google.com/view/ghgmq</a>
                 </p>
                 <p>위 링크를 즐겨찾기 해두고 호흡법을 연습해보세요. 평소 연습하지 않으면 공황발작이 올 때 하기 어렵습니다. 틈틈히 하루에 10번 이상 연습해보세요.</p>
                 
@@ -433,19 +492,19 @@
         </section>
 
         <section id="workbook">
-            <div class="container">
+            <div class="container" style="text-align: center;">
                 <h2>워크북</h2>
                 <p>아래 링크의 "조울병의 변증법적 행동치료 워크북"는 기분장애를 극복하는데 도움이 되는 기법들을 모아둔 책입니다. 직접 읽으면서 따라해볼 수 있습니다.</p>
-                <a href="https://search.shopping.naver.com/book/catalog/32493514140?cat_id=50005779&frm=PBOKPRO&query=%EC%A1%B0%EC%9A%B8%EB%B3%91%EC%9D%98+%EB%B3%80%EC%A6%9D%EB%B2%95%EC%A0%81+%ED%96%89%EB%8F%99%EC%B9%98%EB%A3%8C+%EC%9B%8C%ED%81%AC%EB%B6%81&NaPm=ct%3Dlyqya834%7Cci%3D11fa3d6138b0f0ef0755c5689d6d6769a4d82adf%7Ctr%3Dboknx%7Csn%3D95694%7Chk%3D9c472e609ae6e61b4cb8ef1911a7bad0503a8e64" class="btn" target="_blank" rel="noopener noreferrer">"조울병의 변증법적 행동치료 워크북" (구매 링크)</a>
+                <a href="https://search.shopping.naver.com/book/catalog/32493514140?cat_id=50005779&frm=PBOKPRO&query=%EC%A1%B0%EC%9A%B8%EB%B3%91%EC%9D%98+%EB%B3%80%EC%A6%9D%EB%B2%95%EC%A0%81+%ED%96%89%EB%8F%99%EC%B9%98%EB%A3%8C+%EC%9B%8C%ED%81%AC%EB%B6%81&NaPm=ct%3Dlyqya834%7Cci%3D11fa3d6138b0f0ef0755c5689d6d6769a4d82adf%7Ctr%3Dboknx%7Csn%3D95694%7Chk%3D9c472e609ae6e61b4cb8ef1911a7bad0503a8e64" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">"조울병의 변증법적 행동치료 워크북" (구매 링크)</a>
             </div>
         </section>
 
-        <section id="clinic-home">
-            <div class="container">
+        <section id="clinic-home" style="border-bottom: none;">
+            <div class="container" style="text-align: center;">
                 <h2>클리닉 홈페이지</h2>
                 <p>분당서울대학교병원 정신건강의학과 기분장애클리닉 홈페이지에도 방문해보시겠어요?</p>
                 <p>의료진에 대한 소개와 함께 연구성과, 동문 병원에 대한 소개가 수록되어있습니다. 아래 버튼을 클릭해보세요.</p>
-                <a href="https://www.snubh.org/dh/dcd27" class="btn" target="_blank" rel="noopener noreferrer">분당서울대학교병원 기분장애클리닉 홈페이지</a>
+                <a href="https://www.snubh.org/dh/dcd27" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">분당서울대학교병원 기분장애클리닉 홈페이지</a>
             </div>
         </section>
     </main>
