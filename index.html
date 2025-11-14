@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>분당서울대학교병원 기분장애클리닉</title>
     <style>
-        /* 1. 기본 & 타이포그래피 (Constraint 4: 세련된 색상 및 디자인) */
+        /* 1. 기본 & 타이포그래피 (Constraint 1: 파란색 계열) */
         :root {
-            --primary-color: #00796B; /* Calming Teal: 신뢰감과 안정감 */
-            --primary-dark: #004D40;  /* Deep Teal */
-            --primary-light: #E0F2F1; /* Soft Teal Background */
+            --primary-color: #005A9C; /* Deep Sapphire: 신뢰감, 전문성 */
+            --primary-dark: #003D6B;  /* Darker Shade */
+            --primary-light: #E6F0F8; /* Light Blue Background */
             
-            --secondary-color: #FFA000; /* Warm Amber: 따뜻함, 긍정적 */
+            --secondary-color: #007BFF; /* Bright Sky: 활기, 포인트 */
             
-            --text-dark: #333333;
-            --text-light: #666666;
+            --text-dark: #212529;
+            --text-light: #5a5a5a;
             --white: #ffffff;
-            --light-bg: #f9fbfb; /* Very subtle teal tint for alternating sections */
-            --border-light: #e0e0e0;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --border-radius: 12px;
+            --light-bg: #f8f9fa; /* Neutral light gray background */
+            --border-light: #dee2e6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --border-radius: 10px;
         }
 
         * {
@@ -36,18 +36,20 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--white);
             color: var(--text-dark);
-            line-height: 1.8; /* 가독성을 위한 줄 간격 */
+            line-height: 1.7; /* 가독성 */
             padding-top: 70px; /* 고정 헤더 높이 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* 2. 헤더 & 네비게이션 (Constraint 3) */
+        /* 2. 헤더 & 네비게이션 (Constraint 4: 메뉴 추가) */
         #main-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background: var(--white);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
             z-index: 1000;
             display: flex;
             justify-content: center;
@@ -56,16 +58,16 @@
 
         .header-container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px; /* 더 넓은 헤더 */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--primary-dark);
             text-decoration: none;
             letter-spacing: -0.5px;
@@ -81,15 +83,15 @@
         }
 
         #main-nav li {
-            margin-left: 30px;
+            margin-left: 28px;
         }
 
         #main-nav a {
             text-decoration: none;
             color: var(--text-light);
             font-weight: 600;
-            font-size: 1rem;
-            padding: 5px 0;
+            font-size: 0.95rem;
+            padding: 24px 0;
             border-bottom: 3px solid transparent;
             transition: color 0.3s, border-color 0.3s;
         }
@@ -97,10 +99,10 @@
         #main-nav a:hover,
         #main-nav a.active {
             color: var(--primary-color);
-            border-bottom-color: var(--secondary-color); /* 포인트 색상 */
+            border-bottom-color: var(--secondary-color);
         }
 
-        /* 모바일 메뉴 버튼 */
+        /* 모바일 메뉴 버튼 (Constraint 3: 호환성) */
         #mobile-menu-toggle {
             display: none;
             background: none;
@@ -120,22 +122,20 @@
             border-radius: 2px;
         }
 
-        /* 3. 레이아웃 & 섹션 (Constraint 2: 전체적인 틀 유지) */
+        /* 3. 레이아웃 & 섹션 (Constraint 2: 틀 유지) */
         main {
             width: 100%;
         }
 
         section {
             padding: 80px 20px;
-            border-bottom: 1px solid var(--border-light);
         }
 
-        section:nth-of-type(odd) {
+        /* 가독성을 위해 짝/홀수 섹션 배경색 구분 */
+        .bg-light {
             background-color: var(--light-bg);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .container {
@@ -170,31 +170,47 @@
             margin-bottom: 1.25rem;
             font-size: 1.05rem;
             color: var(--text-light);
+            line-height: 1.8;
         }
 
-        /* 4. 컴포넌트 (Constraint 1: 문구 유지) */
+        /* 4. 컴포넌트 (Constraint 2: 버튼 호버) */
         
         /* 메인 CTA 버튼 */
         .btn {
             display: inline-block;
             text-decoration: none;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            background: var(--primary-color);
             color: var(--white);
             padding: 15px 30px;
             border-radius: var(--border-radius);
             font-weight: 700;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 121, 107, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 90, 156, 0.25);
             border: none;
             cursor: pointer;
             font-size: 1rem;
         }
 
         .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 15px rgba(0, 121, 107, 0.4);
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 61, 107, 0.35);
         }
+        
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
 
         /* 설문지 그리드 & 카드 디자인 */
         .survey-grid {
@@ -207,7 +223,7 @@
             display: block;
             text-decoration: none;
             background: var(--white);
-            color: var(--primary-dark);
+            color: var(--text-dark);
             padding: 20px 25px;
             border-radius: var(--border-radius);
             font-weight: 600;
@@ -218,7 +234,7 @@
             position: relative;
         }
         
-        .survey-card::before {
+        .survey-card::before { /* 화살표 아이콘 */
             content: '→';
             position: absolute;
             right: 25px;
@@ -230,11 +246,13 @@
             transition: all 0.3s ease;
         }
 
+        /* Constraint 2: 마우스오버 색상 변경 */
         .survey-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            color: var(--primary-color);
-            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0, 90, 156, 0.12);
+            color: var(--primary-dark);
+            border-color: var(--secondary-color);
+            background-color: var(--primary-light); /* 호버 시 배경색 변경 */
         }
         
         .survey-card:hover::before {
@@ -272,32 +290,22 @@
             font-size: 0.9rem;
         }
 
-        /* 6. 반응형 (모바일) */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-
-            #main-header {
-                height: 60px;
-            }
-
-            .logo {
-                font-size: 1rem;
-            }
-
+        /* 6. 반응형 (Constraint 3: 스마트폰 호환) */
+        @media (max-width: 992px) {
+            /* 태블릿 및 소형 데스크탑: 메뉴 숨기기 */
             #main-nav {
                 position: fixed;
-                top: 60px;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                height: calc(100vh - 60px);
+                height: calc(100vh - 70px);
                 background: var(--white);
                 flex-direction: column;
                 align-items: center;
                 padding-top: 30px;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease-in-out;
+                border-top: 1px solid var(--border-light);
             }
 
             #main-nav.is-active {
@@ -311,11 +319,22 @@
             }
 
             #main-nav li {
-                margin: 15px 0;
+                margin: 0;
+                width: 100%;
+                text-align: center;
             }
             
             #main-nav a {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                padding: 18px 20px;
+                display: block;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            #main-nav a:hover,
+            #main-nav a.active {
+                background-color: var(--light-bg);
+                border-bottom-color: var(--border-light);
             }
 
             #mobile-menu-toggle {
@@ -332,16 +351,34 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
 
-            section {
-                padding: 60px 20px;
+            body {
+                padding-top: 60px;
             }
-
+            #main-header {
+                height: 60px;
+            }
+            #main-nav {
+                top: 60px;
+                height: calc(100vh - 60px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            /* 스마트폰 */
+            section {
+                padding: 60px 15px;
+            }
+            
             h2 {
                 font-size: 1.8rem;
             }
             
+            p {
+                font-size: 1rem;
+            }
+            
             #intro h1 {
-                font-size: 2.2rem;
+                font-size: 2.1rem;
             }
             
             #intro p {
@@ -349,7 +386,7 @@
             }
             
             .survey-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* 1열로 스택 */
             }
         }
     </style>
@@ -363,6 +400,8 @@
                 <ul>
                     <li><a href="#surveys">설문지</a></li>
                     <li><a href="#results">설문결과</a></li>
+                    <li><a href="#lifestyle-score">생활습관</a></li>
+                    <li><a href="#mood-stability">기분평가</a></li>
                     <li><a href="#mood-chart">기록지</a></li>
                     <li><a href="#relaxation">호흡/이완</a></li>
                     <li><a href="#mindfulness">마음챙김</a></li>
@@ -384,9 +423,9 @@
                 <h1 style="font-size: 2.8rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 20px; line-height: 1.3;">
                     분당서울대학교병원 기분장애클리닉
                 </h1>
-                <p style="font-size: 1.15rem; color: var(--primary-color);">안녕하세요? 분당서울대학교병원 기분장애클리닉에 오신 것을 환영합니다.</p>
-                <p style="font-size: 1.05rem; color: var(--text-light);">이 자료는 기분장애클리닉에 방문하신 분들의 진료를 돕고, 기분장애에 대한 정보를 제공하기 위해 만들어졌습니다. (ver. 2.0)</p>
-                <p style="font-weight: 600; color: var(--primary-dark); margin-top: 20px;">이 페이지 주소는 http://www.snumood.com 입니다.<br> 이 페이지에 접속하시면, 언제 어디에서나 스마트폰이나 컴퓨터로 보실 수 있습니다.</p>
+                <p style="font-size: 1.15rem; color: var(--primary-color); font-weight: 500;">안녕하세요? 분당서울대학교병원 기분장애클리닉에 오신 것을 환영합니다.</p>
+                <p>이 자료는 기분장애클리닉에 방문하신 분들의 진료를 돕고, 기분장애에 대한 정보를 제공하기 위해 만들어졌습니다. (ver. 2.0)</p>
+                <p style="font-weight: 600; color: var(--primary-dark); margin-top: 20px; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px;">이 페이지 주소는 http://www.snumood.com 입니다.<br> 이 페이지에 접속하시면, 언제 어디에서나 스마트폰이나 컴퓨터로 보실 수 있습니다.</p>
             </div>
         </section>
 
@@ -411,12 +450,28 @@
             </div>
         </section>
 
-        <section id="results">
+        <section id="results" class="bg-light">
             <div class="container" style="text-align: center;">
                 <h2>설문결과 확인</h2>
                 <p>아래 링크에서 설문결과 PDF 파일을 다운받아 확인하실 수 있습니다. 설문을 작성할 때 입력했던 <strong>병원등록번호 또는 이니셜생년월일</strong>과 <strong>비밀번호</strong>를 입력하고 <strong>"확인하기"</strong>를 누르세요. 잠시 기다리시면 <strong>"PDF결과"</strong> 버튼이 생성됩니다. 이 버튼을 누르면 <strong>결과지를 다운받을 수 있습니다.</strong></p>
-                <p>익스플로러 브라우저에서는 동작하지 않고 구글 크롬브라우저에서 가장 잘 작동합니다. <strong style="color: #d90429;">결과 확인이 잘 되지 않는 경우 절대 설문을 다시 입력하지 마시고, 진료 시간에 담당 의사에게 문의하세요.</strong> <strong> 진료 시간에 담당의사에게 설명을 듣거나 진료 후 임상심리연구원에게 설명을 들을 수 있습니다.</strong></p>
+                <p>익스플로러 브라우저에서는 동작하지 않고 구글 크롬브라우저에서 가장 잘 작동합니다. <strong style="color: #c92a2a;">결과 확인이 잘 되지 않는 경우 절대 설문을 다시 입력하지 마시고, 진료 시간에 담당 의사에게 문의하세요.</strong> <strong> 진료 시간에 담당의사에게 설명을 듣거나 진료 후 임상심리연구원에게 설명을 들을 수 있습니다.</strong></p>
                 <a href="https://script.google.com/macros/s/AKfycbyrEFfRArO3p_ADQOwRas63dRU7g__2CqFfrqO6zG0Rdzj0LFi13KXJlg/exec" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">설문결과 확인 (크롬 브라우저 사용)</a>
+            </div>
+        </section>
+
+        <section id="lifestyle-score">
+            <div class="container" style="text-align: center;">
+                <h2>생활습관 점수표</h2>
+                <p>지난 한 달 간 생활습관을 체크해보세요</p>
+                <a href="https://snumood.github.io/LS/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">생활습관 체크하기</a>
+            </div>
+        </section>
+        
+        <section id="mood-stability" class="bg-light">
+            <div class="container" style="text-align: center;">
+                <h2>기분안정성평가 설문지</h2>
+                <p>증상이 나아지고 있는지 체크해보세요</p>
+                <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">기분안정성 평가하기</a>
             </div>
         </section>
 
@@ -429,7 +484,7 @@
             </div>
         </section>
         
-        <section id="relaxation">
+        <section id="relaxation" class="bg-light">
             <div class="container">
                 <h2>마음안정화 훈련 (호흡/이완)</h2>
                 <p>국립정신건강센터에서 제공하는 마음안정화를 위한 복식호흡훈련 및 근육이완훈련 동영상입니다. 간단한 기법이지만 불안, 공황, 충동을 조절하는데 큰 도움이 될 수 있습니다.</p>
@@ -491,7 +546,7 @@
             </div>
         </section>
 
-        <section id="workbook">
+        <section id="workbook" class="bg-light">
             <div class="container" style="text-align: center;">
                 <h2>워크북</h2>
                 <p>아래 링크의 "조울병의 변증법적 행동치료 워크북"는 기분장애를 극복하는데 도움이 되는 기법들을 모아둔 책입니다. 직접 읽으면서 따라해볼 수 있습니다.</p>
@@ -530,8 +585,10 @@
             // 메뉴 링크 클릭 시 (페이지 내 이동)
             navLinks.forEach(function (link) {
                 link.addEventListener('click', function () {
-                    navMenu.classList.remove('is-active');
-                    menuToggle.classList.remove('is-active');
+                    if (navMenu.classList.contains('is-active')) {
+                        navMenu.classList.remove('is-active');
+                        menuToggle.classList.remove('is-active');
+                    }
                 });
             });
         });
