@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.navbar a');
 
-    // 햄버거 버튼 클릭 시
+    // 햄버거 버튼 클릭 시 메뉴 토글
     navToggle.addEventListener('click', () => {
         navbar.classList.toggle('active');
         navToggle.classList.toggle('active');
@@ -17,5 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 navToggle.classList.remove('active');
             }
         });
+    });
+
+    // [개선됨] 화면 크기 변경 시 모바일 메뉴가 열려있다면 닫기
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
     });
 });
