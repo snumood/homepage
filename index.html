@@ -1,347 +1,102 @@
-/* --- 기본 및 변수 설정 --- */
-:root {
-    --primary-color: #00695C; /* 메인 틸/그린 색상 */
-    --primary-dark: #004D40;  /* 더 짙은 헤더/로고용 */
-    --primary-light: #E0F2F1; /* 매우 옅은 배경/하이라이트 */
-    --accent-color: #00796B;  /* 버튼 등에 사용될 보조 색상 */
-    --light-gray: #F8F9FA;  /* 페이지 전체 배경 */
-    --card-bg: #ffffff;      /* 카드 배경 (흰색) */
-    --dark-text: #212529;    /* 기본 텍스트 (거의 검은색) */
-    --body-text: #495057;    /* 본문 텍스트 (조금 더 연함) */
-    --light-text: #ffffff;
-    --warning-bg: #FFFBE6;
-    --warning-border: #FFECB3;
-    --female-only-bg: #FCE4EC;
-    --female-only-border: #F8BBD0;
-    --border-color: #E0E0E0; /* 카드 테두리 */
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: var(--body-text);
-    background-color: var(--light-gray);
-    padding-top: 70px; /* 고정 헤더 높이만큼 패딩 */
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* --- 헤더 및 내비게이션 --- */
-header {
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 70px;
-}
-
-.logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    text-decoration: none;
-}
-
-.navbar {
-    display: none;
-    background-color: var(--card-bg);
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.navbar.active {
-    display: block;
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 10px 0;
-}
-
-.navbar li a {
-    display: block;
-    padding: 12px 20px;
-    text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 500;
-}
-
-.navbar li a:hover {
-    background-color: var(--light-gray);
-}
-
-/* 햄버거 메뉴 버튼 */
-.nav-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    padding: 0;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-color);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-/* 햄버거 X로 변환 */
-.nav-toggle.active span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-.nav-toggle.active span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-}
-
-
-/* --- 메인 콘텐츠 섹션 --- */
-main {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.hero {
-    background-color: var(--primary-dark);
-    color: var(--light-text);
-    padding: 40px 25px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.hero h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-.hero .highlight {
-    font-weight: 700;
-    opacity: 1;
-    margin-top: 15px;
-    color: #B2DFDB; /* 옅은 민트색 하이라이트 */
-}
-
-.card-section {
-    margin-bottom: 40px;
-}
-
-.card-section h2 {
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: var(--primary-dark);
-    text-align: center;
-    margin-bottom: 25px;
-    border-bottom: 3px solid var(--primary-color);
-    padding-bottom: 10px;
-}
-
-/* --- 카드 디자인 --- */
-.card {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 10px;
-}
-
-.card.warning {
-    background-color: var(--warning-bg);
-    border-color: var(--warning-border);
-}
-
-.card.warning p {
-    font-weight: 500;
-    color: #664d00;
-}
-
-/* --- 버튼형 링크 --- */
-.button-link {
-    display: block;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-
-.button-link:hover {
-    background-color: var(--accent-color);
-    color: var(--light-text);
-}
-
-/* 주요 버튼 (설문결과, 병원홈페이지 등) */
-.button-link.primary {
-    background-color: var(--accent-color);
-    color: var(--light-text);
-}
-.button-link.primary:hover {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
-}
-
-/* 설문지 목록 (버튼이 너무 많으므로 좀 더 가볍게) */
-.survey-list .button-link {
-    background-color: var(--primary-light);
-    border-color: var(--primary-light);
-    color: var(--primary-dark);
-}
-.survey-list .button-link:hover {
-    background-color: #B2DFDB;
-    border-color: #B2DFDB;
-}
-
-/* 여성 전용 버튼 */
-.survey-list .button-link.female-only {
-    background-color: var(--female-only-bg);
-    border-color: var(--female-only-border);
-    color: #880E4F;
-}
-
-/* --- 자료실 그리드 (영상 등) --- */
-.resource-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 비율 */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* --- 푸터 --- */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #E9ECEF;
-    color: #6C757D;
-    margin-top: 30px;
-    font-size: 0.9rem;
-}
-
-/* --- 태블릿 및 데스크탑 반응형 --- */
-@media (min-width: 768px) {
-    body {
-        padding-top: 0; /* 데스크탑에서는 헤더 고정 해제 */
-    }
-
-    header {
-        position: relative;
-        box-shadow: none;
-    }
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNU 기분장애 연구팀</title>
     
-    /* 헤더와 내비게이션을 한 줄로 */
-    .header-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        height: 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    .nav-toggle {
-        display: none; /* 햄버거 메뉴 숨기기 */
-    }
-
-    .navbar {
-        display: block; /* 내비게이션 항상 표시 */
-        width: auto;
-        box-shadow: none;
-        background-color: transparent;
-        height: auto;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     
-    .navbar ul {
-        display: flex;
-        padding: 0;
-        margin: 0;
-    }
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    .navbar li a {
-        padding: 10px 15px;
-        font-weight: 700;
-        color: var(--body-text);
-    }
-    .navbar li a:hover {
-        background-color: transparent;
-        color: var(--primary-color);
-    }
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo">SNU 기분장애 연구팀</a>
+            
+            <button class="nav-toggle" aria-label="메뉴 토글">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#surveys">연구 참여</a></li>
+                    <li><a href="#resources">연구 자료실</a></li>
+                    <li><a href="#">팀 소개</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    /* 2단 그리드 */
-    .survey-list, .resource-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
+    <main>
+        <section class="hero">
+            <h1>기분장애 연구에<br>여러분의 참여를 기다립니다.</h1>
+            <p>
+                여러분의 소중한 데이터가 더 나은 내일을 위한<br class="mobile-only"> 중요한 밑거름이 됩니다.
+            </p>
+            <a href="#surveys" class="button-link highlight">지금 바로 연구 참여하기</a>
+        </section>
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-}
+        <section id="surveys" class="card-section">
+            <h2>연구 참여하기</h2>
+            <div class="survey-list">
+                <div class="card warning">
+                    <h3><span aria-hidden="true">⚠️</span> 참여 전 확인해주세요</h3>
+                    <p>본 연구는 특정 조건에 부합하는 분들을 대상으로 진행됩니다. 각 연구의 상세 내용을 확인 후 참여 부탁드립니다.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>우울증/조울증 환자 연구</h3>
+                    <p>현재 우울증 또는 조울증을 진단받고 치료 중이신 분들을 대상으로 하는 설문입니다.</p>
+                    <a href="#" class="button-link primary">설문 참여하기</a>
+                </div>
+
+                <div class="card">
+                    <h3>산후우울증 연구 (여성)</h3>
+                    <p>출산 후 1년 이내의 여성을 대상으로 하는 산후우울증 관련 설문입니다.</p>
+                    <a href="#" class="button-link female-only">설문 참여하기 (여성)</a>
+                </div>
+
+                <div class="card">
+                    <h3>일반인 대조군 연구</h3>
+                    <p>특별한 정신과적 병력이 없는 건강한 성인을 대상으로 하는 대조군 설문입니다.</p>
+                    <a href="#" class="button-link">설문 참여하기</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="card-section">
+            <h2>연구 자료실</h2>
+            <div class="resource-grid">
+                <div class="card">
+                    <h3>우울증이란 무엇인가요?</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>우울증의 원인과 증상, 그리고 치료 방법에 대해 전문가가 알기 쉽게 설명해 드립니다.</p>
+                </div>
+                <div class="card">
+                    <h3>조울증 바로 알기</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>조울증(양극성 장애)의 특징과 기분 변화를 조절하는 방법에 대해 알아봅니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SNU Hospital Mood Disorder Research Team. All rights reserved.</p>
+        <p>본 사이트의 정보는 의학적 조언을 대체할 수 없습니다. 자세한 내용은 전문의와 상의하세요.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
