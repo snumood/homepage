@@ -18,8 +18,12 @@
             --white: #ffffff;
             --light-bg: #f8f9fa; /* Neutral light gray background */
             --border-light: #e0e0e0;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+            
+            /* --- 수정된 부분 (Refined Shadows) --- */
+            --shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.1);
+            /* ------------------------------------- */
+            
             --border-radius: 10px;
         }
 
@@ -200,7 +204,11 @@
             font-weight: 700;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 90, 156, 0.25);
+            
+            /* --- 수정된 부분 (Refined Shadow) --- */
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.25);
+            /* ------------------------------------- */
+            
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -211,7 +219,10 @@
         .btn:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 61, 107, 0.35);
+            
+            /* --- 수정된 부분 (Refined Shadow) --- */
+            box-shadow: 0 7px 18px rgba(13, 71, 161, 0.3);
+            /* ------------------------------------- */
         }
         
         /* 모든 액션 카드 (설문지 개별 링크, 생활습관, 기분안정성) */
@@ -222,15 +233,26 @@
             text-decoration: none;
             background: var(--white);
             color: var(--text-dark);
-            padding: 20px 25px;
+            
+            /* --- 수정된 부분 (Adjusted Padding) --- */
+            padding: 22px 25px;
+            /* -------------------------------------- */
+            
             border-radius: var(--border-radius);
             font-weight: 600;
             text-align: center; /* 내부 텍스트 중앙 정렬 */
             transition: all 0.3s ease;
             box-shadow: var(--shadow);
-            border: 2px solid var(--border-light); /* 테두리 두께 조절 */
+            
+            /* --- 수정된 부분 (Thinner Border) --- */
+            border: 1px solid var(--border-light);
+            /* ------------------------------------ */
+            
             position: relative;
-            min-height: 70px; /* 최소 높이 설정으로 일관성 유지 */
+            
+            /* --- 수정된 부분 (Adjusted Height) --- */
+            min-height: 65px; /* 최소 높이 설정으로 일관성 유지 */
+            /* ------------------------------------- */
         }
         
         .action-card span {
@@ -245,7 +267,11 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 1.5rem;
-            color: var(--primary-color);
+            
+            /* --- 수정된 부분 (Color Change) --- */
+            color: var(--secondary-color); /* 호버 테두리색과 통일 */
+            /* ---------------------------------- */
+            
             opacity: 0;
             transition: all 0.3s ease;
             z-index: 0;
@@ -272,6 +298,14 @@
             gap: 20px;
             margin-top: 30px;
         }
+        
+        /* --- 새로 추가된 클래스 --- */
+        /* lifestyle, mood-stability, relaxation 섹션의 단일 카드 컨테이너 */
+        .single-action-card-container {
+             max-width: 400px;
+             margin: 25px auto 0 auto;
+        }
+        /* ------------------------- */
         
         /* 비디오 컨테이너 */
         .video-container {
@@ -468,10 +502,11 @@
                     <a href="https://docs.google.com/forms/d/1s_DtK7SYjOW9zXcsizKI-GAxUDdsC3b618HNZuVig54/edit?usp=drive_web" class="action-card" target="_blank" rel="noopener noreferrer"><span>7. 계절변화, 집중, 성격, 아동기 성향</span></a>
                 </div>
                 <p style="margin-top: 30px; font-style: italic;">마지막 설문은 생리주기에 따른 변화에 대한 설문입니다. 여성분들만 작성해주세요.</p>
-                <div style="max-width: 320px; margin: 15px auto 0 auto;">
+                
+                <div class="single-action-card-container">
                     <a href="https://docs.google.com/forms/d/19xXaW28Du2FmyiM3sW5zofuw2KiBfhtXtVi1ov09o4Q/edit" class="action-card" target="_blank" rel="noopener noreferrer"><span>8. 생리주기에 따른 변화</span></a>
                 </div>
-            </div>
+                </div>
         </section>
 
         <section id="results">
@@ -487,20 +522,22 @@
             <div class="container text-center">
                 <h2>생활습관 점수표</h2>
                 <p>지난 한 달 간 생활습관을 체크해보세요</p>
-                <div style="max-width: 320px; margin: 15px auto 0 auto;">
+                
+                <div class="single-action-card-container">
                     <a href="https://snumood.github.io/LS/" class="action-card" target="_blank" rel="noopener noreferrer"><span>생활습관 체크하기</span></a>
                 </div>
-            </div>
+                </div>
         </section>
         
         <section id="mood-stability">
             <div class="container text-center">
                 <h2>기분안정성평가 설문지</h2>
                 <p>증상이 나아지고 있는지 체크해보세요</p>
-                <div style="max-width: 320px; margin: 15px auto 0 auto;">
+                
+                <div class="single-action-card-container">
                     <a href="https://snumood.github.io/MSSI/" class="action-card" target="_blank" rel="noopener noreferrer"><span>기분안정성 평가하기</span></a>
                 </div>
-            </div>
+                </div>
         </section>
 
         <section id="mood-chart" class="bg-light">
@@ -516,10 +553,13 @@
             <div class="container">
                 <h2>마음안정화 훈련 (호흡/이완)</h2>
                 <p>국립정신건강센터에서 제공하는 마음안정화를 위한 복식호흡훈련 및 근육이완훈련 동영상입니다. 간단한 기법이지만 불안, 공황, 충동을 조절하는데 큰 도움이 될 수 있습니다.</p>
-                <p class="text-center" style="font-size: 1.1rem; font-weight: 600;">
-                    <a href="https://sites.google.com/view/ghgmq" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">훈련 링크: https://sites.google.com/view/ghgmq</a>
-                </p>
-                <p>위 링크를 즐겨찾기 해두고 호흡법을 연습해보세요. 평소 연습하지 않으면 공황발작이 올 때 하기 어렵습니다. 틈틈히 하루에 10번 이상 연습해보세요.</p>
+                
+                <div class="single-action-card-container">
+                    <a href="https://sites.google.com/view/ghgmq" class="action-card" target="_blank" rel="noopener noreferrer">
+                        <span>마음안정화 훈련 바로가기</span>
+                    </a>
+                </div>
+                <p style="margin-top: 25px;">위 링크를 즐겨찾기 해두고 호흡법을 연습해보세요. 평소 연습하지 않으면 공황발작이 올 때 하기 어렵습니다. 틈틈히 하루에 10번 이상 연습해보세요.</p>
                 
                 <div class="video-container">
                     <iframe 
@@ -596,3 +636,41 @@
             const navLinks = navMenu.querySelectorAll('a');
 
             // 햄버거 버튼
+            menuToggle.addEventListener('click', function () {
+                menuToggle.classList.toggle('is-active');
+                navMenu.classList.toggle('is-active');
+            });
+
+            // 모바일 메뉴 링크 클릭 시 메뉴 닫기
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (navMenu.classList.contains('is-active')) {
+                        menuToggle.classList.remove('is-active');
+                        navMenu.classList.remove('is-active');
+                    }
+                });
+            });
+
+            // 스크롤 위치에 따라 활성 메뉴 업데이트 (간단한 버전)
+            // (이 부분은 IntersectionObserver를 사용하면 더 정확하게 구현할 수 있습니다)
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', function () {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 80) { // 80px 오프셋
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
