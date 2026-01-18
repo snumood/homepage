@@ -3,50 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>분당서울대학교병원 기분장애클리닉- 편안한 호흡 연습</title>
+    <title>분당서울대학교병원 - 편안한 호흡 운동</title>
     
     <!-- Tailwind CSS (호흡 앱용) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts: Pretendard (통일됨) -->
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
     
     <style>
         /* =========================================
-           1. 분당서울대학교병원 기분장애클리닉 스타일
+           1. 네비게이션 바 스타일 (제공된 코드 기준 통일)
            ========================================= */
         :root {
-            --primary-color: #0d47a1; /* Deep Sapphire */
-            --primary-dark: #002171;
-            --primary-light: #e3f2fd;
-            --secondary-color: #42a5f5; /* Bright Sky */
-            --text-dark: #212121;
-            --text-light: #5a5a5a;
-            --white: #ffffff;
-            --light-bg: #f8f9fa;
-            --border-light: #e0e0e0;
-            --shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-            --border-radius: 10px;
+            /* 네비게이션 테마색 */
+            --nav-primary: #0d47a1; 
+            --nav-dark: #002171;
+            --nav-light-bg: #e3f2fd;
+            --nav-text: #212121;
+            --nav-text-light: #5a5a5a;
+            --nav-white: #ffffff;
+            --nav-border: #e0e0e0;
+            --nav-secondary: #42a5f5;
+
+            /* 기존 호흡 앱 변수 매핑 */
+            --light-bg: #F9FAFB;
         }
 
-        /* 기본 리셋 및 폰트 */
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-            background-color: var(--light-bg); /* 배경색을 병원 테마와 맞춤 */
-            color: var(--text-dark);
-            margin: 0;
-            padding-top: 70px; /* 헤더 높이만큼 여백 */
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: var(--light-bg); 
+            color: var(--nav-text); 
+            line-height: 1.5; 
+            padding-top: 80px; /* 네비게이션 바 높이 여백 */
             overflow-x: hidden;
         }
 
-        /* 헤더 & 네비게이션 */
         #main-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: var(--white);
+            background: var(--nav-white);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
             z-index: 1000;
             display: flex;
@@ -56,60 +56,43 @@
 
         .header-container {
             width: 100%;
-            max-width: 1400px; /* 메뉴가 많아져서 너비를 조금 더 확보 */
+            max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         .logo {
-            font-size: 1.1rem; /* 메뉴 공간 확보를 위해 로고 크기 미세 조정 */
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--primary-dark);
+            color: var(--nav-dark);
             text-decoration: none;
             letter-spacing: -0.5px;
             white-space: nowrap;
-            margin-right: 20px;
         }
 
-        #main-nav {
-            flex-grow: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        #main-nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 15px; /* 메뉴 간격 조정 */
-        }
-
-        #main-nav li {
-            /* margin-left 제거하고 gap 사용 */
-        }
+        #main-nav { display: flex; }
+        #main-nav ul { display: flex; list-style: none; }
+        #main-nav li { margin-left: 20px; }
 
         #main-nav a {
             text-decoration: none;
-            color: var(--text-light);
+            color: var(--nav-text-light);
             font-weight: 600;
-            font-size: 0.85rem; /* 메뉴가 많아 폰트 사이즈 살짝 조정 */
-            padding: 24px 5px;
+            font-size: 0.85rem;
+            padding: 24px 0;
             border-bottom: 3px solid transparent;
             transition: color 0.3s, border-color 0.3s;
             white-space: nowrap;
-            display: block;
         }
         
         #main-nav a:hover,
         #main-nav a.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--secondary-color);
+            color: var(--nav-primary);
+            border-bottom-color: var(--nav-secondary);
         }
 
-        /* 모바일 메뉴 버튼 */
         #mobile-menu-toggle {
             display: none;
             background: none;
@@ -117,62 +100,51 @@
             cursor: pointer;
             z-index: 1001;
             padding: 10px;
-            margin-left: 10px;
         }
 
         #mobile-menu-toggle .bar {
             display: block;
             width: 25px;
             height: 3px;
-            background-color: var(--primary-color);
+            background-color: var(--nav-primary);
             margin: 5px 0;
             transition: all 0.3s ease-in-out;
             border-radius: 2px;
         }
 
-        /* 반응형 스타일 */
-        /* 메뉴가 많으므로 브레이크포인트를 좀 더 일찍(1280px) 잡거나, 모바일 메뉴로 전환 */
-        @media (max-width: 1280px) {
-            .logo { font-size: 1rem; }
-            
+        /* 반응형 네비게이션 */
+        @media (max-width: 1100px) {
             #main-nav {
                 position: fixed;
                 top: 70px;
                 left: 0;
                 width: 100%;
                 height: calc(100vh - 70px);
-                background: var(--white);
+                background: var(--nav-white);
                 flex-direction: column;
-                align-items: flex-start; /* 좌측 정렬 */
-                justify-content: flex-start;
+                align-items: center;
                 padding-top: 10px;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease-in-out;
-                border-top: 1px solid var(--border-light);
+                border-top: 1px solid var(--nav-border);
                 overflow-y: auto;
-                display: flex; 
             }
-
             #main-nav.is-active { transform: translateX(0); }
-            #main-nav ul { 
-                flex-direction: column; 
-                width: 100%; 
-                gap: 0;
-            }
+            #main-nav ul { flex-direction: column; width: 100%; }
             #main-nav li { margin: 0; width: 100%; }
-            
             #main-nav a {
-                font-size: 1.05rem;
+                font-size: 1rem;
                 padding: 16px 25px;
-                border-bottom: 1px solid var(--border-light);
-                width: 100%;
+                display: block;
+                border-bottom: 1px solid var(--nav-border);
             }
-            
             #mobile-menu-toggle { display: block; }
-
             #mobile-menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             #mobile-menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
             #mobile-menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            #main-header { height: 60px; }
+            #main-nav { top: 60px; height: calc(100vh - 60px); }
+            body { padding-top: 70px; }
         }
 
         /* =========================================
@@ -183,7 +155,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 70px);
+            min-height: calc(100vh - 80px); /* 헤더 제외 높이 보정 */
             padding: 20px;
         }
 
@@ -248,13 +220,13 @@
 
 <body class="selection:bg-blue-100">
 
-    <!-- 1. 헤더 (메뉴바 복원) -->
+    <!-- 1. 헤더 (디자인 통일됨) -->
     <header id="main-header">
         <div class="header-container">
-            <a href="#" class="logo">분당서울대학교병원 기분장애클리닉</a>
+            <a href="https://snumood.github.io/homepage/" class="logo">분당서울대학교병원 기분장애클리닉</a>
             <nav id="main-nav">
                 <ul>
-                                    <li><a href="https://snumood.github.io/homepage/#surveys">설문지 작성</a></li>
+                <li><a href="https://snumood.github.io/homepage/#surveys">설문지 작성</a></li>
                 <li><a href="https://snumood.github.io/homepage/#results">설문결과 확인</a></li>
                 <li><a href="https://snumood.github.io/homepage/ls.html">생활습관 점수표</a></li>
                 <li><a href="https://snumood.github.io/homepage/mssi.html">기분안정성평가 설문지</a></li>
@@ -263,10 +235,9 @@
                 <li><a href="https://snumood.github.io/homepage/#mindfulness">마음챙김</a></li>
                 <li><a href="https://snumood.github.io/homepage/#workbook">워크북</a></li>
                 <li><a href="https://snumood.github.io/homepage/#research">연구 성과</a></li>
-                    
                 </ul>
             </nav>
-            <button id="mobile-menu-toggle" aria-label="메뉴 열기">
+            <button id="mobile-menu-toggle">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -277,7 +248,7 @@
     <!-- 2. 메인 컨텐츠 (호흡 운동 앱) -->
     <main class="app-wrapper">
         <div class="breathing-card bg-white rounded-3xl shadow-2xl p-8 sm:p-12">
-            <h1 class="text-3xl sm:text-4xl md:text-4xl font-extrabold text-gray-800 mb-8 text-center" style="font-family: 'Inter', sans-serif;">편안한 호흡</h1>
+            <h1 class="text-3xl sm:text-4xl md:text-4xl font-extrabold text-gray-800 mb-8 text-center" style="font-family: 'Pretendard', sans-serif;">편안한 호흡</h1>
 
             <div class="relative flex flex-col items-center justify-center w-full max-w-sm aspect-square mb-8">
                 <canvas id="breathingCanvas" class="w-full h-full"></canvas>
@@ -285,7 +256,7 @@
                 <div id="countdownText" class="absolute text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             </div>
             
-            <p class="text-center text-gray-500 mt-4">1분에 4번 천천히 호흡하세요</p>
+            <p class="text-center text-gray-500 mt-4">원의 움직임에 맞춰 호흡하세요.</p>
         </div>
     </main>
 
@@ -314,6 +285,7 @@
             // 메뉴 링크 클릭 시 닫기
             navLinks.forEach(link => {
                 link.addEventListener('click', function () {
+                    // 외부 링크 이동 시 메뉴 닫기 (모바일 UX)
                     if (navMenu.classList.contains('is-active')) {
                         menuToggle.classList.remove('is-active');
                         navMenu.classList.remove('is-active');
