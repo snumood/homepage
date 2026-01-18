@@ -2,262 +2,531 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>심신 안정 호흡 가이드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분당서울대학교병원 기분장애클리닉- 편안한 호흡 연습</title>
+    
+    <!-- Tailwind CSS (호흡 앱용) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* =========================================
+           1. 분당서울대학교병원 기분장애클리닉 스타일
+           ========================================= */
         :root {
-            --primary-blue: #6366F1;
-            --primary-orange: #F97316;
+            --primary-color: #0d47a1; /* Deep Sapphire */
+            --primary-dark: #002171;
+            --primary-light: #e3f2fd;
+            --secondary-color: #42a5f5; /* Bright Sky */
+            --text-dark: #212121;
+            --text-light: #5a5a5a;
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+            --border-light: #e0e0e0;
+            --shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            --border-radius: 10px;
         }
+
+        /* 기본 리셋 및 폰트 */
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Pretendard', sans-serif;
-            background: #0F172A; /* 모바일에서 몰입감을 주는 다크 배경 */
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background-color: var(--light-bg); /* 배경색을 병원 테마와 맞춤 */
+            color: var(--text-dark);
             margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding-top: 70px; /* 헤더 높이만큼 여백 */
+            overflow-x: hidden;
         }
-        
-        /* 메뉴바 스타일 (상단 고정) */
+
+        /* 헤더 & 네비게이션 */
         #main-header {
-            width: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(15px);
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            height: 70px;
         }
-        .header-inner {
-            width: 90%;
+
+        .header-container {
+            width: 100%;
+            max-width: 1400px; /* 메뉴가 많아져서 너비를 조금 더 확보 */
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .logo {
-            font-weight: 800;
-            color: #F8FAFC;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 0 20px;
         }
 
-        /* 메인 콘텐츠 영역 */
-        .content-wrapper {
-            flex: 1;
+        .logo {
+            font-size: 1.1rem; /* 메뉴 공간 확보를 위해 로고 크기 미세 조정 */
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+
+        #main-nav {
+            flex-grow: 1;
             display: flex;
-            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #main-nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 15px; /* 메뉴 간격 조정 */
+        }
+
+        #main-nav li {
+            /* margin-left 제거하고 gap 사용 */
+        }
+
+        #main-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.85rem; /* 메뉴가 많아 폰트 사이즈 살짝 조정 */
+            padding: 24px 5px;
+            border-bottom: 3px solid transparent;
+            transition: color 0.3s, border-color 0.3s;
+            white-space: nowrap;
+            display: block;
+        }
+        
+        #main-nav a:hover,
+        #main-nav a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        /* 모바일 메뉴 버튼 */
+        #mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        #mobile-menu-toggle .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        /* 반응형 스타일 */
+        /* 메뉴가 많으므로 브레이크포인트를 좀 더 일찍(1280px) 잡거나, 모바일 메뉴로 전환 */
+        @media (max-width: 1280px) {
+            .logo { font-size: 1rem; }
+            
+            #main-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: flex-start; /* 좌측 정렬 */
+                justify-content: flex-start;
+                padding-top: 10px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                border-top: 1px solid var(--border-light);
+                overflow-y: auto;
+                display: flex; 
+            }
+
+            #main-nav.is-active { transform: translateX(0); }
+            #main-nav ul { 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 0;
+            }
+            #main-nav li { margin: 0; width: 100%; }
+            
+            #main-nav a {
+                font-size: 1.05rem;
+                padding: 16px 25px;
+                border-bottom: 1px solid var(--border-light);
+                width: 100%;
+            }
+            
+            #mobile-menu-toggle { display: block; }
+
+            #mobile-menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            #mobile-menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+            #mobile-menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        /* =========================================
+           2. 호흡 운동 앱 전용 스타일
+           ========================================= */
+        
+        .app-wrapper {
+            display: flex;
             justify-content: center;
             align-items: center;
+            min-height: calc(100vh - 70px);
             padding: 20px;
-            margin-top: 60px;
         }
 
-        /* 캔버스 가이드 스타일 */
-        #breathingCanvas {
-            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
-            touch-action: none;
+        .breathing-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            max-width: 100%;
+            width: 500px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        /* 메시지 박스 (모바일 중앙 팝업) */
+        canvas {
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
         .message-box {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(15px);
+            background-color: rgba(0, 0, 0, 0.85);
             color: white;
-            padding: 30px;
-            border-radius: 24px;
-            z-index: 2000;
+            padding: 24px 36px;
+            border-radius: 12px;
+            z-index: 2000; 
             display: none;
             text-align: center;
-            width: 85%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+            max-width: 80%;
+        }
+        
+        .message-box button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .message-box button:hover { background-color: #2563eb; }
+
+        @media (max-width: 640px) {
+            .breathing-card { padding: 16px; }
+            .message-box { font-size: 1rem; padding: 16px 24px; }
         }
     </style>
 </head>
-<body>
 
+<body class="selection:bg-blue-100">
+
+    <!-- 1. 헤더 (메뉴바 복원) -->
     <header id="main-header">
-        <div class="header-inner">
-            <a href="#" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"></path></svg>
-                호흡 가이드
-            </a>
-            <button class="text-slate-400 font-bold text-sm">기록</button>
+        <div class="header-container">
+            <a href="#" class="logo">분당서울대학교병원 기분장애클리닉</a>
+            <nav id="main-nav">
+                <ul>
+                                    <li><a href="https://snumood.github.io/homepage/#surveys">설문지 작성</a></li>
+                <li><a href="https://snumood.github.io/homepage/#results">설문결과 확인</a></li>
+                <li><a href="https://snumood.github.io/homepage/ls.html">생활습관 점수표</a></li>
+                <li><a href="https://snumood.github.io/homepage/mssi.html">기분안정성평가 설문지</a></li>
+                <li><a href="https://snumood.github.io/homepage/#mood-chart">기분 기록지</a></li>
+                <li><a href="https://snumood.github.io/homepage/#relaxation">마음안정화 훈련</a></li>
+                <li><a href="https://snumood.github.io/homepage/#mindfulness">마음챙김</a></li>
+                <li><a href="https://snumood.github.io/homepage/#workbook">워크북</a></li>
+                <li><a href="https://snumood.github.io/homepage/#research">연구 성과</a></li>
+                    
+                </ul>
+            </nav>
+            <button id="mobile-menu-toggle" aria-label="메뉴 열기">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
-    <div class="content-wrapper">
-        <div class="text-center mb-8">
-            <h1 class="text-2xl font-bold text-white mb-2">편안한 호흡</h1>
-            <p class="text-slate-400 text-sm">원을 따라 숨을 깊게 들이쉬고 내쉬세요</p>
-        </div>
+    <!-- 2. 메인 컨텐츠 (호흡 운동 앱) -->
+    <main class="app-wrapper">
+        <div class="breathing-card bg-white rounded-3xl shadow-2xl p-8 sm:p-12">
+            <h1 class="text-3xl sm:text-4xl md:text-4xl font-extrabold text-gray-800 mb-8 text-center" style="font-family: 'Inter', sans-serif;">편안한 호흡</h1>
 
-        <div class="relative flex items-center justify-center w-full max-w-[320px] aspect-square">
-            <canvas id="breathingCanvas"></canvas>
-            
-            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <div id="instructionText" class="text-3xl font-black transition-all duration-700"></div>
-                <div id="countdownText" class="text-xl font-bold text-slate-500 mt-2"></div>
+            <div class="relative flex flex-col items-center justify-center w-full max-w-sm aspect-square mb-8">
+                <canvas id="breathingCanvas" class="w-full h-full"></canvas>
+                <div id="instructionText" class="absolute text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                <div id="countdownText" class="absolute text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             </div>
+            
+            <p class="text-center text-gray-500 mt-4">1분에 4번 천천히 호흡하세요</p>
         </div>
+    </main>
 
-        <div class="mt-12 w-full max-w-[300px] py-4 px-6 bg-slate-800/50 rounded-2xl border border-white/5 text-center">
-            <p class="text-slate-300 text-sm font-medium">
-                <span class="text-indigo-400">● 들숨 5초</span> &nbsp;|&nbsp; 
-                <span class="text-orange-400">● 날숨 8초</span>
-            </p>
-        </div>
-    </div>
-
+    <!-- 커스텀 메시지 박스 -->
     <div id="messageBox" class="message-box">
-        <p id="messageContent" class="text-lg leading-relaxed"></p>
-        <button onclick="location.reload()" class="mt-8 w-full py-4 bg-indigo-600 active:bg-indigo-700 text-white rounded-xl transition font-bold text-lg">다시 시작하기</button>
+        <p id="messageContent"></p>
+        <button onclick="hideMessageBox()">확인</button>
     </div>
 
+    <!-- 스크립트 영역 -->
     <script>
+        // ==========================================
+        // 1. 헤더 메뉴 토글 스크립트
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const navMenu = document.getElementById('main-nav');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            // 햄버거 버튼 클릭
+            menuToggle.addEventListener('click', function () {
+                menuToggle.classList.toggle('is-active');
+                navMenu.classList.toggle('is-active');
+            });
+
+            // 메뉴 링크 클릭 시 닫기
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (navMenu.classList.contains('is-active')) {
+                        menuToggle.classList.remove('is-active');
+                        navMenu.classList.remove('is-active');
+                    }
+                });
+            });
+        });
+
+        // ==========================================
+        // 2. 호흡 운동 로직 스크립트
+        // ==========================================
         const canvas = document.getElementById('breathingCanvas');
         const ctx = canvas.getContext('2d');
         const instructionText = document.getElementById('instructionText');
         const countdownText = document.getElementById('countdownText');
 
-        let animationFrameId, isBreathing = false, startTime = 0, currentPhaseStartTime = 0;
-        let phase = 'inhale'; 
+        let animationFrameId;
+        let isBreathing = false;
+        let startTime = 0;
+        let currentPhaseStartTime = 0;
+        let phase = 'inhale';
 
         const INHALE_DURATION = 5000;
         const HOLD_DURATION = 1000;
-        const EXHALE_DURATION = 8000; 
+        const EXHALE_DURATION = 8000;
         const TOTAL_EXERCISE_DURATION = 60000;
-
+        
         let centerX, centerY, maxRadius, minRadius;
 
+        const progressSegments = [
+            { duration: INHALE_DURATION, color: '#4CAF50' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: EXHALE_DURATION, color: '#f97316' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: INHALE_DURATION, color: '#4CAF50' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: EXHALE_DURATION, color: '#f97316' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: INHALE_DURATION, color: '#4CAF50' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: EXHALE_DURATION, color: '#f97316' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: INHALE_DURATION, color: '#4CAF50' },
+            { duration: HOLD_DURATION, color: '#9ca3af' },
+            { duration: EXHALE_DURATION, color: '#f97316' },
+            { duration: HOLD_DURATION, color: '#9ca3af' }
+        ];
+
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageContent = document.getElementById('messageContent');
+            messageContent.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        function hideMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+
         function initializeCanvas() {
-            const container = canvas.parentElement;
-            const size = container.clientWidth;
+            const parent = canvas.parentElement;
             const dpr = window.devicePixelRatio || 1;
+            const rect = parent.getBoundingClientRect();
+            const size = Math.min(rect.width, rect.height);
             
             canvas.width = size * dpr;
             canvas.height = size * dpr;
-            canvas.style.width = size + 'px';
-            canvas.style.height = size + 'px';
+            
+            canvas.style.width = `${size}px`;
+            canvas.style.height = `${size}px`;
+
             ctx.scale(dpr, dpr);
 
             centerX = size / 2;
             centerY = size / 2;
-            maxRadius = (size / 2) * 0.85;
-            minRadius = maxRadius * 0.35;
+            maxRadius = (size / 2) * 0.8;
+            minRadius = maxRadius * 0.3;
         }
 
         function drawCircle(radius, alpha, elapsedTotal, currentPhase) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const size = canvas.width / (window.devicePixelRatio || 1);
+            ctx.clearRect(0, 0, size, size);
 
-            // 외부 정적 원 (가이드)
             ctx.beginPath();
             ctx.arc(centerX, centerY, maxRadius, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-            ctx.lineWidth = 1;
-            ctx.stroke();
-
-            // 1분 타이머 링
-            const progress = Math.min(1, elapsedTotal / TOTAL_EXERCISE_DURATION);
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, maxRadius + 8, -Math.PI/2, (-Math.PI/2) + (Math.PI * 2 * progress));
-            ctx.strokeStyle = '#4F46E5';
+            ctx.strokeStyle = '#e2e8f0';
             ctx.lineWidth = 4;
-            ctx.lineCap = 'round';
             ctx.stroke();
 
-            // 메인 호흡 구체 그라데이션
-            const grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-            if (currentPhase === 'inhale') {
-                grad.addColorStop(0, `rgba(99, 102, 241, ${alpha})`);
-                grad.addColorStop(1, `rgba(79, 70, 229, 0)`);
-            } else if (currentPhase === 'exhale') {
-                grad.addColorStop(0, `rgba(249, 115, 22, ${alpha})`);
-                grad.addColorStop(1, `rgba(234, 88, 12, 0)`);
-            } else {
-                grad.addColorStop(0, `rgba(255, 255, 255, 0.1)`);
-                grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
+            let currentAngle = -Math.PI / 2;
+            let cumulativeTime = 0;
+            const progressLineWidth = maxRadius * 0.03;
+
+            for (let i = 0; i < progressSegments.length; i++) {
+                const segment = progressSegments[i];
+                const segmentDuration = segment.duration;
+                const segmentColor = segment.color;
+                const segmentEndAngle = currentAngle + (segmentDuration / TOTAL_EXERCISE_DURATION) * (2 * Math.PI);
+
+                ctx.beginPath();
+                ctx.lineWidth = progressLineWidth;
+                ctx.lineCap = 'round';
+
+                if (elapsedTotal >= cumulativeTime + segmentDuration) {
+                    ctx.arc(centerX, centerY, maxRadius - progressLineWidth, currentAngle, segmentEndAngle);
+                    ctx.strokeStyle = segmentColor;
+                    ctx.stroke();
+                    currentAngle = segmentEndAngle;
+                    cumulativeTime += segmentDuration;
+                } else if (elapsedTotal > cumulativeTime) {
+                    const progressInSegment = (elapsedTotal - cumulativeTime) / segmentDuration;
+                    const drawUntilAngle = currentAngle + progressInSegment * (segmentDuration / TOTAL_EXERCISE_DURATION) * (2 * Math.PI);
+                    ctx.arc(centerX, centerY, maxRadius - progressLineWidth, currentAngle, drawUntilAngle);
+                    ctx.strokeStyle = segmentColor;
+                    ctx.stroke();
+                    break;
+                } else {
+                    break;
+                }
             }
 
             ctx.beginPath();
             ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            ctx.fillStyle = grad;
+            if (currentPhase === 'inhale') {
+                ctx.fillStyle = `rgba(96, 165, 250, ${alpha})`;
+            } else if (currentPhase === 'exhale') {
+                ctx.fillStyle = `rgba(255, 165, 0, ${alpha})`;
+            } else {
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            }
             ctx.fill();
         }
 
         function animate(timestamp) {
-            if (!startTime) startTime = timestamp;
-            if (!currentPhaseStartTime) currentPhaseStartTime = timestamp;
+            if (!startTime) {
+                startTime = timestamp;
+                currentPhaseStartTime = timestamp;
+            }
 
             let elapsedTotal = timestamp - startTime;
             let elapsedPhase = timestamp - currentPhaseStartTime;
 
             if (elapsedTotal >= TOTAL_EXERCISE_DURATION) {
-                isBreathing = false;
-                document.getElementById('messageContent').innerHTML = "<b>운동 완료</b><br>1분간의 호흡이 끝났습니다.<br>한결 편안해진 기분을 느껴보세요.";
-                document.getElementById('messageBox').style.display = 'block';
-                return;
+                startTime += TOTAL_EXERCISE_DURATION;
+                elapsedTotal = timestamp - startTime;
             }
 
-            let currentRadius, currentAlpha;
+            let currentRadius;
+            let currentAlpha;
 
             if (phase === 'inhale') {
                 const progress = Math.min(1, elapsedPhase / INHALE_DURATION);
                 currentRadius = minRadius + (maxRadius - minRadius) * progress;
-                currentAlpha = 0.8;
-                instructionText.textContent = '숨을 들이마셔요';
-                instructionText.style.color = '#818CF8';
+                currentAlpha = 0.6 + 0.3 * progress;
+                instructionText.textContent = '들이쉬기';
+                instructionText.style.color = '#2563eb';
                 countdownText.textContent = `${Math.ceil((INHALE_DURATION - elapsedPhase) / 1000)}초`;
-            } else if (phase.includes('hold')) {
+                instructionText.style.opacity = 1;
+                countdownText.style.opacity = 1;
+            } else if (phase === 'hold1' || phase === 'hold2') {
                 currentRadius = (phase === 'hold1') ? maxRadius : minRadius;
-                currentAlpha = 0.3;
-                instructionText.textContent = '잠시 멈춤';
-                instructionText.style.color = '#94A3B8';
+                currentAlpha = (phase === 'hold1') ? 0.9 : 0.6;
+                instructionText.style.opacity = 0;
                 countdownText.textContent = '';
-            } else { // exhale
+                countdownText.style.opacity = 0;
+            } else { 
                 const progress = Math.min(1, elapsedPhase / EXHALE_DURATION);
                 currentRadius = maxRadius - (maxRadius - minRadius) * progress;
-                currentAlpha = 0.8;
-                instructionText.textContent = '천천히 내뱉어요';
-                instructionText.style.color = '#FB923C';
+                currentAlpha = 0.9 - 0.3 * progress;
+                instructionText.textContent = '내쉬기';
+                instructionText.style.color = '#f97316';
                 countdownText.textContent = `${Math.ceil((EXHALE_DURATION - elapsedPhase) / 1000)}초`;
+                instructionText.style.opacity = 1;
+                countdownText.style.opacity = 1;
             }
 
             drawCircle(currentRadius, currentAlpha, elapsedTotal, phase);
 
             if (phase === 'inhale' && elapsedPhase >= INHALE_DURATION) {
-                phase = 'hold1'; currentPhaseStartTime = timestamp;
+                phase = 'hold1';
+                currentPhaseStartTime = timestamp;
             } else if (phase === 'hold1' && elapsedPhase >= HOLD_DURATION) {
-                phase = 'exhale'; currentPhaseStartTime = timestamp;
+                phase = 'exhale';
+                currentPhaseStartTime = timestamp;
             } else if (phase === 'exhale' && elapsedPhase >= EXHALE_DURATION) {
-                phase = 'hold2'; currentPhaseStartTime = timestamp;
+                phase = 'hold2';
+                currentPhaseStartTime = timestamp;
             } else if (phase === 'hold2' && elapsedPhase >= HOLD_DURATION) {
-                phase = 'inhale'; currentPhaseStartTime = timestamp;
+                phase = 'inhale';
+                currentPhaseStartTime = timestamp;
             }
 
-            if (isBreathing) animationFrameId = requestAnimationFrame(animate);
+            if (isBreathing) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
         }
 
-        window.onload = () => {
-            initializeCanvas();
-            isBreathing = true;
-            requestAnimationFrame(animate);
-        };
+        function startBreathing() {
+            if (!isBreathing) {
+                isBreathing = true;
+                startTime = 0;
+                currentPhaseStartTime = 0;
+                phase = 'inhale';
+                requestAnimationFrame(animate);
+            }
+        }
 
-        window.onresize = initializeCanvas;
+        window.addEventListener('resize', initializeCanvas);
+
+        window.onload = function() {
+            initializeCanvas();
+            startBreathing();
+        };
     </script>
 </body>
 </html>
