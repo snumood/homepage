@@ -7,10 +7,10 @@
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <style>
     /* =========================================
-       1. 네비게이션 바 스타일 (홈페이지 테마 반영)
+       1. 통합 네비게이션 & 공통 테마 설정
        ========================================= */
     :root {
-      /* 네비게이션 테마색 */
+      /* 네비게이션 테마 (홈페이지와 일치) */
       --nav-primary: #0d47a1; 
       --nav-dark: #002171;
       --nav-light-bg: #e3f2fd;
@@ -20,23 +20,24 @@
       --nav-border: #e0e0e0;
       --nav-secondary: #42a5f5;
 
-      /* 생활습관점수표 테마색 */
-      --primary: #4F46E5; 
-      --primary-light: #EEF2FF; 
-      --text: #1F2937; 
-      --bg: #F9FAFB; 
+      /* 설문지 컨텐츠 테마 (보라색 포인트 유지) */
+      --form-primary: #4F46E5; 
+      --form-primary-light: #EEF2FF; 
+      --form-text: #1F2937; 
+      --form-bg: #F9FAFB; 
     }
 
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
     
     body { 
       font-family: 'Pretendard', sans-serif; 
-      background-color: var(--bg); 
-      color: var(--text); 
+      background-color: var(--form-bg); 
+      color: var(--form-text); 
       line-height: 1.5; 
-      padding-top: 80px; /* 네비게이션 바 높이 여백 */
+      padding-top: 80px; /* 상단 고정 헤더 여백 */
     }
 
+    /* --- 네비게이션 스타일 (수정됨) --- */
     #main-header {
         position: fixed;
         top: 0;
@@ -108,7 +109,7 @@
         border-radius: 2px;
     }
 
-    /* 반응형 네비게이션 */
+    /* 반응형 네비게이션 (모바일/태블릿) */
     @media (max-width: 1100px) {
         #main-nav {
             position: fixed;
@@ -144,9 +145,9 @@
     }
 
     /* =========================================
-       2. 설문지 컨텐츠 스타일
+       2. 설문지 본문 스타일
        ========================================= */
-    .container { max-width: 640px; margin: 0 auto; padding-top: 20px; }
+    .container { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
     
     .page-header { text-align: center; margin-bottom: 32px; }
     
@@ -160,7 +161,7 @@
 
     .input-label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
     .text-input { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #E5E7EB; font-size: 1rem; outline: none; }
-    .text-input:focus { border-color: var(--primary); }
+    .text-input:focus { border-color: var(--form-primary); }
     .input-hint { font-size: 0.85rem; color: #6B7280; margin-top: 8px; display: block; }
     
     .question-title { font-weight: 700; margin-bottom: 16px; font-size: 1.1rem; color: #111827; }
@@ -180,16 +181,17 @@
     .option-text { flex: 1; margin-right: 10px; word-break: keep-all; line-height: 1.4; }
     .option-radio { margin-right: 12px; width: 18px; height: 18px; flex-shrink: 0; }
     
-    .option-label:has(.option-radio:checked) { background: var(--primary-light); border-color: var(--primary); }
-    .option-label:has(.option-radio:checked) .option-text { font-weight: 600; color: var(--primary); }
+    .option-label:has(.option-radio:checked) { background: var(--form-primary-light); border-color: var(--form-primary); }
+    .option-label:has(.option-radio:checked) .option-text { font-weight: 600; color: var(--form-primary); }
 
     .score-badge { font-size: 0.8rem; font-weight: 700; color: #9CA3AF; white-space: nowrap; flex-shrink: 0; }
-    .option-label:has(.option-radio:checked) .score-badge { color: var(--primary); }
+    .option-label:has(.option-radio:checked) .score-badge { color: var(--form-primary); }
 
-    .btn-submit { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 20px; }
+    .btn-submit { width: 100%; padding: 18px; background: var(--form-primary); color: white; border: none; border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 20px; transition: opacity 0.2s; }
+    .btn-submit:disabled { opacity: 0.6; }
     
     #result { display: none; text-align: center; background: white; padding: 40px 24px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 20px; }
-    .score-val { font-size: 4.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
+    .score-val { font-size: 4.5rem; font-weight: 800; color: var(--form-primary); margin: 15px 0; }
     .result-msg-box { padding: 24px; border-radius: 16px; line-height: 1.7; font-size: 1.05rem; text-align: left; margin-top: 20px; }
   </style>
 </head>
@@ -211,7 +213,7 @@
                 <li><a href="https://snumood.github.io/homepage/#research">연구 성과</a></li>
             </ul>
         </nav>
-        <button id="mobile-menu-toggle">
+        <button id="mobile-menu-toggle" aria-label="메뉴 열기">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -293,21 +295,21 @@
       </div>
 
       <div class="question-card">
-        <div class="question-title">07. 무리하고 성급하거나 자극적인 일을 피하기</div>
-        <span class="question-subtitle">(과소비, 도박, 과도한 활동, 무리한 약속, 폭식, 약물의 남용, 무리한 계획이나 상상 등)</span>
+        <div class="question-title">07. 무리한 일 피하기</div>
+        <span class="question-subtitle">(과소비, 도박, 과도한 활동, 폭식, 약물 남용 등)</span>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q7" value="5" class="option-radio" required><span class="option-text">꾸준히 나아질 수 있다는 믿음을 가지고 무리하거나 성급하지 않고, 주어진 일을 해왔다.</span><span class="score-badge">5점</span></label>
-          <label class="option-label"><input type="radio" name="q7" value="3" class="option-radio"><span class="option-text">무리하고 성급하거나 자극적인 일을 생각하기도 했지만 대부분 일상을 일정하게 유지하며 보냈다.</span><span class="score-badge">3점</span></label>
-          <label class="option-label"><input type="radio" name="q7" value="1" class="option-radio"><span class="option-text">때때로 기분을 빨리 나아지게 하기 위해 무리하고 성급하거나 자극적인 일을 계획하거나 시도했다.</span><span class="score-badge">1점</span></label>
-          <label class="option-label"><input type="radio" name="q7" value="0" class="option-radio"><span class="option-text">거의 매일 무리하고 성급하거나 자극적인 일들도 계획하거나 시도했다.</span><span class="score-badge">0점</span></label>
+          <label class="option-label"><input type="radio" name="q7" value="5" class="option-radio" required><span class="option-text">꾸준히 나아질 수 있다는 믿음을 가지고 주어진 일을 해왔다.</span><span class="score-badge">5점</span></label>
+          <label class="option-label"><input type="radio" name="q7" value="3" class="option-radio"><span class="option-text">성급하거나 자극적인 일을 생각하기도 했지만 대부분 일상을 유지했다.</span><span class="score-badge">3점</span></label>
+          <label class="option-label"><input type="radio" name="q7" value="1" class="option-radio"><span class="option-text">때때로 기분을 빨리 나아지게 하기 위해 자극적인 일을 시도했다.</span><span class="score-badge">1점</span></label>
+          <label class="option-label"><input type="radio" name="q7" value="0" class="option-radio"><span class="option-text">거의 매일 무리하고 성급하거나 자극적인 일을 계획/시도했다.</span><span class="score-badge">0점</span></label>
         </div>
       </div>
 
       <div class="question-card">
-        <div class="question-title">08. 스스로의 기분을 관찰하기</div>
+        <div class="question-title">08. 스스로의 기분 관찰하기</div>
         <div class="options">
           <label class="option-label"><input type="radio" name="q8" value="5" class="option-radio" required><span class="option-text">매일 기분기록지를 적고, 자신의 기분을 관찰했다.</span><span class="score-badge">5점</span></label>
-          <label class="option-label"><input type="radio" name="q8" value="3" class="option-radio"><span class="option-text">한달 동안 절반 이상은 기분기록지를 적고, 밀린 날 동안의 기분을 늦게라도 살펴보았다.</span><span class="score-badge">3점</span></label>
+          <label class="option-label"><input type="radio" name="q8" value="3" class="option-radio"><span class="option-text">한달 동안 절반 이상은 기분기록지를 적고 기분을 살펴보았다.</span><span class="score-badge">3점</span></label>
           <label class="option-label"><input type="radio" name="q8" value="1" class="option-radio"><span class="option-text">기분기록지를 거의 적지 않았고, 가끔 자기 기분을 돌아보았다.</span><span class="score-badge">1점</span></label>
           <label class="option-label"><input type="radio" name="q8" value="0" class="option-radio"><span class="option-text">스스로의 기분을 생각하지 않고 지냈다.</span><span class="score-badge">0점</span></label>
         </div>
@@ -316,10 +318,10 @@
       <div class="question-card">
         <div class="question-title">09. 스스로를 아껴 주기</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q9" value="5" class="option-radio" required><span class="option-text">스스로에게 엄격하거나 자책하지 않고 잘하지 못할 때에도 자신을 격려했다.</span><span class="score-badge">5점</span></label>
-          <label class="option-label"><input type="radio" name="q9" value="3" class="option-radio"><span class="option-text">자책할 때도 있었지만 곧 자신에게 너그러운 마음을 가지려고 했다.</span><span class="score-badge">3점</span></label>
+          <label class="option-label"><input type="radio" name="q9" value="5" class="option-radio" required><span class="option-text">자책하지 않고 잘하지 못할 때에도 자신을 격려했다.</span><span class="score-badge">5점</span></label>
+          <label class="option-label"><input type="radio" name="q9" value="3" class="option-radio"><span class="option-text">자책할 때도 있었지만 곧 자신에게 너그러운 마음을 가졌다.</span><span class="score-badge">3점</span></label>
           <label class="option-label"><input type="radio" name="q9" value="1" class="option-radio"><span class="option-text">완벽주의적 생각에 자책하고 후회하는 날이 많았다.</span><span class="score-badge">1점</span></label>
-          <label class="option-label"><input type="radio" name="q9" value="0" class="option-radio"><span class="option-text">거의 대부분 자기를 책망하고 비난하며 보내고 자신에 대해 긍정적으로 생각할 수 없었다.</span><span class="score-badge">0점</span></label>
+          <label class="option-label"><input type="radio" name="q9" value="0" class="option-radio"><span class="option-text">거의 대부분 자기를 비난하며 보내고 자신에 대해 긍정할 수 없었다.</span><span class="score-badge">0점</span></label>
         </div>
       </div>
 
@@ -335,15 +337,16 @@
   </div>
 
   <script>
-    // 네비게이션 동작
+    // 1. 네비게이션 제어 스크립트 (통합)
     const menuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('main-nav');
+    
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('is-active');
         navMenu.classList.toggle('is-active');
     });
 
-    // 설문 제출 로직
+    // 2. 설문 제출 로직 (유지)
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcDRncWCJnD55v5lK4pV8ulSQjfV5XkAmx9vsOSwBCIgYu-81jdgEgzOFHxU9pj_QU/exec';
 
     document.getElementById('lifestyleForm').addEventListener('submit', async function(e) {
