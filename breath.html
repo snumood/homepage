@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>심신 안정 호흡 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #6366F1;
+            --primary-orange: #F97316;
+        }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #0F172A; /* 모바일에서 몰입감을 주는 다크 배경 */
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 메뉴바 스타일 (상단 고정) */
+        #main-header {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(15px);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            color: #F8FAFC;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 메인 콘텐츠 영역 */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        /* 캔버스 가이드 스타일 */
+        #breathingCanvas {
+            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
+            touch-action: none;
+        }
+
+        /* 메시지 박스 (모바일 중앙 팝업) */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(15px);
+            color: white;
+            padding: 30px;
+            border-radius: 24px;
+            z-index: 2000;
+            display: none;
+            text-align: center;
+            width: 85%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"></path></svg>
+                호흡 가이드
+            </a>
+            <button class="text-slate-400 font-bold text-sm">기록</button>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-white mb-2">편안한 호흡</h1>
+            <p class="text-slate-400 text-sm">원을 따라 숨을 깊게 들이쉬고 내쉬세요</p>
+        </div>
+
+        <div class="relative flex items-center justify-center w-full max-w-[320px] aspect-square">
+            <canvas id="breathingCanvas"></canvas>
+            
+            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <div id="instructionText" class="text-3xl font-black transition-all duration-700"></div>
+                <div id="countdownText" class="text-xl font-bold text-slate-500 mt-2"></div>
+            </div>
+        </div>
+
+        <div class="mt-12 w-full max-w-[300px] py-4 px-6 bg-slate-800/50 rounded-2xl border border-white/5 text-center">
+            <p class="text-slate-300 text-sm font-medium">
+                <span class="text-indigo-400">● 들숨 5초</span> &nbsp;|&nbsp; 
+                <span class="text-orange-400">● 날숨 8초</span>
+            </p>
+        </div>
+    </div>
+
+    <div id="messageBox" class="message-box">
+        <p id="messageContent" class="text-lg leading-relaxed"></p>
+        <button onclick="location.reload()" class="mt-8 w-full py-4 bg-indigo-600 active:bg-indigo-700 text-white rounded-xl transition font-bold text-lg">다시 시작하기</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('breathingCanvas');
+        const ctx = canvas.getContext('2d');
+        const instructionText = document.getElementById('instructionText');
+        const countdownText = document.getElementById('countdownText');
+
+        let animationFrameId, isBreathing = false, startTime = 0, currentPhaseStartTime = 0;
+        let phase = 'inhale'; 
+
+        const INHALE_DURATION = 5000;
+        const HOLD_DURATION = 1000;
+        const EXHALE_DURATION = 8000; 
+        const TOTAL_EXERCISE_DURATION = 60000;
+
+        let centerX, centerY, maxRadius, minRadius;
+
+        function initializeCanvas() {
+            const container = canvas.parentElement;
+            const size = container.clientWidth;
+            const dpr = window.devicePixelRatio || 1;
+            
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+            canvas.style.width = size + 'px';
+            canvas.style.height = size + 'px';
+            ctx.scale(dpr, dpr);
+
+            centerX = size / 2;
+            centerY = size / 2;
+            maxRadius = (size / 2) * 0.85;
+            minRadius = maxRadius * 0.35;
+        }
+
+        function drawCircle(radius, alpha, elapsedTotal, currentPhase) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 외부 정적 원 (가이드)
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // 1분 타이머 링
+            const progress = Math.min(1, elapsedTotal / TOTAL_EXERCISE_DURATION);
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, maxRadius + 8, -Math.PI/2, (-Math.PI/2) + (Math.PI * 2 * progress));
+            ctx.strokeStyle = '#4F46E5';
+            ctx.lineWidth = 4;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+
+            // 메인 호흡 구체 그라데이션
+            const grad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+            if (currentPhase === 'inhale') {
+                grad.addColorStop(0, `rgba(99, 102, 241, ${alpha})`);
+                grad.addColorStop(1, `rgba(79, 70, 229, 0)`);
+            } else if (currentPhase === 'exhale') {
+                grad.addColorStop(0, `rgba(249, 115, 22, ${alpha})`);
+                grad.addColorStop(1, `rgba(234, 88, 12, 0)`);
+            } else {
+                grad.addColorStop(0, `rgba(255, 255, 255, 0.1)`);
+                grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
+            }
+
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.fillStyle = grad;
+            ctx.fill();
+        }
+
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            if (!currentPhaseStartTime) currentPhaseStartTime = timestamp;
+
+            let elapsedTotal = timestamp - startTime;
+            let elapsedPhase = timestamp - currentPhaseStartTime;
+
+            if (elapsedTotal >= TOTAL_EXERCISE_DURATION) {
+                isBreathing = false;
+                document.getElementById('messageContent').innerHTML = "<b>운동 완료</b><br>1분간의 호흡이 끝났습니다.<br>한결 편안해진 기분을 느껴보세요.";
+                document.getElementById('messageBox').style.display = 'block';
+                return;
+            }
+
+            let currentRadius, currentAlpha;
+
+            if (phase === 'inhale') {
+                const progress = Math.min(1, elapsedPhase / INHALE_DURATION);
+                currentRadius = minRadius + (maxRadius - minRadius) * progress;
+                currentAlpha = 0.8;
+                instructionText.textContent = '숨을 들이마셔요';
+                instructionText.style.color = '#818CF8';
+                countdownText.textContent = `${Math.ceil((INHALE_DURATION - elapsedPhase) / 1000)}초`;
+            } else if (phase.includes('hold')) {
+                currentRadius = (phase === 'hold1') ? maxRadius : minRadius;
+                currentAlpha = 0.3;
+                instructionText.textContent = '잠시 멈춤';
+                instructionText.style.color = '#94A3B8';
+                countdownText.textContent = '';
+            } else { // exhale
+                const progress = Math.min(1, elapsedPhase / EXHALE_DURATION);
+                currentRadius = maxRadius - (maxRadius - minRadius) * progress;
+                currentAlpha = 0.8;
+                instructionText.textContent = '천천히 내뱉어요';
+                instructionText.style.color = '#FB923C';
+                countdownText.textContent = `${Math.ceil((EXHALE_DURATION - elapsedPhase) / 1000)}초`;
+            }
+
+            drawCircle(currentRadius, currentAlpha, elapsedTotal, phase);
+
+            if (phase === 'inhale' && elapsedPhase >= INHALE_DURATION) {
+                phase = 'hold1'; currentPhaseStartTime = timestamp;
+            } else if (phase === 'hold1' && elapsedPhase >= HOLD_DURATION) {
+                phase = 'exhale'; currentPhaseStartTime = timestamp;
+            } else if (phase === 'exhale' && elapsedPhase >= EXHALE_DURATION) {
+                phase = 'hold2'; currentPhaseStartTime = timestamp;
+            } else if (phase === 'hold2' && elapsedPhase >= HOLD_DURATION) {
+                phase = 'inhale'; currentPhaseStartTime = timestamp;
+            }
+
+            if (isBreathing) animationFrameId = requestAnimationFrame(animate);
+        }
+
+        window.onload = () => {
+            initializeCanvas();
+            isBreathing = true;
+            requestAnimationFrame(animate);
+        };
+
+        window.onresize = initializeCanvas;
+    </script>
+</body>
+</html>
