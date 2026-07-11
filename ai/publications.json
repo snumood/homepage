@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-01-24",
+  "source": "Curriculum Vitae dated January 24, 2026; verify current metadata at the Google Scholar profile.",
+  "google_scholar": "https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko",
+  "selected_publications": [
+    {
+      "year": 2025,
+      "title": "Relationship between problematic alcohol use and various psychiatric disorders: a genetically informed study",
+      "journal": "American Journal of Psychiatry",
+      "author_role": "corresponding author",
+      "topics": ["problematic alcohol use", "psychiatric genetics", "causal inference"]
+    },
+    {
+      "year": 2025,
+      "title": "Polygenic overlap between subjective well-being and psychiatric disorders and cross-ancestry validation",
+      "journal": "Nature Human Behaviour",
+      "author_role": "corresponding author",
+      "topics": ["subjective well-being", "polygenic analysis", "cross-ancestry genomics"]
+    },
+    {
+      "year": 2025,
+      "title": "Efficacy and safety of home-based transcranial direct current stimulation as adjunct treatment for cognitive improvement in major depressive disorder: a double-blind, sham-controlled randomized clinical trial",
+      "journal": "European Psychiatry",
+      "author_role": "corresponding author",
+      "topics": ["major depressive disorder", "tDCS", "randomized clinical trial"]
+    },
+    {
+      "year": 2025,
+      "title": "Identification of potential therapeutic targets for problematic alcohol use using multi-omics data",
+      "journal": "EBioMedicine",
+      "author_role": "corresponding author",
+      "topics": ["problematic alcohol use", "multi-omics", "therapeutic targets"]
+    },
+    {
+      "year": 2025,
+      "title": "Deep Phenotyping at Scale: Study Protocol for the Korean Mood Disorder Genetic Study-Depression (KOMOGEN-D)",
+      "journal": "American Journal of Medical Genetics Part B: Neuropsychiatric Genetics",
+      "author_role": "co-author",
+      "topics": ["KOMOGEN-D", "mood disorders", "deep phenotyping"]
+    },
+    {
+      "year": 2024,
+      "title": "Shared genetic architectures of educational attainment in East Asian and European populations",
+      "journal": "Nature Human Behaviour",
+      "author_role": "corresponding author",
+      "topics": ["educational attainment", "East Asian genomics", "cross-ancestry genomics"]
+    },
+    {
+      "year": 2024,
+      "title": "Genome-wide association analyses using machine learning-based phenotyping reveal genetic architecture of occupational creativity and overlap with psychiatric disorders",
+      "journal": "Psychiatry Research",
+      "author_role": "corresponding author",
+      "topics": ["creativity", "machine learning phenotyping", "psychiatric genetics"]
+    },
+    {
+      "year": 2024,
+      "title": "Integrated proteomic and genomic analysis to identify predictive biomarkers for valproate response in bipolar disorder: a 6-month follow-up study",
+      "journal": "International Journal of Bipolar Disorders",
+      "author_role": "co-author",
+      "topics": ["bipolar disorder", "valproate", "biomarkers", "proteomics"]
+    },
+    {
+      "year": 2023,
+      "title": "Leveraging genetic overlap between irritability and psychiatric disorders to identify genetic variants of major psychiatric disorders",
+      "journal": "Experimental & Molecular Medicine",
+      "author_role": "corresponding author",
+      "topics": ["irritability", "psychiatric genetics", "genetic overlap"]
+    },
+    {
+      "year": 2023,
+      "title": "Korean validation of the short version of the TEMPS-A in patients with mood disorders",
+      "journal": "Medicina",
+      "author_role": "corresponding author",
+      "topics": ["TEMPS-A", "affective temperament", "mood disorders", "measurement validation"]
+    },
+    {
+      "year": 2022,
+      "title": "Shared genetic architectures of subjective well-being in East Asian and European ancestry populations",
+      "journal": "Nature Human Behaviour",
+      "author_role": "corresponding author",
+      "topics": ["subjective well-being", "East Asian genomics", "cross-ancestry genomics"]
+    },
+    {
+      "year": 2022,
+      "title": "Genome-wide association study of occupational attainment as a proxy for cognitive reserve",
+      "journal": "Brain",
+      "author_role": "corresponding author",
+      "topics": ["occupational attainment", "cognitive reserve", "GWAS"]
+    },
+    {
+      "year": 2022,
+      "title": "Efficacy and safety of daily home-based transcranial direct current stimulation as adjunct treatment for bipolar depressive episodes: double-blind sham-controlled randomized clinical trial",
+      "journal": "Frontiers in Psychiatry",
+      "author_role": "corresponding author",
+      "topics": ["bipolar depression", "tDCS", "randomized clinical trial"]
+    },
+    {
+      "year": 2021,
+      "title": "Whole-genome sequencing reveals KRTAP1-1 as a novel genetic variant associated with antidepressant treatment outcomes",
+      "journal": "Scientific Reports",
+      "author_role": "first author",
+      "topics": ["antidepressant response", "whole-genome sequencing", "pharmacogenomics"]
+    },
+    {
+      "year": 2015,
+      "title": "A genome-wide association study of antidepressant response in Koreans",
+      "journal": "Translational Psychiatry",
+      "author_role": "first author",
+      "topics": ["antidepressant response", "Korean population", "GWAS"]
+    },
+    {
+      "year": 2013,
+      "title": "Predicting national suicide numbers with social media data",
+      "journal": "PLOS ONE",
+      "author_role": "corresponding author",
+      "topics": ["suicide prevention", "social media", "population prediction"]
+    }
+  ],
+  "full_bibliography_note": "The CV lists a substantially larger bibliography. This file intentionally contains a selected set of high-signal publications and links to the maintained Google Scholar profile for the complete and current record."
+}

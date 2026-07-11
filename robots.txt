@@ -1,0 +1,30 @@
+# Public scholarly and clinical-research profile. AI discovery is intentionally allowed.
+User-agent: *
+Allow: /
+
+# Explicitly permit common AI discovery, retrieval, and training crawlers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://snumood.com/sitemap.xml
