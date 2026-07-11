@@ -14,6 +14,8 @@
 
 - [Public research profile](https://snumood.com/ai/profile.json): affiliation, expertise, research themes, cohort and clinical-research summary.
 - [Complete CV metadata](https://snumood.com/ai/cv-full.json): metadata and machine-reading instructions for the complete CV.
+- [Korean clinical profile](https://snumood.com/ai/clinical-profile-ko.json): Korean-language position, education, career, honors, activities, and clinical-focus profile supplied by the subject.
+- [Korean clinical profile in Markdown](https://snumood.com/ai/clinical-profile-ko.md): human- and agent-readable Korean profile.
 - [Complete CV plain text](https://snumood.com/ai/cv-full/Curriculum_Vitae_Jan_24_2026_WOOJAE_MYUNG.txt): full text extraction of the supplied CV, including the complete bibliography.
 - The complete CV text intentionally excludes contact information and research project/funding information at the author's request.
 - [Publication index](https://snumood.com/ai/publications.json): supplementary topic-oriented index; use the complete CV above as the authoritative bibliography.

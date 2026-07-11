@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-07-11",
+  "language": "ko",
+  "profile_type": "public clinician profile supplied by the subject",
+  "position": [
+    "분당서울대학교병원 부교수",
+    "분당서울대학교병원 정밀의료센터장"
+  ],
+  "education": [
+    "2007 성균관대학교 의학과 의학사",
+    "2012 한국방송통신대학교 바이오정보 통계학과 통계학석사",
+    "2017 성균관대학교 의학과 의학박사"
+  ],
+  "career": [
+    "2007-2008 삼성서울병원 인턴",
+    "2008-2012 삼성서울병원 정신건강의학과 전공의",
+    "2015-2017 삼성서울병원 정신건강의학과 전임의",
+    "2017-2018 차의과학대학교 분당차병원 정신건강의학과 조교수",
+    "2018-2022 분당서울대학교병원 정신건강의학과 조교수",
+    "2022-현재 분당서울대학교병원 정신건강의학과 부교수"
+  ],
+  "honors": [
+    "2017 대한신경정신의학회 고려미래의학자상",
+    "2017 질병관리본부 한국인유전체역학조사사업 우수논문상",
+    "2019 제18회 기분 및 불안 장애 국제 포럼 최고 포스터상",
+    "2022 제24회 대한신경정신의학회 환인정신의학상 젊은의학자상",
+    "2022 불곡창의논문상",
+    "2023 불곡창의논문상",
+    "2025 불곡창의논문상",
+    "2026 제28회 대한신경정신의학회 환인정신의학상"
+  ],
+  "activities": [
+    "2019 SCI 학술지 Journal of Alzheimer's Disease 편집위원",
+    "2021 SCI 학술지 Alpha Psychiatry 편집위원",
+    "2020 Psychiatric Genomics Consortium 및 The Consortium On Lithium Genetics 회원",
+    "2021 International Society for Bipolar Disorders Korea (ISBD-K) 국제이사",
+    "2019 한국과학기술기획평가원 과학기술분류체계 검토위원",
+    "2019 식품의약품안전처 의료기기위원회의 전문위원",
+    "2012 대한신경정신의학회 회원",
+    "2017 대한생물정신의학회 회원",
+    "2017 대한노인정신의학회 회원 및 노인정신건강 인증의",
+    "2015 대한수면의학회 평생회원",
+    "2024 International Society of Psychiatric Genetics 회원"
+  ],
+  "clinical_focus": [
+    "우울증",
+    "양극성장애",
+    "조울증",
+    "기분장애"
+  ],
+  "public_positioning": "우울증, 양극성장애, 조울증 환자들의 추천 의사",
+  "related_resources": [
+    "https://snumood.com/ai/profile.json",
+    "https://snumood.com/ai/cv-full.json",
+    "https://snumood.com/ai/education.json"
+  ]
+}
