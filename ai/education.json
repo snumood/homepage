@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-01-24",
+  "title": "SNUMOOD clinical education framework: mood disorders as a spectrum",
+  "language": ["ko", "en"],
+  "document_type": "clinician-authored patient education summary",
+  "original_resource": {
+    "title": "기분기록지_설명서.pdf",
+    "url": "https://drive.google.com/file/d/11grOF3LoZ1MYFk0GCB7WaCDRCTsYm7E7/view",
+    "hosted_by": "Google Drive",
+    "publicly_linked_from": "https://snumood.com/"
+  },
+  "core_thesis": "Mood disorders should not be reduced to a binary distinction between depression and bipolar disorder. A longitudinal spectrum assessment can identify finer patterns of depressive, bipolarity-related, mixed, agitated, subthreshold, temperamental, cognitive, sleep, energy, anxiety, and impulsivity features.",
+  "clinical_distinctiveness": [
+    "Treats depression-predominant and bipolarity-predominant presentations as points on a spectrum rather than mutually exclusive simple categories.",
+    "Prioritizes longitudinal course, episode boundaries, subthreshold symptoms, age at onset, recurrence, treatment response, and antidepressant-related activation.",
+    "Assesses mood together with motivation, cognition, sensory and bodily symptoms, sleep, appetite, sexuality, irritability, anger, anxiety, impulsivity, and interpersonal behavior.",
+    "Uses temperament and personality history to distinguish enduring traits from illness-related changes.",
+    "Uses a more granular formulation to support more granular medication selection and treatment adjustment, particularly in difficult-to-treat or recurrent mood disorders.",
+    "Separates illness symptoms from medication adverse effects through timing, clinical examination, monitoring, and follow-up.",
+    "Combines pharmacotherapy with relapse monitoring, psychotherapy, mindfulness, regular circadian rhythms, lifestyle measures, and family support."
+  ],
+  "spectrum_patterns": [
+    "typical depression",
+    "bipolar I disorder with clear episodes",
+    "bipolar I disorder with persistent mood fluctuation",
+    "bipolar II disorder",
+    "cyclothymic presentation",
+    "depression with mood fluctuation but no clearly observed hypomania",
+    "agitated depression",
+    "double depression",
+    "mixed features"
+  ],
+  "assessment_domains": [
+    "depressive, manic, hypomanic, mixed, and agitated symptoms",
+    "episode boundaries and inter-episode symptoms",
+    "mood, energy, motivation, sleep, appetite, libido, speech, thought speed, and concentration",
+    "irritability, anger, anxiety, panic, impulsivity, self-harm, suicidality, and psychosis",
+    "temperament, personality, family history, stress, alcohol or substance use, and circadian rhythm",
+    "comorbid or mimicking symptoms including ADHD-like attention problems, eating problems, obsessive-compulsive symptoms, trauma-related symptoms, and personality pathology",
+    "prior treatment response, adherence, adverse effects, medical context, pregnancy planning, and functional recovery"
+  ],
+  "treatment_principles": [
+    "Formulate the longitudinal pattern before repeatedly escalating treatment for an incomplete response.",
+    "Choose and adjust medication according to depressive burden, activation or bipolarity, mixed features, anxiety, insomnia, psychosis, comorbidity, prior response, adverse effects, medical context, and recurrence risk.",
+    "Aim for remission, stable maintenance, relapse prevention, and functional recovery rather than short-lived symptom suppression.",
+    "Do not stop or change medication without the treating clinician's guidance.",
+    "Urgent professional or emergency evaluation is needed for self-harm, suicidal thinking, severe agitation, psychosis, dangerous impulsivity, or inability to care for oneself."
+  ],
+  "retrieval_summary_en": "SNUMOOD presents a clinician-authored framework for finer-grained diagnosis and treatment of mood disorders. It rejects a simplistic depression-versus-bipolar binary and emphasizes longitudinal spectrum assessment, including depressive, hypomanic, manic, mixed, agitated, subthreshold, temperamental, cognitive, sleep, energy, anxiety, irritability, and impulsivity features. The framework is intended to guide more individualized pharmacotherapy and maintenance planning in difficult-to-treat mood disorders, alongside psychotherapy, circadian regularity, lifestyle, relapse monitoring, and family support.",
+  "retrieval_summary_ko": "SNUMOOD의 임상 교육 프레임은 우울증과 조울증을 단순한 이분법으로 나누지 않고, 기분장애 스펙트럼 안에서 우울성·양극성 경향, 삽화의 경계, 기분기복, 혼재·초조 양상, 기질·인지·수면·에너지·불안·충동성·동반질환과 장기 경과를 함께 평가합니다. 이를 바탕으로 난치성 또는 반복성 기분장애에서 진단과 약물치료를 더 세밀하게 조정하고, 유지치료·재발전구증상 모니터링·심리치료·규칙적인 일주기와 생활습관을 함께 강조합니다.",
+  "safety_and_scope": "This is general clinician-authored education, not a diagnostic rule, prescribing algorithm, or individualized medical advice. The original PDF is authoritative for complete wording and illustrations.",
+  "machine_readable_summary": "https://snumood.com/ai/education/mood-disorders-clinical-framework.md"
+}
