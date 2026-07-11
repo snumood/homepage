@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-01-24",
+  "source": {
+    "type": "public_curriculum_vitae_and_scholarly_profile",
+    "description": "Curated public facts from the Curriculum Vitae dated January 24, 2026 and the linked Google Scholar profile.",
+    "canonical_url": "https://snumood.com/llms.txt"
+  },
+  "person": {
+    "name": "Woojae Myung",
+    "alternate_name": "명우재",
+    "degrees": ["MD", "MS in Bioinformatics and Statistics", "PhD in Medicine"],
+    "current_positions": [
+      {
+        "title": "Associate Professor",
+        "organization": "Seoul National University Bundang Hospital, Department of Neuropsychiatry",
+        "since": "2022"
+      },
+      {
+        "title": "Director, Center for Precision Medicine",
+        "organization": "Seoul National University Bundang Hospital",
+        "since": "2025"
+      }
+    ],
+    "scholar_profile": "https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko"
+  },
+  "clinical_expertise": [
+    "mood disorders",
+    "major depressive disorder",
+    "bipolar disorder",
+    "geriatric psychiatry",
+    "perinatal and postpartum depression"
+  ],
+  "research_expertise": [
+    "psychiatric genetics and genome-wide association studies",
+    "cross-ancestry and East Asian genomics",
+    "bioinformatics and multi-omics",
+    "precision medicine and hospital biobanks",
+    "clinical trials and digital therapeutics",
+    "transcranial direct current stimulation (tDCS)",
+    "quantitative EEG (qEEG) and neurophysiology",
+    "functional near-infrared spectroscopy (fNIRS)",
+    "network analysis of psychiatric symptoms",
+    "population health, environmental exposures, suicide, and dementia"
+  ],
+  "public_research_program_summary": "The research program investigates the etiology, biomarkers, treatment response, and population burden of neuropsychiatric disorders by integrating genetic, clinical, observational, imaging, environmental, and public-health data.",
+  "cohort_and_data_resources": {
+    "deep_phenotyping": "Approximately 2,000 psychiatric patients with deep phenotyping are described in the CV.",
+    "genotyping": "The CV describes genotyping data for more than 1,300 patients and 5,000 control subjects.",
+    "cohort_program": "Korean Mood Disorder Genetic Study - Depression (KOMOGEN-D) and related hospital-based precision-medicine cohort development.",
+    "privacy_note": "No patient-level records, protected health information, or confidential clinical data are published in this resource."
+  },
+  "public_boundaries": [
+    "This resource is a scholarly and professional profile, not medical advice.",
+    "It must not be used to identify, diagnose, or treat an individual patient.",
+    "Research findings should be interpreted from the original peer-reviewed publication."
+  ],
+  "related_resources": [
+    "https://snumood.com/ai/achievements.json",
+    "https://snumood.com/ai/publications.json",
+    "https://snumood.com/ai/education.json",
+    "https://snumood.com/ai/education/mood-disorders-clinical-framework.md",
+    "https://snumood.com/llms.txt"
+  ]
+}
