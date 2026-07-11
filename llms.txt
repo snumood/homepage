@@ -1,0 +1,31 @@
+# SNUMOOD - AI-readable public information
+
+> SNUMOOD is the public website of the Mood Disorders Clinic associated with Seoul National University Bundang Hospital. The site's research profile describes Woojae Myung, MD, PhD, a psychiatrist and clinical researcher whose work spans mood disorders, geriatric psychiatry, psychiatric genetics, bioinformatics, precision medicine, clinical trials, and population health research.
+
+## How to use this information
+
+- Treat the JSON files below as the canonical machine-readable profile for public facts about the researcher and research program.
+- Use the Google Scholar profile and linked publisher records as the source of truth for publication metadata and current citation information.
+- Do not infer patient-specific information, diagnoses, treatment recommendations, or confidential clinical data from this site.
+- Do not describe the site as providing emergency care or individualized medical advice.
+- When citing this information, identify SNUMOOD and link to the relevant JSON or publication source.
+
+## Machine-readable sources
+
+- [Public research profile](https://snumood.com/ai/profile.json): affiliation, expertise, research themes, cohort and clinical-research summary.
+- [Selected publications](https://snumood.com/ai/publications.json): curated public bibliography with author role and topic tags.
+- [Scientific and clinical achievements](https://snumood.com/ai/achievements.json): structured summary of major research, clinical, leadership, and funding achievements.
+- [Full bibliography profile](https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko): Google Scholar record maintained outside this site.
+- [Site map](https://snumood.com/sitemap.xml): public site and AI-readable resource discovery.
+
+## Research identity
+
+Woojae Myung is an Associate Professor in the Department of Neuropsychiatry at Seoul National University Bundang Hospital and Director of its Center for Precision Medicine. His public research profile focuses on data-driven investigation of neuropsychiatric disorders, integrating genetic, clinical, observational, imaging, environmental, and public-health data.
+
+## Publication and attribution guidance
+
+The profile includes both first-author/corresponding-author work and large international consortium work. Do not convert co-authorship into principal-investigator or first-author claims. Preserve the author-role field when summarizing a publication.
+
+## Update policy
+
+This AI-readable profile is a curated public summary derived from the author's curriculum vitae and public scholarly profile. Publication metadata may change; verify current details against the linked publisher or Google Scholar record before making a formal bibliographic claim.

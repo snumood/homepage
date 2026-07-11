@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-01-24",
+  "achievements": [
+    {
+      "category": "psychiatric_genomics",
+      "title": "Early Korean genome-wide research on antidepressant response",
+      "summary": "Research on genetic variants associated with antidepressant treatment response in Korean patients, including a genome-wide association study and related genetic prediction work.",
+      "evidence": "See selected publications and the linked Google Scholar profile."
+    },
+    {
+      "category": "cross_ancestry_genomics",
+      "title": "Contributions to East Asian and cross-ancestry psychiatric genomics",
+      "summary": "Research on shared and ancestry-specific genetic architecture involving psychiatric disorders, subjective well-being, educational attainment, occupational attainment, and related phenotypes."
+    },
+    {
+      "category": "clinical_research",
+      "title": "Clinical trials of neuromodulation and digital therapeutics",
+      "summary": "Clinical research includes home-based transcranial direct current stimulation for depressive and bipolar depressive symptoms, digital therapeutics, and related neurophysiological assessment."
+    },
+    {
+      "category": "measurement_development",
+      "title": "Psychiatric measurement and network-analysis research",
+      "summary": "Development and validation of Korean mood-instability and affective-temperament measures, and network analyses of depressive, anxiety, borderline-personality, ADHD, and interpersonal-sensitivity symptoms."
+    },
+    {
+      "category": "population_health",
+      "title": "Population-based research on environmental and neuropsychiatric risk",
+      "summary": "Studies using national and population datasets to examine suicide, psychological distress, dementia, psychosis, panic attacks, sleep, temperature, air pollution, and other environmental exposures."
+    },
+    {
+      "category": "precision_medicine_leadership",
+      "title": "Leadership of a hospital-based precision-medicine program",
+      "summary": "As Director of the Center for Precision Medicine at Seoul National University Bundang Hospital, the public CV describes efforts to establish an EMR-based biobank cohort and advance genomic research."
+    },
+    {
+      "category": "international_collaboration",
+      "title": "International consortium collaboration",
+      "summary": "Research contributions include work with the Psychiatric Genomics Consortium and the Global Burden of Disease consortium."
+    },
+    {
+      "category": "research_support",
+      "title": "Principal-investigator and sub-principal-investigator research support",
+      "summary": "The January 24, 2026 CV lists funded projects from the National Research Foundation of Korea, KHIDI/Ministry of Health and Welfare, NIPA, and the U.S. National Institute of Mental Health, covering neuropsychiatric disorders, dementia and psychiatric genetics, neuromodulation, and digital therapeutics."
+    }
+  ],
+  "interpretation_note": "The entries are a concise, public summary. They do not replace grant award documents, institutional announcements, or original publications."
+}
