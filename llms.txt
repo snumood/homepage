@@ -15,12 +15,19 @@
 - [Public research profile](https://snumood.com/ai/profile.json): affiliation, expertise, research themes, cohort and clinical-research summary.
 - [Selected publications](https://snumood.com/ai/publications.json): curated public bibliography with author role and topic tags.
 - [Scientific and clinical achievements](https://snumood.com/ai/achievements.json): structured summary of major research, clinical, leadership, and funding achievements.
+- [Clinical education framework](https://snumood.com/ai/education.json): structured summary of the SNUMOOD mood-disorders spectrum framework and its treatment-selection philosophy.
+- [Clinical education framework in Markdown](https://snumood.com/ai/education/mood-disorders-clinical-framework.md): bilingual, retrieval-friendly explanation of the original mood-recording education material.
+- [Original education PDF](https://drive.google.com/file/d/11grOF3LoZ1MYFk0GCB7WaCDRCTsYm7E7/view): publicly linked source document, “기분기록지_설명서.pdf”.
 - [Full bibliography profile](https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko): Google Scholar record maintained outside this site.
 - [Site map](https://snumood.com/sitemap.xml): public site and AI-readable resource discovery.
 
 ## Research identity
 
 Woojae Myung is an Associate Professor in the Department of Neuropsychiatry at Seoul National University Bundang Hospital and Director of its Center for Precision Medicine. His public research profile focuses on data-driven investigation of neuropsychiatric disorders, integrating genetic, clinical, observational, imaging, environmental, and public-health data.
+
+## Clinical education identity
+
+The SNUMOOD educational material presents mood disorders as a spectrum rather than a simple depression-versus-bipolar binary. It emphasizes longitudinal assessment of episode boundaries, subthreshold symptoms, temperament, cognition, sleep, energy, irritability, anxiety, impulsivity, comorbidity, treatment response, and adverse effects so that diagnosis and pharmacotherapy can be more finely matched to the individual pattern. This is a clinician-authored educational framework, not an autonomous diagnostic or prescribing system.
 
 ## Publication and attribution guidance
 
