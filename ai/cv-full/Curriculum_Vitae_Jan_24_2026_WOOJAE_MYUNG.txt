@@ -1,0 +1,509 @@
+                                          Curriculum Vitae
+
+NAME: Woojae Myung
+
+POSITION TITLE: Associate Professor, Seoul National University Bundang Hospital, Department of
+                Neuropsychiatry
+                Director, Center for Precision Medicine, Seoul National University Bundang
+                Hospital, Seoul National University
+EDUCATION/TRAINING
+                                                                     Completion
+                                                      DEGREE
+        INSTITUTION AND LOCATION                                       Date              FIELD OF STUDY
+                                                   (if applicable)
+                                                                     MM/YYYY
+ SungKyunKwan University, South Korea                   MD            02/2007      Medicine
+ Korea National Open University, South Korea            MS            08/2014      Bioinformatics & Statistics
+ SungKyunKwan University, South Korea                   PhD           08/2017      Medicine
+ Samsung Medical Center, South Korea                 Residency        02/2012      Psychiatry
+                                                      Clinical                     Geropsychiatry & Mood
+ Samsung Medical Center, South Korea                                  02/2017
+                                                      Fellow                       disorders
+                                                                                              As of Jan 24, 2026
+
+2025 Collaborative Institutional Training Initiative (CITI): Good Clinical Practice Course, Cert.
+2025 HRPP Clinical Trial Professionals Education
+
+
+A. Personal Statement
+
+I am a clinical psychiatrist specializing in mood disorders and geropsychiatry, with a background in genomics
+and bioinformatics. My research focuses on understanding the etiology of neuropsychiatric diseases through
+data-driven approaches, integrating genetic, observational data, and public data sources.
+
+My work has centered on predicting antidepressant responses using genetic data. A key early achievement was
+investigating ethnic differences in genetic variants affecting antidepressant response, leading to the first Korean
+genome-wide association study in this field. My research extends beyond genetic associations with depression
+to include protein and RNA expression analyses. Collaborating with international consortia, such as the
+Psychiatric Genomics Consortium (PGC), has allowed me to broaden the scope of my investigations.
+
+Additionally, I have conducted genome-wide association studies (GWAS) focusing on novel mental health
+phenotypes such as creativity, irritability, metabolic syndrome and occupational attainment, identifying genetic
+variants linked to these traits and their connections to psychiatric disorders. I have significantly contributed to
+enhancing genomic data from East Asian populations through cross-ancestry studies on psychiatric disorders,
+educational attainment, and subjective well-being. I have also established an independent cohort of psychiatric
+patients, including deep phenotyping of approximately 2,000 individuals and genotyping data for over 1,300
+patients and 5,000 control subjects supporting global research collaborations to advance our understanding of
+psychiatric conditions. As Director of the Precision Medicine Center at Seoul National University Bundang
+Hospital, I am leading efforts to establish a hospital EMR-based biobank cohort and promote genomic research
+to advance precision medicine.
+As a clinical researcher, I have investigated emerging treatment and diagnostic modalities such as transcranial
+direct current stimulation (tDCS), functional near-infrared spectroscopy (fNIRS), and digital therapeutics through
+clinical trials. I have also worked on developing new clinical measurements for psychiatric assessment and
+conducted network analyses to identify core symptoms, alongside MRI imaging studies in depressive patients.
+Currently, I am researching the use of quantitative EEG (qEEG) for diagnosing mood disorders, with a focus on
+perinatal and postpartum depression.
+
+Leveraging the increasing availability of observational health data and social media platforms, I have conducted
+extensive research into neuropsychiatric disease risk factors, including psychological distress, suicide, and
+dementia, using large-scale national datasets such as the Korean Genome and Epidemiology Study and the
+Korea National Health Insurance database. Integrating environmental data, I have examined how environmental
+factors influence neuropsychiatric conditions, identifying associations with a range of disorders. My work with
+the Global Burden of Disease consortium further contributes to understanding the global impact of these
+conditions.
+
+B. Positions, Scientific Appointments, and Honors
+
+Positions, Employment, Other Experience and Professional Memberships
+2008–2012    Resident, Department of Psychiatry, Samsung Medical Center
+2012–2015    Military Doctor, The 6th Marine Brigade & Daejeon Military Hospital, Republic of Korea Navy
+             (ROKN)
+2015–2017    Clinical Fellow, Department of Psychiatry, Samsung Medical Center
+2017–2018    Assistant Professor, CHA Bundang Medical Center, CHA University
+2018–2022    Assistant Professor, Seoul National University Bundang Hospital, Seoul National University
+2022–present Associate Professor, Seoul National University Bundang Hospital, Seoul National University
+2025–present Director, Center for Precision Medicine, Seoul National University Bundang Hospital, Seoul
+             National University
+2017–present Ad hoc reviewer – BMJ British Medical Journal, Nature Genetics, American Journal of Psychiatry,
+             Circulation, Nature Mental Health, Biological Psychiatry, Lancet Planetary Health, Military Medical
+             Research, eBioMedicine, Brain Stimulation, Molecular Brain, Comprehensive Psychiatry,
+             Pharmaceuticals, Biomedicines, Journal of Affective Disorders, Alzheimer’s & Dementia
+             Translational Research & Clinical Interventions, BMC Medicine, SAGE Open, Alzheimer’s
+             Research and Therapy, Science of the Total Environment, BMC Public Health, Journal of
+             Alzheimer’s Disease, Psychiatry Investigation, BMC Psychiatry, International Journal of
+             Alzheimer’s Disease, Psychiatry Research, Health and Social Welfare Review, Computer
+             Methods and Programs in Biomedicine, Gene, JMIR Research Protocols, NeuroImage: Clinical,
+             Vaccines, European Archives of Psychiatry and Clinical Neuroscience, Psychogeriatrics,
+             Genome Medicine, Mechanisms of Ageing and Development, Current Psychology, Brain and
+             Behavior, Bipolar disorders, Journal of Medical Internet Research
+2023–2024    Associated Editor, BMC Psychiatry
+2019–present Associated Editor, Journal of Alzheimer's disease
+2020–present Associated Editor, Medicina
+2022–present Associated Editor, Alpha Psychiatry
+2022–present Board of Directors, International Society for Bipolar Disorders (ISBD) Korea
+2008–present Member, Korean Neuropsychiatric Association
+2015–present Member, Korean Association for Geriatric Psychiatry
+2020–present Member, Psychiatric Genomic Concortium
+2020–present Member, The International Society of Psychiatric Genetics
+2023–present Senior Member, Global Burden of Disease consortium
+2024–2024    Member, European College of Neuropsychopharmacology
+
+Honors
+2001–2007      Full Scholarship (12 semesters), SungKyunKwan University School of Medicine
+2011           The Association of Korean American Psychiatrists (AKAP) Scholarship Award
+2011          Yuhan Academic Award, Korean Medical Association
+2011          Best Poster Award, Asian College of Neuropsychopharmacology (AsCNP)
+2011          Resident of the Year, Samsung Medical Center
+2017          Korea Future Medical Scientist Award (Korea Association of Geriatric Psychiatry)
+2017          The Korean Genome and Epidemiology Study (KOGES) best research award, Korea Centers
+              for Disease Control (KCDC)
+2019          Poster Presenters Award - 18th International Forum on Mood and Anxiety Disorders (IFMAD)
+2022          24th Hwain Psychiatry Award for Young Medical Scientists
+2022          Seoul National University Bundang Hospital Bulgok Creative Research Award
+2023          Seoul National University Bundang Hospital Bulgok Creative Research Award
+
+C. Complete List of Published Work in My Bibliography:
+https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko
+
+ 1     Mapping the genetic landscape across 14 psychiatric disorders. Nature, 2026;406—415. (Co-
+       author)
+ 2     Global, regional, and national burden of chronic respiratory diseases and impact of the COVID-
+       19 pandemic, 1990--2023: a Global Burden of Disease study. Nat Med, 2026;197--223. (Co-author)
+ 3     Disease burden attributable to intimate partner violence against females and sexual violence
+       against children in 204 countries and territories, 1990--2023: a systematic analysis for the Global
+       Burden of Disease Study 2023. Lancet, 2026;31--52. (Co-author)
+ 4     Global burden of amphetamine, cannabis, cocaine and opioid use in 204 countries, 1990--2023:
+       a Global Burden of Disease Study. Nat Med, 2026. (Co-author)
+ 5     Efficacy of transcranial direct current stimulation for depression: individual patient data meta-
+       analysis. Br J Psychiatry, 2026;1--10. (Co-author)
+ 6     Global, Regional, and National Burden of Cardiovascular Diseases and Risk Factors in 204
+       Countries and Territories, 1990--2023. J Am Coll Cardiol, 2025;2167--2243. (Co-author)
+7    Global burden of 292 causes of death in 204 countries and territories and 660 subnational
+     locations, 1990--2023: a systematic analysis for the Global Burden of Disease Study 2023. Lancet,
+     2025;1811--1872. (Co-author)
+8    Global age-sex-specific all-cause mortality and life expectancy estimates for 204 countries and
+     territories and 660 subnational locations, 1950--2023: a demographic analysis for the Global
+     Burden of Disease Study 2023. Lancet, 2025;1731--1810. (Co-author)
+9    Burden of 375 diseases and injuries, risk-attributable burden of 88 risk factors, and healthy life
+     expectancy in 204 countries and territories, including 660 subnational locations, 1990--2023: a
+     systematic analysis for the Global Burden of Disease Study 2023. Lancet, 2025;1873--1922. (Co-
+     author)
+10   The global, regional, and national burden of cancer, 1990--2023, with forecasts to 2050: a
+     systematic analysis for the Global Burden of Disease Study 2023. Lancet, 2025;1565--1586. (Co-
+     author)
+11   Global, regional, and national trends in routine childhood vaccination coverage from 1980 to
+     2023 with forecasts to 2030: a systematic analysis for the Global Burden of Disease Study 2023.
+     Lancet, 2025;235--260. (Co-author)
+12   Global, regional, and national burden of household air pollution, 1990--2021: a systematic
+     analysis for the Global Burden of Disease Study 2021. The Lancet, 2025;405(10485):1167--1181.
+     (Co-author)
+13   Global, regional, and national prevalence of adult overweight and obesity, 1990--2021, with
+     forecasts to 2050: a forecasting study for the Global Burden of Disease Study 2021. The Lancet,
+     2025;405(10481):813--838. (Co-author)
+14   Global, regional, and national prevalence of child and adolescent overweight and obesity, 1990-
+     -2021, with forecasts to 2050: a forecasting study for the Global Burden of Disease Study 2021.
+     The Lancet, 2025;405(10481):785--812. (Co-author)
+15   Global, regional, and national burden of suicide, 1990--2021: a systematic analysis for the Global
+     Burden of Disease Study 2021. The Lancet Public Health, 2025;10(3):e189--e202. (Co-author)
+16   The global epidemiology and health burden of the autism spectrum: findings from the Global
+     Burden of Disease Study 2021. The Lancet Psychiatry, 2025;12(2):111--121. (Co-author)
+17   Relationship between problematic alcohol use and various psychiatric disorders: a genetically
+     informed study. Am J Psychiatry, 2025 May 7;appiajp20240095. (Corresponding author)
+18   Polygenic overlap between subjective well-being and psychiatric disorders and cross-ancestry
+     validation. Nature Human Behaviour, 2025;1--11. (Corresponding author)
+19   Genomics yields biological and phenotypic insights into bipolar disorder. Nature, 2025;1--12. (Co-
+     author)
+20   Defining suicidality phenotypes for genetic studies: perspectives of the Psychiatric Genomics
+     Consortium Suicide Working Group. Mol Psychiatry, 2025;6144--6154. (Co-author)
+21   Relationship between emotion regulation skills, resilience, depression and anxiety symptom
+     severity in patients with mood disorders and non-clinical participants: a mediation model. Eur
+     Arch Psychiatry Clin Neurosci, 2025. (Corresponding author)
+22   Exploring the Correlation of Childhood Trauma With the Behavioral Activation and Inhibition
+     System in Major Depressive Disorder and Bipolar I and II Disorders. Psychiatry Investig, 2025;620-
+     -631. (Corresponding author)
+23   Effect of daily temperature variations on years of life lost from suicide in the capital city of South
+     Korea. Journal of Psychiatric Research, 2025;181:108--115. (Corresponding author)
+24   Association between nighttime and daytime ambient temperature and insomnia using national
+     emergency department database in the capital city of South Korea. International Journal of
+     Biometeorology, 2025;69(3):527--540. (Corresponding author)
+25   Interconnectedness of borderline personality pathology and affective temperaments in patients
+     with mood disorders: a network analysis. Nordic Journal of Psychiatry, 2025;1--10. (Corresponding
+     author)
+26   Association between genetically predicted leisure and social activities and cardiovascular
+     disease and other health outcomes. Nature Cardiovascular Research, 2025;1--11. (Corresponding
+     author)
+27   Efficacy and safety of home-based transcranial direct current stimulation as adjunct treatment
+     for cognitive improvement in major depressive disorder: a double-blind, sham-controlled
+     randomized clinical trial. European Psychiatry, 2025;68(1):e15. (Corresponding author)
+28   Identification of potential therapeutic targets for problematic alcohol use using multi-omics data.
+     EBioMedicine, 2025;105939. (Corresponding author)
+29   Deep Phenotyping at Scale: Study Protocol for the Korean Mood Disorder Genetic Study-
+     Depression (KOMOGEN-D). Am J Med Genet B Neuropsychiatr Genet, 2025. (Co-author)
+30   Defining and assessing international classification of disease suicidality phenotypes for genetic
+     studies. Psychiatry Res, 2025;116760. (Co-author)
+31   Oral Administration of Lactiplantibacillus plantarum KBL396 Regulates Serum 5-
+     Hydroxytryptamine and Gut Microbiota: Evidence from a Preclinical Mouse Model and a
+     Randomized Controlled Human Trial. Probiotics Antimicrob Proteins, 2025. (First author)
+32   Neurophysiological features in women with antenatal depressive symptoms: a resting-state
+     quantitative electroencephalography study. Eur Arch Psychiatry Clin Neurosci, 2025.
+33   Polyunsaturated Fatty Acids and Skin Cancer: Two-Sample Mendelian Randomization Study.
+     Ann Dermatol, 2025;363--376. (Co-author)
+34   Understanding Anxiety Symptoms of Mood Disorders Across Bipolar and Major Depressive
+     Disorder Using Network Analysis. Medicina (Kaunas), 2025. (Corresponding author)
+35   Exploring Symptoms of Borderline Personality Disorder in People With Affective Disorders: A
+     Network Analysis. Alpha Psychiatry, 2025;47292. (Corresponding author)
+37   Multivariate genomic analysis of 5 million people elucidates the genetic architecture of shared
+     components of the metabolic syndrome. Nature Genetics, 2024;56(11):2380--2391. (Corresponding
+     author)
+38   Global, regional, and national burden of stroke and its risk factors, 1990--2021: a systematic
+     analysis for the Global Burden of Disease Study 2021. The Lancet Neurology, 2024;23(10):973--
+     1003. (Co-author)
+39   Forecasting the effects of smoking prevalence scenarios on years of life lost and life expectancy
+     from 2022 to 2050: a systematic analysis for the Global Burden of Disease Study 2021. The Lancet
+     Public Health, 2024;9(10):e729--e744. (Co-author)
+40   Genome-wide association study and polygenic risk score analysis for schizophrenia in a Korean
+     population. Asian Journal of Psychiatry, 2024;102:104203. (Co-author)
+41   Relationship between early traumatic experiences and emotional regulation skills in major
+     depressive and bipolar disorders. Acta Neuropsychiatrica, 2024;36(6):476--484. (Corresponding
+     author)
+42   Shared genetic architectures of educational attainment in East Asian and European populations.
+     Nature Human Behaviour, 2024;1--14. (Corresponding author)
+43   Genome-wide association analyses using machine learning-based phenotyping reveal genetic
+     architecture of occupational creativity and overlap with psychiatric disorders. Psychiatry
+     Research, 2024;333:115753. (Corresponding author)
+44   Network structure of interpersonal sensitivity in patients with mood disorders: a network
+     analysis. Psychiatry Investigation, 2024;21(9):1016. (Corresponding author)
+45   Genetic network structure of 13 psychiatric disorders in the general population. European
+     Archives of Psychiatry and Clinical Neuroscience, 2024;274(5):1231--1236. (Corresponding author)
+46   Network structure of symptomatology of adult attention-deficit hyperactivity disorder in patients
+     with mood disorders. European Archives of Psychiatry and Clinical Neuroscience, 2024;274(7):1661-
+     -1670. (Corresponding author)
+47   The impact of morningness--eveningness on depression through a serial mediation model of
+     resilience and anxiety. Acta Neuropsychiatrica, 2024;36(6):438--445. (Corresponding author)
+48   Distinguishing affective temperament profiles in major depressive disorder and bipolar disorder
+     through the short version of TEMPS-A: cross-sectional study using latent profile analysis.
+     Psychiatry Investigation, 2024;21(6):601--609. (Corresponding author)
+49   Ambient air pollution exposure and years of life lost due to suicide: synergistic effect with high
+     temperature. Air Quality, Atmosphere & Health, 2024;1--12. (Corresponding author)
+50   Comparisons of genetic architecture using polygenic risk scores derived from large-scale
+     genome-wide association study data between patients with schizophrenia, bipolar disorder, and
+     healthy controls. Korean Journal of Schizophrenia Research, 2024;27(2):57--62. (Co-author)
+51   Associations between COVID-19, delirium, and 1-year mortality: exploring influences on delirium
+     incidence in COVID-19 patients. Journal of Korean Medical Science, 2024;39(32). (Co-author)
+52   Global burden and strength of evidence for 88 risk factors in 204 countries and 811 subnational
+     locations, 1990--2021: a systematic analysis for the Global Burden of Disease Study 2021. The
+     Lancet, 2024;403(10440):2162--2203. (Co-author)
+53   Integrated proteomic and genomic analysis to identify predictive biomarkers for valproate
+     response in bipolar disorder: a 6-month follow-up study. International Journal of Bipolar Disorder,
+     2024;12(1):19. (Co-author)
+54   Network structure of depressive symptomatology in elderly with cognitive impairment. Medicina,
+     2024;60(5):687. (Co-author)
+55   Large-scale cross-ancestry genome-wide meta-analysis of serum urate. Nature Communications,
+     2024;15(1):3441. (Co-author)
+56   Global incidence, prevalence, years lived with disability (YLDs), disability-adjusted life-years
+     (DALYs), and healthy life expectancy (HALE) for 371 diseases and injuries in 204 countries and
+     territories and 811 subnational locations, 1990--2021: a systematic analysis for the Global
+     Burden of Disease Study 2021. The Lancet, 2024;15(24)00757--8. (Co-author)
+57   Global burden of 288 causes of death and life expectancy decomposition in 204 countries and
+     territories and 811 subnational locations, 1990--2021: a systematic analysis for the Global
+     Burden of Disease Study 2021. The Lancet, 2024;S0140-6736(24)00367--2. (Co-author)
+58   Global age-sex-specific mortality, life expectancy, and population estimates in 204 countries and
+     territories and 811 subnational locations, 1950--2021, and the impact of the COVID-19 pandemic:
+     a comprehensive demographic analysis for the Global Burden of Disease Study 2021. The Lancet,
+     2024;S0140-6736(24)00476--8. (Co-author)
+59   Global fertility in 204 countries and territories, 1950--2021, with forecasts to 2100: a
+     comprehensive demographic analysis for the Global Burden of Disease Study 2021. The Lancet,
+     2024;S0140-6736(24)00550--6. (Co-author)
+60   Short-term exposure to ambient air pollution and injuries due to external causes according to
+     intentions and mechanisms. Science of the Total Environment, 2024;912:169202. (Co-author)
+61   Global burden of cardiovascular diseases and risks, 1990--2022. Journal of the American College
+     of Cardiology, 2023;82(25):2350--2473. (Co-author)
+62   Relationship between childhood trauma and resilience in patients with mood disorders. Journal
+     of Affective Disorders, 2023;323:162--170. (Corresponding author)
+63   Understanding of depressive symptomatology across major depressive disorder and bipolar
+     disorder: a network analysis. Medicina, 2023;60(1):32. (Corresponding author)
+64   Interpersonal sensitivity and childhood trauma in patients with major depressive disorder,
+     bipolar I, and II disorder. European Archives of Psychiatry and Clinical Neuroscience, 2023;1--11.
+     (Corresponding author)
+65   Leveraging genetic overlap between irritability and psychiatric disorders to identify genetic
+     variants of major psychiatric disorders. Experimental & Molecular Medicine, 2023;55(6):1193--1202.
+     (Corresponding author)
+66   Korean validation of the short version of the TEMPS-A (Temperament Evaluation of Memphis,
+     Pisa, Paris, and San Diego Autoquestionnaire) in patients with mood disorders. Medicina,
+     2023;59(1):115. (Corresponding author)
+67   Validation of the short form of the Mood Instability Questionnaire-Trait (MIQ-T-SF) in the Korean
+     general population. Psychiatry Investigation, 2023;20(5):408. (Corresponding author)
+68   Effect of home-based self-administered transcranial direct stimulation in patients with mild to
+     moderate major depressive disorder: a single-arm, multicenter trial. Clinical Psychopharmacology
+     and Neuroscience, 2023;21(2):271. (Co-author)
+69   ICD2Vec: Mathematical representation of diseases. Journal of Biomedical Informatics,
+     2023;141:104361. (Co-author)
+70   Impact of dementia and drug compliance on patients with acute myocardial infarction. Clinical
+     Cardiology, 2023;46(10):1253--1259. (Co-author)
+71   Effects of fetal images produced in virtual reality on maternal-fetal attachment: randomized
+     controlled trial. Journal of Medical Internet Research, 2023;25(1). (Co-author)
+72   Causal effect of adiposity on the risk of 19 gastrointestinal diseases: a Mendelian randomization
+     study. Obesity, 2023;31(5):1436--1444. (Co-author)
+73   An atlas of associations between 14 micronutrients and 22 cancer outcomes: Mendelian
+     randomization analyses. BMC Medicine, 2023;21(1):316. (Co-author)
+74   Association between cardio-cerebrovascular disease and systemic antipsoriatic therapy in
+     psoriasis patients using population-based data: a nested case-control study. The Journal of
+     Dermatology, 2023;50(11):1442--1449. (Co-author)
+75   Using brain cell-type-specific protein interactomes to interpret neurodevelopmental genetic
+     signals in schizophrenia. iScience, 2023;26(5). (Co-author)
+76   Shared genetic architectures of subjective well-being in East Asian and European ancestry
+     populations. Nature Human Behaviour, 2022;6(7):1014--1026. (Corresponding author)
+77   Genome-wide association study of occupational attainment as a proxy for cognitive reserve.
+     Brain, 2022;145(4):1436--1448. (Corresponding author)
+78   Short-term air pollution exposure and exacerbation of psychosis: a case-crossover study in the
+     capital city of South Korea. Atmospheric Environment, 2022;269:118836. (Corresponding author)
+79   Efficacy and safety of daily home-based transcranial direct current stimulation as adjunct
+     treatment for bipolar depressive episodes: double-blind sham-controlled randomized clinical
+     trial. Frontiers in Psychiatry, 2022;13:969199. (Corresponding author)
+80   Long-term exposure to particulate air pollution and incidence of Parkinson's disease: a
+     nationwide population-based cohort study in South Korea. Environmental Research,
+     2022;212:113165. (Corresponding author)
+81   Borderline personality pathology in major depressive disorder, bipolar I and II disorder, and its
+     relationship with childhood trauma. Psychiatry Investigation, 2022;19(11):909. (Corresponding
+     author)
+82   Korean validation of the Temperament Evaluation of Memphis, Pisa, Paris, and San Diego
+     Autoquestionnaire. Psychiatry Investigation, 2022;19(9):729. (Corresponding author)
+83   Development and validation of the Mood Instability Questionnaire-Trait (MIQ-T). Medicina,
+     2021;57(8):838. (Corresponding author)
+84   Improving polygenic prediction in ancestrally diverse populations. Nature Genetics,
+     2022;54(5):573--580. (Co-author)
+85   Clinical approaches to late-onset psychosis. Journal of Personalized Medicine, 2022;12(3):381. (Co-
+     author)
+86   Association between residential greenness and incidence of Parkinson's disease: a population-
+     based cohort study in South Korea. International Journal of Environmental Research and Public
+     Health, 2022;19(6):3491. (Co-author)
+87   Burden of dust storms on years of life lost in Seoul, South Korea: a distributed lag analysis.
+     Environmental Pollution, 2022;296:118710. (Co-author)
+88   Effect of suicide prevention law and media guidelines on copycat suicide of general population
+     following celebrity suicides in South Korea, 2005--2017. Australian & New Zealand Journal of
+     Psychiatry, 2022;56(5):542--550. (Co-author)
+89   Specific relationships between anxiety symptom dimensions and types of childhood trauma and
+     mediating effects of resilience in a sample of college students. Anxiety and Mood, 2022;18(2):48--
+     55. (Co-author)
+90   Shared genetic background between cerebrospinal fluid biomarkers and risk for Alzheimer's
+     disease: a two-sample Mendelian randomization study. Journal of Alzheimer's Disease,
+     2021;80(3):1197--1207. (Corresponding author)
+91   Shared genetic background between Parkinson's disease and schizophrenia: a two-sample
+     Mendelian randomization study. Brain Sciences, 2021;11(8):1042. (Corresponding author)
+92   Atypical antipsychotics augmentation in patients with depressive disorder and risk of
+     subsequent dementia: a nationwide population-based cohort study. Journal of Alzheimer's
+     Disease, 2021;80(1):197--207. (Corresponding author)
+93   Whole-genome sequencing reveals KRTAP1-1 as a novel genetic variant associated with
+     antidepressant treatment outcomes. Scientific Reports, 2021;11(1):4552. (First author)
+94   Mortality and prognostic factors of nontuberculous mycobacterial infection in Korea: a
+     population-based comparative study. Clinical Infectious Diseases, 2021;72(10). (First author)
+95   Emergency department visits for panic attacks and ambient air pollution: a time-stratified case-
+     crossover analysis. Journal of Korean Neuropsychiatric Association, 2021;213--222. (Co-author)
+96    Association of long-term exposure to air pollution with chronic sleep deprivation in adults from
+      141 urban communities in South Korea: a community-level longitudinal study, 2008--2016.
+      Epidemiology and Psychiatric Sciences, 2021;30. (Co-author)
+97    Additive interaction of mid-to late-life depression and cerebrovascular disease on the risk of
+      dementia: a nationwide population-based cohort study. Alzheimer's Research & Therapy,
+      2021;13:1--13. (Co-author)
+98    Subjective cognitive decline and subsequent dementia: a nationwide cohort study of 579,710
+      people aged 66 years in South Korea. Alzheimer's Research & Therapy, 2020;12:1--13.
+      (Corresponding author)
+99    Emergency department visits for panic attacks and ambient temperature: a time-stratified case-
+      crossover analysis. Depression and Anxiety, 2020;37(11):1099--1107. (Corresponding author)
+100   Associations between vascular risk factors and subsequent Alzheimer's disease in older adults.
+      Alzheimer's Research & Therapy, 2020;12:1--14. (Corresponding author)
+101   Two-sample Mendelian randomization study for schizophrenia and breast cancer. Precision and
+      Future Medicine, 2020;4(1):21--30. (Corresponding author)
+102   Association between diurnal temperature range and emergency department visits for multiple
+      sclerosis: a time-stratified case-crossover study. Science of the Total Environment,
+      2020;720:137565. (Corresponding author)
+103   Risks of completed suicide of community individuals with ICD-10 disorders across age groups:
+      a nationwide population-based nested case-control study in South Korea. Psychiatry
+      Investigation, 2019;16(4):314. (Co-author)
+104   Risks of suicide attempts after prescription of zolpidem in people with depression: a nationwide
+      population study in South Korea. Sleep, 2020;43(3). (First author)
+105   Polygenic analysis of the effect of common and low-frequency genetic variants on serum uric
+      acid levels in Korean individuals. Scientific Reports, 2020;10(1):9179. (Co-author)
+106   Association between ambient temperature and injury by intentions and mechanisms: a case-
+      crossover design with a distributed lag nonlinear model. Science of the Total Environment,
+      2020;746:141261. (Co-author)
+107   Exposure to ambient fine particles and neuropsychiatric symptoms in cognitive disorder: a
+      repeated measure analysis from the CREDOS study. Science of the Total Environment,
+      2019;668:411--418. (Corresponding author)
+108   Association between dust storm occurrence and risk of suicide: case-crossover analysis of the
+      Korean national death database. Environment International, 2019;133:105146. (Corresponding
+      author)
+109   Heritability estimates of individual psychological distress symptoms from genetic variation.
+      Journal of Affective Disorders, 2019;252:413--420. (Corresponding author)
+110   Short-term air pollution exposure and emergency department visits for amyotrophic lateral
+      sclerosis: a time-stratified case-crossover analysis. Environment International, 2019;123:467--475.
+      (First author)
+111   Epidemiology of nontuberculous mycobacterial infection, South Korea, 2007--2016. Emerging
+      Infectious Diseases, 2019;25(3):569--572. (First author)
+112   Risk factors of behavioral and psychological symptoms in patients with Alzheimer disease: the
+      CREDOS study. Korean Journal of Family Medicine, 2019;40(1):16. (Co-author)
+113   Short-term PM2.5 exposure and emergency hospital admissions for mental disease.
+      Environmental Research, 2019;171:313--320. (Co-author)
+114   Deformities of the globus pallidus are associated with severity of suicidal ideation and
+      impulsivity in patients with major depressive disorder. Scientific Reports, 2019;9(1):7462. (Co-
+      author)
+115   Clinical correlates of alcohol use disorder in depressed patients with unipolar and bipolar
+      disorder. Psychiatry Investigation, 2019;16(12):926. (Co-author)
+116   Contribution of SLC22A12 on hypouricemia and its clinical significance for screening purposes.
+      Scientific Reports, 2019;9(1):14360. (Co-author)
+117   The association between inflammatory markers and general psychological distress symptoms.
+      General Hospital Psychiatry, 2019;56:9--12. (Co-author)
+118   Ambient air pollution exposure and risk of migraine: synergistic effect with high temperature.
+      Environment International, 2018;121:383--391. (Corresponding author)
+119   Clinical epidemiology of long-term suicide risk in a nationwide population-based cohort study
+      in South Korea. Journal of Psychiatric Research, 2018;100:47--55. (First author)
+120   Short-and long-term exposure to ambient air pollution and circulating biomarkers of
+      inflammation in non-smokers: a hospital-based cohort study in South Korea. Environment
+      International, 2018;119:264--273. (First author)
+121   Exposure to general anesthesia and risk of dementia: a nationwide population-based cohort
+      study. Journal of Alzheimer's Disease, 2018;63(1):395--405. (First author)
+122   Differentially expressed genes related to major depressive disorder and antidepressant
+      response: genome-wide gene expression analysis. Experimental & Molecular Medicine,
+      2018;50(8):1--11. (Co-author)
+123   Mental disease-related emergency admissions attributable to hot temperatures. Science of the
+      Total Environment, 2018;616:688--694. (Co-author)
+124   Advanced daily prediction model for national suicide numbers with social media data. Psychiatry
+      Investigation, 2018;15(4):344. (Co-author)
+125   Ambient air pollution and completed suicide in 26 South Korean cities: effect modification by
+      demographic and socioeconomic factors. Science of the Total Environment, 2018;639:944--951.
+      (Co-author)
+126   Extrapyramidal signs and risk of progression from mild cognitive impairment to dementia: a
+      CREDOS study. Psychiatry Investigation, 2017;14(6):754. (First author)
+127   Occupational attainment as risk factor for progression from mild cognitive impairment to
+      Alzheimer's disease: a CREDOS study. Journal of Alzheimer's Disease, 2017;55(1):283--292. (First
+      author)
+128   Short-term air pollution exposure aggravates Parkinson's disease in a population-based cohort.
+      Scientific Reports, 2017;7:44741. (Co-author)
+129   Adverse events with sustained-release donepezil in Alzheimer disease: relation to body mass
+      index. *Journal of Clinical Psychopharmacology, 2017;37(4):401--404. (Co-author)
+130   Reduced orbitofrontal-thalamic functional connectivity related to suicidal ideation in patients
+      with major depressive disorder. Scientific Reports, 2017;7(1):15772. (Co-author)
+131   Decreased medial frontal gyrus in patients with adjustment disorder. Journal of Affective
+      Disorders, 2016;191:36--40. (First author)
+132   Serum cytokine levels in major depressive disorder and its role in antidepressant response.
+      Psychiatry Investigation, 2016;13(6):644. (First author)
+133   Reduced frontal-subcortical white matter connectivity in association with suicidal ideation in
+      major depressive disorder. Translational Psychiatry, 2016;6(6). (First author)
+134   Association between levels of high-sensitivity C-reactive protein and general psychological
+      distress symptoms. JAMA Psychiatry, 2016;73(11):1199--1201. (First author)
+135   Extrapyramidal signs and cognitive subdomains in Alzheimer disease. The American Journal of
+      Geriatric Psychiatry, 2016;24(7):566--574. (Co-author)
+136   Gender-specific influence of education in cognitive subdomains in mild cognitive impairment: a
+      CREDOS study. Journal of Korean Geriatric Psychiatry, 2016;87--95. (Co-author)
+137   Factors related to prevalence, persistence, and incidence of depressive symptoms in mild
+      cognitive impairment: vascular depression construct. International Journal of Geriatric Psychiatry,
+      2016;31(7):818--826. (Co-author)
+138   Association of the choline acetyltransferase gene with responsiveness to acetylcholinesterase
+      inhibitors in Alzheimer's disease. Pharmacopsychiatry, 2015;25(03):111--117. (First author)
+139   Extrapyramidal signs and impairment of cognitive subdomains in mild cognitive impairment: a
+      CREDOS study. Journal of Korean Geriatric Psychiatry, 2015;72--78. (First author)
+140   Celebrity suicides and their differential influence on suicides in the general population: a
+      national population-based study in Korea. Psychiatry Investigation, 2015;12(2):204. (First author)
+141   Paraquat prohibition and change in the suicide rate and methods in South Korea. PLoS One,
+      2015;10(6). (First author)
+142   A genome-wide association study of antidepressant response in Koreans. Translational
+      Psychiatry, 2015;5(9). (First author)
+143   Association between air pollution and suicide in South Korea: a nationwide study. PLoS One,
+      2015;10(2). (First author)
+144   Gender differences in risk factors for transition from mild cognitive impairment to Alzheimer's
+      disease: a CREDOS study. Comprehensive Psychiatry, 2015;62:114--122. (Co-author)
+145   Periventricular white matter hyperintensities and the risk of dementia: a CREDOS study.
+      International Psychogeriatrics, 2015;27(12):2069--2077. (Co-author)
+146   Exposure-outcome analysis in depressed patients treated with paroxetine using population
+      pharmacokinetics. Drug Design, Development and Therapy, 2015;5247--5254. (Co-author)
+147   Therapeutic drug monitoring of mirtazapine in a routine outpatient setting in Asian psychiatric
+      patients. Pharmacopsychiatry, 2014;47(06):210--214. (First author)
+148   Factors associated with caregiver burden in patients with Alzheimer's disease. Psychiatry
+      Investigation, 2014;11(2):152. (First author)
+149   Cognitive subdomain responses to galantamine in Alzheimer's disease. The Journal of Nervous
+      and Mental Disease, 2014;202(3):253--259. (Co-author)
+150   Genetic prediction of antidepressant drug response and nonresponse in Korean patients. PLoS
+      One, 2014;9(9). (Co-author)
+151   Association between cognitive subdomains and insight in Alzheimer disease: a CREDOS study.
+      Journal of Korean Geriatric Psychiatry, 2014;76--80. (Co-author)
+152   Alcohol consumption as risk factor for progression from mild cognitive impairment to dementia:
+      a CREDOS study. Journal of Korean Geriatric Psychiatry, 2014;69--75. (Co-author)
+153   Predicting national suicide numbers with social media data. PLoS One, 2013;8(4). (Corresponding
+      author)
+154   Serotonin transporter genotype and function in relation to antidepressant response in Koreans.
+      Psychopharmacology, 2013;225:283--290. (First author)
+155   Association between the BDNF Val66Met polymorphism and chronicity of depression. Psychiatry
+      Investigation, 2013;10(1):56. (Co-author)
+156   Association between cognitive subdomains and extrapyramidal signs in Alzheimer disease: a
+      CREDOS study. Journal of Korean Geriatric Psychiatry, 2013;20--25. (Co-author)
+157   Association between functional impairment, depression, and extrapyramidal signs in
+      neuroleptic-free patients with Alzheimer disease. Journal of Geriatric Psychiatry and Neurology,
+      2013;26(3):144--150. (Co-author)
+158   Association between insight and neuropsychiatric symptoms in Alzheimer's dementia: a
+      CREDOS study. Journal of Korean Neuropsychiatric Association, 2013;52(1):42--49. (Co-author)
+159   Genetic association study of individual symptoms in depression. Psychiatry Research,
+      2012;198(3):400--406. (First author)
+160   Association between depression and education level in Alzheimer's dementia: a CREDOS study.
+      Journal of Korean Geriatric Psychiatry, 2012;31--37. (Co-author)
+161   CREB-phosphorylation as a predictor of therapeutic response to antidepressants. Journal of
+      Korean Geriatric Psychiatry, 2010;38--43. (Co-author)
+162   Association of BDNF gene polymorphism with course of depression. International Journal of
+      Neuropsychopharmacology, 2010;13:170--170. (Co-author)
+163   An association study between various adrenergic alpha 2 receptor polymorphisms and
+      treatment response to mirtazapine in major depression. Journal of Korean Geriatric Psychiatry,
+      2010;20--26. (Co-author)
+164   A case of paraneoplastic stiff-person syndrome presenting multiple somatic symptoms. Journal
+      of Korean Neuropsychiatric Association, 2009;394--397. (First author)
+165   Prognostic indicators of gastric carcinoma confined to the muscularis propria. Histopathology,
+      2007;51(1):105--110. (Co-author)
+
