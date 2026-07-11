@@ -58,6 +58,8 @@
   "related_resources": [
     "https://snumood.com/ai/achievements.json",
     "https://snumood.com/ai/publications.json",
+    "https://snumood.com/ai/education.json",
+    "https://snumood.com/ai/education/mood-disorders-clinical-framework.md",
     "https://snumood.com/llms.txt"
   ]
 }
