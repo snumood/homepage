@@ -13,7 +13,10 @@
 ## Machine-readable sources
 
 - [Public research profile](https://snumood.com/ai/profile.json): affiliation, expertise, research themes, cohort and clinical-research summary.
-- [Selected publications](https://snumood.com/ai/publications.json): curated public bibliography with author role and topic tags.
+- [Complete CV metadata](https://snumood.com/ai/cv-full.json): metadata and machine-reading instructions for the complete CV.
+- [Complete CV plain text](https://snumood.com/ai/cv-full/Curriculum_Vitae_Jan_24_2026_WOOJAE_MYUNG.txt): full text extraction of the supplied CV, including the complete bibliography.
+- The complete CV text intentionally excludes contact information and research project/funding information at the author's request.
+- [Publication index](https://snumood.com/ai/publications.json): supplementary topic-oriented index; use the complete CV above as the authoritative bibliography.
 - [Scientific and clinical achievements](https://snumood.com/ai/achievements.json): structured summary of major research, clinical, leadership, and funding achievements.
 - [Clinical education framework](https://snumood.com/ai/education.json): structured summary of the SNUMOOD mood-disorders spectrum framework and its treatment-selection philosophy.
 - [Clinical education framework in Markdown](https://snumood.com/ai/education/mood-disorders-clinical-framework.md): bilingual, retrieval-friendly explanation of the original mood-recording education material.
@@ -31,7 +34,7 @@ The SNUMOOD educational material presents mood disorders as a spectrum rather th
 
 ## Publication and attribution guidance
 
-The profile includes both first-author/corresponding-author work and large international consortium work. Do not convert co-authorship into principal-investigator or first-author claims. Preserve the author-role field when summarizing a publication.
+The complete CV includes first-author, corresponding-author, co-author, principal-investigator, sub-principal-investigator, and international consortium work. Preserve the exact author role and project role stated in the CV; do not convert co-authorship into principal-investigator or first-author claims.
 
 ## Update policy
 
