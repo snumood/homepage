@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FhEAtQDUTdsGNQVy+Cokx1LnOXcJSeXI5syhIS49L08='; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2NDqcMYYGpQI1X6K7Ld/hw8M8kcckkSdXUIUGj9M+Fc='; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>분당서울대학교병원 기분장애클리닉</title>
@@ -893,20 +893,20 @@
 
             if (phase === 'inhale') {
                 const t = Math.min(1, elapsedPhase / INHALE_DURATION);
-                ratio = MIN_RATIO + (MAX_RATIO - MIN_RATIO) * easeInOut(t);
+                ratio = MAX_RATIO - (MAX_RATIO - MIN_RATIO) * easeInOut(t);
                 setInstruction('들이쉬기');
                 countdownText.textContent = Math.ceil((INHALE_DURATION - elapsedPhase) / 1000);
             } else if (phase === 'hold1') {
-                ratio = MAX_RATIO;
+                ratio = MIN_RATIO;
                 setInstruction('');
                 countdownText.textContent = '';
             } else if (phase === 'exhale') {
                 const t = Math.min(1, elapsedPhase / EXHALE_DURATION);
-                ratio = MAX_RATIO - (MAX_RATIO - MIN_RATIO) * easeInOut(t);
+                ratio = MIN_RATIO + (MAX_RATIO - MIN_RATIO) * easeInOut(t);
                 setInstruction('내쉬기');
                 countdownText.textContent = Math.ceil((EXHALE_DURATION - elapsedPhase) / 1000);
             } else if (phase === 'hold2') {
-                ratio = MIN_RATIO;
+                ratio = MAX_RATIO;
                 setInstruction('');
                 countdownText.textContent = '';
             }
