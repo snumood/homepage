@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2NDqcMYYGpQI1X6K7Ld/hw8M8kcckkSdXUIUGj9M+Fc='; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-fzER8Lu3xqR2JYxnrgr6q7ylvEeSEHvx8yXmofJaZE0='; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>분당서울대학교병원 기분장애클리닉</title>
@@ -340,7 +340,36 @@
         .digit-colon { padding: 0 0.08em 0.1em; color: #7d8fb3; animation: blink 2s ease-in-out infinite; }
         @keyframes blink { 50% { opacity: 0.35; } }
 
+        .direction-toggle {
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            margin-bottom: 0.75rem;
+            border-radius: 999px;
+            background: rgba(13, 71, 161, 0.06);
+            border: 1px solid rgba(13, 71, 161, 0.08);
+        }
+        .direction-toggle button {
+            font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
+            font-size: 0.92rem;
+            color: #6b7a96;
+            background: transparent;
+            border: 0;
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .direction-toggle button[aria-pressed="true"] {
+            background: #ffffff;
+            color: #2b4a86;
+            font-weight: 600;
+            box-shadow: 0 4px 12px -6px rgba(13, 71, 161, 0.35);
+        }
+        .direction-toggle button:focus-visible { outline: 2px solid #4d7cff; outline-offset: 2px; }
+
         @media (max-width: 480px) {
+            .direction-toggle button { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
             .breathing-card { padding: 34px 16px 28px; border-radius: 2rem; }
             .breath-title { font-size: 1.8rem; }
             .breath-sub { font-size: 0.68rem; letter-spacing: 0.1em; white-space: nowrap; }
@@ -383,6 +412,11 @@
     <main class="app-wrapper">
         <div class="breathing-card">
             <h1 class="breath-title">편안한 호흡</h1>
+
+            <div class="direction-toggle" role="group" aria-label="풍선 움직임 방향">
+                <button type="button" data-direction="shrink" aria-pressed="true">들이쉬면 작아지기</button>
+                <button type="button" data-direction="grow" aria-pressed="false">들이쉬면 커지기</button>
+            </div>
 
             <div class="breath-stage">
                 <canvas id="breathingCanvas"></canvas>
@@ -468,6 +502,21 @@
         const BALLOON_STRETCH = 1.08;
 
         let size, centerX, centerY, orbitRadius;
+
+        // 풍선 방향 토글 (기본: 들이쉬면 작아지기) — 선택은 이 브라우저에만 저장
+        const DIRECTION_KEY = 'breath-direction';
+        const directionButtons = document.querySelectorAll('.direction-toggle button');
+        let inhaleShrinks = true;
+        try { inhaleShrinks = localStorage.getItem(DIRECTION_KEY) !== 'grow'; } catch (e) {}
+        function applyDirection() {
+            directionButtons.forEach(b => b.setAttribute('aria-pressed', String((b.dataset.direction === 'shrink') === inhaleShrinks)));
+        }
+        directionButtons.forEach(b => b.addEventListener('click', () => {
+            inhaleShrinks = b.dataset.direction === 'shrink';
+            try { localStorage.setItem(DIRECTION_KEY, inhaleShrinks ? 'shrink' : 'grow'); } catch (e) {}
+            applyDirection();
+        }));
+        applyDirection();
 
         // 단계별 풍선 색 (밝은 a, 깊은 b, 비쳐 보이는 c) — 들이쉬기 파랑 · 멈춤 보라 · 내쉬기 주황
         const palette = {
@@ -893,23 +942,26 @@
 
             if (phase === 'inhale') {
                 const t = Math.min(1, elapsedPhase / INHALE_DURATION);
-                ratio = MAX_RATIO - (MAX_RATIO - MIN_RATIO) * easeInOut(t);
+                ratio = MIN_RATIO + (MAX_RATIO - MIN_RATIO) * easeInOut(t);
                 setInstruction('들이쉬기');
                 countdownText.textContent = Math.ceil((INHALE_DURATION - elapsedPhase) / 1000);
             } else if (phase === 'hold1') {
-                ratio = MIN_RATIO;
+                ratio = MAX_RATIO;
                 setInstruction('');
                 countdownText.textContent = '';
             } else if (phase === 'exhale') {
                 const t = Math.min(1, elapsedPhase / EXHALE_DURATION);
-                ratio = MIN_RATIO + (MAX_RATIO - MIN_RATIO) * easeInOut(t);
+                ratio = MAX_RATIO - (MAX_RATIO - MIN_RATIO) * easeInOut(t);
                 setInstruction('내쉬기');
                 countdownText.textContent = Math.ceil((EXHALE_DURATION - elapsedPhase) / 1000);
             } else if (phase === 'hold2') {
-                ratio = MAX_RATIO;
+                ratio = MIN_RATIO;
                 setInstruction('');
                 countdownText.textContent = '';
             }
+
+            // 토글: '들이쉬면 작아지기'면 크기 방향을 뒤집음
+            if (inhaleShrinks) ratio = MIN_RATIO + MAX_RATIO - ratio;
 
             // 색 보간 (약 0.6초에 걸쳐 전환)
             const k = 1 - Math.pow(0.004, Math.min(1000, rawDt) / 1000);
