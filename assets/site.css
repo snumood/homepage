@@ -136,14 +136,26 @@ a.card:hover { transform: translateY(-2px); border-color: rgba(155, 47, 53, 0.45
     flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
     background: var(--tab, var(--tape-mood)); color: var(--pen); font-size: 19px;
 }
-.card .t { display: block; font-weight: 700; font-size: 17px; line-height: 1.45; }
-.card .d { display: block; font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 2px; }
+.card .ico svg { width: 21px; height: 21px; }
+.card .t { display: block; font-weight: 700; font-size: 17px; line-height: 1.45; text-wrap: pretty; }
+.card .d { display: block; font-size: 14.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 2px; text-wrap: pretty; }
 .card .go { margin-left: auto; color: var(--accent); font-size: 20px; flex: none; }
 .card.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .card.primary .d { color: rgba(255, 255, 255, 0.85); }
 .card.primary .go { color: #fff; }
 .card.primary .ico { background: rgba(255, 255, 255, 0.18); color: #fff; }
 a.card.primary:hover { background: var(--accent-dark); }
+/* 첫 화면 설문 바로가기: 눈에 띄되 진한 기분기록지 카드보다는 차분하게 (금색 테이프 + 연한 색지) */
+.card.featured {
+    background: linear-gradient(90deg, rgba(234, 220, 182, 0.62), rgba(234, 220, 182, 0.24)), #fffdf8;
+    border-color: rgba(176, 138, 58, 0.55);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 8px 16px -9px rgba(110, 80, 20, 0.45);
+}
+.card.featured::before {
+    content: ""; position: absolute; left: -1px; top: 12px; bottom: 12px; width: 4px; border-radius: 0 3px 3px 0; background: var(--gold);
+}
+.card.featured .ico { background: var(--gold); color: #fff; }
+a.card.featured:hover { border-color: rgba(176, 138, 58, 0.8); }
 
 /* 장(章): 종이 한 장씩 */
 main { display: block; }
