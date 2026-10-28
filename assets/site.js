@@ -69,7 +69,7 @@
         wbTitle: 'Workbook',
         wbP: '“The Dialectical Behavior Therapy Skills Workbook for Bipolar Disorder” (Korean edition) collects techniques that help in overcoming mood disorders. You can read it and practise along.',
         wbGo: 'DBT Skills Workbook for Bipolar Disorder',
-        wbGoD: 'View on Naver Books (purchase link)',
+        wbGoD: 'View on Kyobo Book Centre (purchase link)',
         rsTitle: 'Research',
         rsP: 'See the research of the SNUBH mood disorders team.',
         rsGo: 'Our team’s papers (PubMed)',
