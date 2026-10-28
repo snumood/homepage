@@ -22,7 +22,6 @@
         qSurveyD: 'Compare your symptoms and traits with others',
         qBreath: 'Breathing exercise',
         qBreathD: 'Practise daily for moments of anxiety or panic',
-        domain: 'Short address',
         surveysTitle: 'Surveys and self-assessment',
         surveysP: 'Please try the questionnaires below. Many people who have visited our clinic have taken part. By taking part, you can see how your symptoms and personality compare with others. The questionnaires are free of charge.',
         surveysNote: 'When signing up, enter the number written on the card you received in the clinic. All surveys and assessments below require signing up and logging in. (The survey pages are in Korean.)',
