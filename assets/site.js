@@ -8,7 +8,7 @@
         brandShort: 'Mood Disorders Clinic',
         navLabel: 'Main menu',
         nav1: 'Surveys',
-        nav2: 'Mood Journal',
+        nav2: 'Mood Journal & Guide',
         nav3: 'Breathing · Relaxation · Mindfulness',
         nav4: 'Resources & Research',
         menuOpen: 'Open menu',

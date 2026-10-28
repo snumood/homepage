@@ -232,6 +232,7 @@ p { margin: 0 0 14px; }
     .b-full { display: none; }
     .b-short { display: inline; }
 }
+@media (max-width: 1180px) and (min-width: 561px) { .b-full { display: none; } .b-short { display: inline; } }
 @media (max-width: 380px) { .brand-name { font-size: 13.5px; } }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
