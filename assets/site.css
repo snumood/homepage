@@ -145,17 +145,15 @@ a.card:hover { transform: translateY(-2px); border-color: rgba(155, 47, 53, 0.45
 .card.primary .go { color: #fff; }
 .card.primary .ico { background: rgba(255, 255, 255, 0.18); color: #fff; }
 a.card.primary:hover { background: var(--accent-dark); }
-/* 첫 화면 설문 바로가기: 눈에 띄되 진한 기분기록지 카드보다는 차분하게 (금색 테이프 + 연한 색지) */
-.card.featured {
-    background: linear-gradient(90deg, rgba(234, 220, 182, 0.62), rgba(234, 220, 182, 0.24)), #fffdf8;
-    border-color: rgba(176, 138, 58, 0.55);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 8px 16px -9px rgba(110, 80, 20, 0.45);
-}
+/* 첫 화면 설문 바로가기: 빨간 기분기록지 카드와 같은 무게로 보이게 (수첩 표지색 바탕 + 금색 테이프) */
+.card.featured { background: var(--pen); border-color: var(--pen); color: #fff; box-shadow: 0 8px 16px -9px rgba(20, 24, 40, 0.6); }
 .card.featured::before {
     content: ""; position: absolute; left: -1px; top: 12px; bottom: 12px; width: 4px; border-radius: 0 3px 3px 0; background: var(--gold);
 }
-.card.featured .ico { background: var(--gold); color: #fff; }
-a.card.featured:hover { border-color: rgba(176, 138, 58, 0.8); }
+.card.featured .d { color: rgba(255, 255, 255, 0.82); }
+.card.featured .go { color: var(--gold); }
+.card.featured .ico { background: var(--gold); color: var(--pen); }
+a.card.featured:hover { background: #1f2533; border-color: #1f2533; }
 
 /* 장(章): 종이 한 장씩 */
 main { display: block; }
