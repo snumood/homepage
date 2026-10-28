@@ -101,7 +101,7 @@
       <a href="#surveys" style="--tab:var(--tape-scale)" data-i18n="nav1">설문·자가평가</a>
       <a href="#mood-chart" style="--tab:var(--tape-mood)" data-i18n="nav2">기분기록지</a>
       <a href="#relaxation" style="--tab:var(--tape-body)" data-i18n="nav3">호흡·이완·마음챙김</a>
-      <a href="#resources" style="--tab:var(--tape-event)" data-i18n="nav4">자료·연구</a>
+      <a href="#resources" style="--tab:var(--tape-event)" data-i18n="nav4">자료·연구성과</a>
     </nav>
     <button class="lang-btn" type="button" id="lang-btn" lang="en" aria-label="Switch to English">EN</button>
     <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기" data-i18n-aria="menuOpen"><span class="bars"><span></span></span></button>
@@ -210,13 +210,13 @@
       </div>
 
       <h3 id="howto-video" data-i18n="howtoTitle">작성방법 설명 동영상</h3>
-      <p class="muted" data-i18n="howtoP">명우재 교수가 기분기록지의 항목 하나하나를 예시와 함께 설명합니다. (11분, 한국어 자막)</p>
+      <p class="muted" data-i18n="howtoP">기분기록지의 항목 하나하나를 예시와 함께 설명합니다. (11분, 한국어 자막)</p>
       <figure class="video howto">
         <div class="frame"><video controls preload="none" playsinline poster="media/moodchart-howto-poster.jpg" aria-label="기분기록지 작성방법 설명 동영상" data-i18n-aria="howtoAria">
           <source src="https://snumood.com/media/moodchart-howto-720p.mp4" type="video/mp4">
           <track kind="subtitles" src="media/moodchart-howto.ko.vtt" srclang="ko" label="한국어">
         </video></div>
-        <figcaption><a href="https://snumood.com/media/moodchart-howto-1080p.mp4" target="_blank" rel="noopener" data-i18n="howtoHd">고화질(1080p)로 보기</a></figcaption>
+        <figcaption><button type="button" class="hd-btn" id="howto-hd" data-hd="https://snumood.com/media/moodchart-howto-1080p.mp4" data-sd="https://snumood.com/media/moodchart-howto-720p.mp4" aria-pressed="false" data-i18n="howtoHd">고화질(1080p)로 바꾸기</button></figcaption>
       </figure>
 
       <h3 data-i18n="printTitle">종이 기록지(인쇄용 PDF)</h3>
@@ -271,10 +271,10 @@
     </div>
   </section>
 
-  <!-- IV. 자료·연구 -->
+  <!-- IV. 자료·연구성과 -->
   <section class="chapter" id="resources" aria-labelledby="res-title" style="--tab:var(--tape-event)">
     <div class="sheet">
-      <div class="chapter-head"><span class="chapter-no">IV.</span><h2 id="res-title" data-i18n="resTitle">자료·연구</h2></div>
+      <div class="chapter-head"><span class="chapter-no">IV.</span><h2 id="res-title" data-i18n="resTitle">자료·연구성과</h2></div>
       <h3 id="workbook" data-i18n="wbTitle">워크북</h3>
       <p data-i18n="wbP">『조울병의 변증법적 행동치료 워크북』은 기분장애를 극복하는 데 도움이 되는 기법들을 모아둔 책입니다. 직접 읽으면서 따라해볼 수 있습니다.</p>
       <div class="grid-2">

@@ -10,7 +10,7 @@
         nav1: 'Surveys',
         nav2: 'Mood Journal',
         nav3: 'Breathing · Relaxation · Mindfulness',
-        nav4: 'Resources',
+        nav4: 'Resources & Research',
         menuOpen: 'Open menu',
         menuClose: 'Close menu',
         heroTitle: 'Seoul National University Bundang Hospital<br>Mood Disorders Clinic',
@@ -46,9 +46,10 @@
         guideD: 'How to record mood, emotional reactivity, motivation and thinking, sleep, weight, alcohol and life events, with examples.',
         read: 'Read →',
         howtoTitle: 'Video: how to keep the mood journal',
-        howtoP: 'Prof. Woojae Myung explains each item of the mood journal with examples. (11 min, in Korean with Korean subtitles)',
+        howtoP: 'Each item of the mood journal is explained with examples. (11 min, in Korean with Korean subtitles)',
         howtoAria: 'Video on how to keep the mood journal',
-        howtoHd: 'Watch in high quality (1080p)',
+        howtoHd: 'Switch to high quality (1080p)',
+        howtoSd: 'Switch to standard quality (720p)',
         printTitle: 'Paper journal (printable PDF)',
         printP: 'PDFs you can print or write on with a tablet. They open in a Google Drive preview; use the download button at the top right to save them. (Korean only.)',
         pdf1: 'Mood Journal 1 (2026–2028)',
@@ -67,7 +68,7 @@
         mindP: 'Mindfulness-based therapy can help a great deal in regulating mood. Listen to the introduction and follow the basic course (in Korean).',
         v3: 'Mindfulness, taking care of you (Sebasi talk 1739, Jeongeun Yu)',
         v4: '7-day basic mindfulness meditation course (Mabo)',
-        resTitle: 'Resources and research',
+        resTitle: 'Resources and research output',
         wbTitle: 'Workbook',
         wbP: '“The Dialectical Behavior Therapy Skills Workbook for Bipolar Disorder” (Korean edition) collects techniques that help in overcoming mood disorders. You can read it and practise along.',
         wbGo: 'DBT Skills Workbook for Bipolar Disorder',
@@ -210,8 +211,30 @@
         }
     }
 
+    // 작성방법 동영상: 페이지 안에서 화질만 바꾼다 (재생 위치 유지)
+    function initVideo() {
+        var btn = document.getElementById('howto-hd');
+        var video = document.querySelector('.howto video');
+        if (!btn || !video) return;
+        btn.addEventListener('click', function () {
+            var hd = btn.getAttribute('aria-pressed') !== 'true';
+            var t = video.currentTime, playing = !video.paused;
+            video.src = btn.getAttribute(hd ? 'data-hd' : 'data-sd');
+            video.addEventListener('loadedmetadata', function once() {
+                video.removeEventListener('loadedmetadata', once);
+                if (t) video.currentTime = t;
+                if (playing) video.play().catch(function () { /* 다시 누르면 재생 */ });
+            });
+            video.load();
+            btn.setAttribute('aria-pressed', hd ? 'true' : 'false');
+            btn.setAttribute('data-i18n', hd ? 'howtoSd' : 'howtoHd');
+            btn.textContent = lang === 'en' ? EN[hd ? 'howtoSd' : 'howtoHd'] : (hd ? '표준 화질(720p)로 바꾸기' : '고화질(1080p)로 바꾸기');
+        });
+    }
+
     function init() {
         initMenu();
+        initVideo();
         var q = /[?&]lang=(en|ko)\b/.exec(location.search);
         // 기본은 한국어. 영어는 직접 고르거나(저장) ?lang=en 으로 들어온 경우만
         var initial = q ? q[1] : stored();
