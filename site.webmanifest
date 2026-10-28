@@ -1,0 +1,12 @@
+{
+    "name": "분당서울대학교병원 기분장애클리닉",
+    "short_name": "SNUMOOD",
+    "icons": [
+        { "src": "./android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "./android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+    ],
+    "theme_color": "#1c1c20",
+    "background_color": "#e6e1d9",
+    "display": "browser",
+    "start_url": "./index.html"
+}

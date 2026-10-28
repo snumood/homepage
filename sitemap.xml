@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://snumood.com/</loc><lastmod>2026-01-24</lastmod></url>
+  <url><loc>https://snumood.com/</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://snumood.com/guide/illness.html</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://snumood.com/guide/guide.html</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://snumood.com/guide/illness.en.html</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://snumood.com/guide/guide.en.html</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://snumood.com/ai/profile.json</loc><lastmod>2026-01-24</lastmod></url>
   <url><loc>https://snumood.com/ai/achievements.json</loc><lastmod>2026-01-24</lastmod></url>
   <url><loc>https://snumood.com/ai/publications.json</loc><lastmod>2026-01-24</lastmod></url>
