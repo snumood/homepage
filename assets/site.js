@@ -84,7 +84,16 @@
         hospWeb: 'Hospital website (appointments)',
         aboutTitle: 'About this site',
         aboutP: 'The materials on this site are educational aids to support care and do not replace medical consultation. Always talk with your doctor before changing or stopping medication. This site does not respond to emergencies.',
-        legal: '© SNUBH Mood Disorders Clinic · SNUMOOD'
+        legal: '© SNUBH Mood Disorders Clinic · SNUMOOD',
+        breathH1: 'Calm breathing',
+        dirLabel: 'Balloon direction',
+        dirShrink: 'Shrink on inhale',
+        dirGrow: 'Grow on inhale',
+        breathHint: 'Breathe along with the balloon.',
+        timerLabel: 'Practice time',
+        breathNote: 'Without regular practice it is hard to use during a panic attack. Bookmark this page (or add it to your home screen) and practise ten or more times a day.',
+        backRelax: '← Back to mind training',
+        miniHelp: 'If you need help now'
     };
     var KO = {};
     var KEY = 'snumood-lang';
@@ -131,7 +140,9 @@
         btn.textContent = en ? '한국어' : 'EN';
         btn.setAttribute('lang', en ? 'ko' : 'en');
         btn.setAttribute('aria-label', en ? '한국어로 보기' : 'Switch to English');
-        document.title = en ? 'SNUBH Mood Disorders Clinic | SNUMOOD' : '분당서울대학교병원 기분장애클리닉 | SNUMOOD';
+        var root = document.documentElement;
+        if (!root.hasAttribute('data-title-ko')) root.setAttribute('data-title-ko', document.title);
+        document.title = en ? (root.getAttribute('data-title-en') || 'SNUBH Mood Disorders Clinic | SNUMOOD') : root.getAttribute('data-title-ko');
         syncMenuLabel();
     }
 
