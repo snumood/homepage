@@ -114,6 +114,11 @@
             if (!(k in KO)) KO[k] = el.getAttribute('aria-label');
             el.setAttribute('aria-label', en && EN[k] ? EN[k] : KO[k]);
         });
+        each('[data-i18n-title]', function (el) {
+            var k = 't:' + el.getAttribute('data-i18n-title');
+            if (!(k in KO)) KO[k] = el.getAttribute('title');
+            el.setAttribute('title', en && EN[k.slice(2)] ? EN[k.slice(2)] : KO[k]);
+        });
         each('[data-href-en]', function (el) {
             if (!el.hasAttribute('data-href-ko')) el.setAttribute('data-href-ko', el.getAttribute('href'));
             el.setAttribute('href', el.getAttribute(en ? 'data-href-en' : 'data-href-ko'));
@@ -180,11 +185,12 @@
         var links = {};
         each('#site-nav a[href^="#"]', function (a) { links[a.getAttribute('href').slice(1)] = a; });
         if ('IntersectionObserver' in window) {
+            var visible = {};
             var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (en) {
-                    if (!en.isIntersecting) return;
-                    Object.keys(links).forEach(function (id) { links[id].removeAttribute('aria-current'); });
-                    if (links[en.target.id]) links[en.target.id].setAttribute('aria-current', 'true');
+                entries.forEach(function (en) { visible[en.target.id] = en.isIntersecting; });
+                var cur = Object.keys(links).filter(function (id) { return visible[id]; }).pop();
+                Object.keys(links).forEach(function (id) {
+                    if (id === cur) links[id].setAttribute('aria-current', 'true'); else links[id].removeAttribute('aria-current');
                 });
             }, { rootMargin: '-45% 0px -50% 0px' });
             Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
@@ -200,6 +206,11 @@
         document.getElementById('lang-btn').addEventListener('click', function () {
             applyLang(lang === 'en' ? 'ko' : 'en');
             store(lang);
+            // 주소의 ?lang= 도 맞춰 두어 새로고침해도 고른 언어가 유지되게
+            if (/[?&]lang=/.test(location.search) && window.history && history.replaceState) {
+                var qs = location.search.replace(/([?&])lang=(en|ko)\b/, '$1lang=' + lang);
+                history.replaceState(null, '', location.pathname + qs + location.hash);
+            }
         });
     }
 
