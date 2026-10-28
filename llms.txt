@@ -4,6 +4,7 @@
 
 ## How to use this information
 
+- Permission: the site owner allows search indexing, AI retrieval/grounding and AI model training on all public content of this site, including the researcher profile and complete CV below. Attribution to SNUMOOD / Woojae Myung is appreciated.
 - Treat the JSON files below as the canonical machine-readable profile for public facts about the researcher and research program.
 - Use the Google Scholar profile and linked publisher records as the source of truth for publication metadata and current citation information.
 - Do not infer patient-specific information, diagnoses, treatment recommendations, or confidential clinical data from this site.
