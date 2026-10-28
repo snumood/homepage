@@ -2,7 +2,7 @@
 <html lang="ko" data-title-en="SNUBH Mood Disorders Clinic | SNUMOOD">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; media-src 'self' https://snumood.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>분당서울대학교병원 기분장애클리닉 | SNUMOOD</title>
@@ -100,9 +100,8 @@
     <nav class="nav" id="site-nav" aria-label="주요 메뉴" data-i18n-aria="navLabel">
       <a href="#surveys" style="--tab:var(--tape-scale)" data-i18n="nav1">설문·자가평가</a>
       <a href="#mood-chart" style="--tab:var(--tape-mood)" data-i18n="nav2">기분기록지</a>
-      <a href="#relaxation" style="--tab:var(--tape-body)" data-i18n="nav3">마음훈련</a>
+      <a href="#relaxation" style="--tab:var(--tape-body)" data-i18n="nav3">호흡·이완·마음챙김</a>
       <a href="#resources" style="--tab:var(--tape-event)" data-i18n="nav4">자료·연구</a>
-      <a href="#help" style="--tab:var(--tape-lilac)" data-i18n="nav5">도움받기</a>
     </nav>
     <button class="lang-btn" type="button" id="lang-btn" lang="en" aria-label="Switch to English">EN</button>
     <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기" data-i18n-aria="menuOpen"><span class="bars"><span></span></span></button>
@@ -210,6 +209,16 @@
         </a>
       </div>
 
+      <h3 id="howto-video" data-i18n="howtoTitle">작성방법 설명 동영상</h3>
+      <p class="muted" data-i18n="howtoP">명우재 교수가 기분기록지의 항목 하나하나를 예시와 함께 설명합니다. (11분, 한국어 자막)</p>
+      <figure class="video howto">
+        <div class="frame"><video controls preload="none" playsinline poster="media/moodchart-howto-poster.jpg" aria-label="기분기록지 작성방법 설명 동영상" data-i18n-aria="howtoAria">
+          <source src="https://snumood.com/media/moodchart-howto-720p.mp4" type="video/mp4">
+          <track kind="subtitles" src="media/moodchart-howto.ko.vtt" srclang="ko" label="한국어" default>
+        </video></div>
+        <figcaption><a href="https://snumood.com/media/moodchart-howto-1080p.mp4" target="_blank" rel="noopener" data-i18n="howtoHd">고화질(1080p)로 보기</a></figcaption>
+      </figure>
+
       <h3 data-i18n="printTitle">종이 기록지(인쇄용 PDF)</h3>
       <p class="muted" data-i18n="printP">프린트해서 쓰거나 태블릿에서 필기할 수 있는 PDF입니다. Google Drive 미리보기로 열리며, 화면 오른쪽 위의 다운로드 버튼으로 저장할 수 있습니다.</p>
       <ul class="files">
@@ -220,10 +229,10 @@
     </div>
   </section>
 
-  <!-- III. 마음훈련 -->
+  <!-- III. 호흡·이완·마음챙김 -->
   <section class="chapter" id="relaxation" aria-labelledby="relax-title" style="--tab:var(--tape-body)">
     <div class="sheet">
-      <div class="chapter-head"><span class="chapter-no">III.</span><h2 id="relax-title" data-i18n="relaxTitle">마음안정화 훈련</h2></div>
+      <div class="chapter-head"><span class="chapter-no">III.</span><h2 id="relax-title" data-i18n="relaxTitle">호흡·이완·마음챙김</h2></div>
       <h3 data-i18n="breathTitle">호흡 훈련</h3>
       <p data-i18n="breathP">간단한 기법이지만 불안, 공황, 충동을 조절하는 데 큰 도움이 될 수 있습니다. 평소 연습하지 않으면 공황발작이 올 때 하기 어렵습니다. 아래 링크를 즐겨찾기 해두고 틈틈이 하루 10번 이상 연습해보세요.</p>
       <div class="grid-2">
