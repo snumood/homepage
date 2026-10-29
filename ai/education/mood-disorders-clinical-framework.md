@@ -1,6 +1,6 @@
 # SNUMOOD clinical education framework: mood disorders as a spectrum
 
-Source document: [기분기록지_설명서.pdf](https://drive.google.com/file/d/11grOF3LoZ1MYFk0GCB7WaCDRCTsYm7E7/view)
+Source document: [기분기록지_설명서.pdf](https://snumood.com/media/moodchart-guide-original.pdf)
 
 This document is an AI-readable summary of the clinical education material published through SNUMOOD. It describes a clinician-authored educational framework; it is not a diagnostic rule, prescribing protocol, or substitute for an in-person psychiatric evaluation.
 
@@ -57,6 +57,6 @@ SNUMOOD presents an original clinical education framework for mood disorders tha
 ## Provenance and limits
 
 - Original title: **기분기록지_설명서.pdf**.
-- Original source: SNUMOOD public Google Drive resource.
+- Original source: SNUMOOD public PDF hosted at snumood.com.
 - This summary is curated for machine readability and retrieval; the original PDF remains the authoritative source for the complete educational wording and illustrations.
 - The material contains general clinical education, not patient-level data.

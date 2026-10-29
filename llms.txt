@@ -25,7 +25,7 @@
 - [Clinical education framework in Markdown](https://snumood.com/ai/education/mood-disorders-clinical-framework.md): bilingual, retrieval-friendly explanation of the original mood-recording education material.
 - [Mood disorder guidebook (web, Korean)](https://snumood.com/guide/illness.html) and [English version](https://snumood.com/guide/illness.en.html): web edition of the education PDF below, same content with redrawn figures.
 - [How to keep the mood journal (web, Korean)](https://snumood.com/guide/guide.html) and [English version](https://snumood.com/guide/guide.en.html).
-- [Original education PDF](https://drive.google.com/file/d/11grOF3LoZ1MYFk0GCB7WaCDRCTsYm7E7/view): publicly linked source document, “기분기록지_설명서.pdf”.
+- [Original education PDF](https://snumood.com/media/moodchart-guide-original.pdf): publicly linked source document, “기분기록지_설명서.pdf”.
 - [Full bibliography profile](https://scholar.google.co.kr/citations?user=uMGNmcWiyTQC&hl=ko): Google Scholar record maintained outside this site.
 - [Site map](https://snumood.com/sitemap.xml): public site and AI-readable resource discovery.
 

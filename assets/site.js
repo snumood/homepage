@@ -65,7 +65,7 @@
         howtoHd: 'Switch to high quality (1080p)',
         howtoSd: 'Switch to standard quality (720p)',
         printTitle: 'Paper journal (printable PDF)',
-        printP: 'PDFs you can print or write on with a tablet. They open in a Google Drive preview; use the download button at the top right to save them. (Korean only.)',
+        printP: 'PDFs you can print or write on with a tablet. They open in your browser, where you can save or print them. (Korean only.)',
         pdf1: 'Mood Journal 1 (2026–2028)',
         pdf2: 'Mood Journal 2 (2029–2031)',
         pdf3: 'Mood Journal guide (original of the guidebook)',
