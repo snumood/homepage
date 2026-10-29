@@ -45,6 +45,20 @@
         guideT: 'How to Keep Your Mood Journal',
         guideD: 'How to record mood, emotional reactivity, motivation and thinking, sleep, weight, alcohol and life events, with examples.',
         read: 'Read →',
+        epsTitle: 'Mood Disorder Guide videos',
+        epsP: 'The guide explained in 10 short videos. (4–6 min each, in Korean with Korean subtitles)',
+        epsAria: 'Mood Disorder Guide video',
+        epsList: 'Video list',
+        ep1: "What kind of illness is a mood disorder?",
+        ep2: "Symptoms of mood disorders",
+        ep3: "The many courses of mood change",
+        ep4: "Why do mood disorders happen?",
+        ep5: "Treatment and recovery",
+        ep6: "Medication ① Types of medicine and side effects",
+        ep7: "Medication ② Taking medicine well",
+        ep8: "Psychotherapy and mindfulness",
+        ep9: "Lifestyle and circadian rhythm",
+        ep10: "Symptoms that can come along",
         howtoTitle: 'Video: how to keep the mood journal',
         howtoP: 'Each item of the mood journal is explained with examples. (11 min, in Korean with Korean subtitles)',
         howtoAria: 'Video on how to keep the mood journal',
@@ -232,9 +246,50 @@
         });
     }
 
+    // 가이드북 영상 묶음: 목록에서 고르면 위 플레이어에서 재생 (화질 선택 유지)
+    function initEpisodes() {
+        var box = document.querySelector('.eps');
+        if (!box) return;
+        var video = box.querySelector('video'), track = video.querySelector('track');
+        var btn = document.getElementById('eps-hd'), now = box.querySelector('.eps-now');
+        var cur = '01', hd = false;
+        var url = function () { return 'https://snumood.com/media/illness-ep' + cur + (hd ? '-1080p' : '-720p') + '.mp4'; };
+        function load(t, play) {
+            video.src = url();
+            video.addEventListener('loadedmetadata', function once() {
+                video.removeEventListener('loadedmetadata', once);
+                if (t) video.currentTime = t;
+                if (play) video.play().catch(function () { /* 다시 누르면 재생 */ });
+            });
+            video.load();
+        }
+        box.querySelectorAll('.ep').forEach(function (b) {
+            b.addEventListener('click', function () {
+                cur = b.getAttribute('data-ep');
+                box.querySelectorAll('.ep').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+                video.poster = 'guide/media/illness-ep' + cur + '-poster.jpg';
+                track.src = 'guide/media/illness-ep' + cur + '.ko.vtt';
+                var n = String(Number(cur)), k = 'ep' + n;
+                now.innerHTML = '<b></b> <span data-i18n="' + k + '"></span>';
+                now.querySelector('b').textContent = n;
+                now.querySelector('span').textContent = b.querySelector('[data-i18n]').textContent;   // 목록의 현재 언어 그대로
+                load(0, true);
+                video.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            });
+        });
+        btn.addEventListener('click', function () {
+            hd = !hd;
+            load(video.currentTime, !video.paused);
+            btn.setAttribute('aria-pressed', hd ? 'true' : 'false');
+            btn.setAttribute('data-i18n', hd ? 'howtoSd' : 'howtoHd');
+            btn.textContent = lang === 'en' ? EN[hd ? 'howtoSd' : 'howtoHd'] : (hd ? '표준 화질(720p)로 바꾸기' : '고화질(1080p)로 바꾸기');
+        });
+    }
+
     function init() {
         initMenu();
         initVideo();
+        initEpisodes();
         var q = /[?&]lang=(en|ko)\b/.exec(location.search);
         // 기본은 한국어. 영어는 직접 고르거나(저장) ?lang=en 으로 들어온 경우만
         var initial = q ? q[1] : stored();
