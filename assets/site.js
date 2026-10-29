@@ -40,6 +40,7 @@
         chartP2: 'The Mood Journal works on phones, tablets and PCs. Bookmark the link below (or add it to your home screen) and record every day. You can sign up anonymously.',
         chartGo: 'Open the online Mood Journal',
         bookletsTitle: 'Read these first',
+        guideSecTitle: 'How to keep the mood journal',
         illnessT: 'Mood Disorder Guide',
         illnessD: 'What mood disorders are, their symptoms and course, causes, kinds of treatment, circadian rhythm and lifestyle, step by step.',
         guideT: 'How to Keep Your Mood Journal',
