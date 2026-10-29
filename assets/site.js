@@ -112,7 +112,8 @@
         backRelax: '← Back to breathing, relaxation and mindfulness',
         miniHelp: 'If you need help now'
     };
-    var KO = {};
+    // 화질 버튼은 눌린 상태에 따라 키가 바뀌므로 한국어 문구를 미리 둔다 (영어 화면에서 처음 바뀌어도 한국어로 돌아오게)
+    var KO = { howtoHd: '고화질(1080p)로 바꾸기', howtoSd: '표준 화질(720p)로 바꾸기' };
     var KEY = 'snumood-lang';
     var lang = 'ko';
 
@@ -252,15 +253,17 @@
         if (!box) return;
         var video = box.querySelector('video'), track = video.querySelector('track');
         var btn = document.getElementById('eps-hd'), now = box.querySelector('.eps-now');
-        var cur = '01', hd = false;
+        var cur = '01', hd = false, pending = null;
         var url = function () { return 'https://snumood.com/media/illness-ep' + cur + (hd ? '-1080p' : '-720p') + '.mp4'; };
         function load(t, play) {
-            video.src = url();
-            video.addEventListener('loadedmetadata', function once() {
-                video.removeEventListener('loadedmetadata', once);
+            if (pending) video.removeEventListener('loadedmetadata', pending);   // 앞서 고른 편의 재생 위치가 남지 않게
+            pending = function () {
+                video.removeEventListener('loadedmetadata', pending); pending = null;
                 if (t) video.currentTime = t;
                 if (play) video.play().catch(function () { /* 다시 누르면 재생 */ });
-            });
+            };
+            video.src = url();
+            video.addEventListener('loadedmetadata', pending);
             video.load();
         }
         box.querySelectorAll('.ep').forEach(function (b) {
@@ -274,7 +277,8 @@
                 now.querySelector('b').textContent = n;
                 now.querySelector('span').textContent = b.querySelector('[data-i18n]').textContent;   // 목록의 현재 언어 그대로
                 load(0, true);
-                video.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                video.scrollIntoView({ block: 'nearest', behavior: calm ? 'auto' : 'smooth' });
             });
         });
         btn.addEventListener('click', function () {
