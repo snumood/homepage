@@ -281,3 +281,8 @@ p { margin: 0 0 14px; }
     body { background: #fff; }
     .sheet, .hero-book, .hero-page { box-shadow: none; background: #fff; }
 }
+
+/* 메뉴의 로그인·내 계정 항목 */
+.nav-account { font-weight: 700; }
+.nav-who { margin-left: 6px; font-weight: 400; font-size: .85em; color: var(--ink-soft); }
+.nav-who::before { content: '· '; }

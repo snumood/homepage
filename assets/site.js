@@ -11,6 +11,8 @@
         nav2: 'Mood Journal & Guide',
         nav3: 'Breathing · Relaxation · Mindfulness',
         nav4: 'Resources & Research',
+        navLogin: 'Sign in',
+        navAccount: 'My account',
         menuOpen: 'Open menu',
         menuClose: 'Close menu',
         heroTitle: 'Seoul National University Bundang Hospital<br>Mood Disorders Clinic',
@@ -115,7 +117,7 @@
         miniHelp: 'If you need help now'
     };
     // 화질 버튼은 눌린 상태에 따라 키가 바뀌므로 한국어 문구를 미리 둔다 (영어 화면에서 처음 바뀌어도 한국어로 돌아오게)
-    var KO = { howtoHd: '고화질(1080p)로 바꾸기', howtoSd: '표준 화질(720p)로 바꾸기' };
+    var KO = { howtoHd: '고화질(1080p)로 바꾸기', howtoSd: '표준 화질(720p)로 바꾸기', navLogin: '로그인', navAccount: '내 계정' };
     var KEY = 'snumood-lang';
     var lang = 'ko';
 
@@ -292,8 +294,31 @@
         });
     }
 
+    // 메뉴의 로그인 항목: 같은 출처의 통합 계정 세션(supabase-js 가 localStorage 에 둔 것)이 있으면 '내 계정'으로 보인다.
+    // 여기서는 표시만 한다. 세션이 실제로 유효한지는 /login/ 화면이 서버에 확인한다.
+    function initAccount() {
+        var a = document.getElementById('nav-account'), who = document.getElementById('nav-who');
+        if (!a) return;
+        var email = '';
+        try {
+            for (var i = 0; i < localStorage.length; i++) {
+                var k = localStorage.key(i);
+                if (!/^sb-[a-z0-9]+-auth-token$/.test(k)) continue;
+                var v = JSON.parse(localStorage.getItem(k) || 'null');
+                if (v && v.refresh_token && v.user && v.user.email) { email = String(v.user.email); break; }
+            }
+        } catch (e) { /* 저장소를 못 읽으면 로그인 안 한 것으로 본다 */ }
+        if (!email) return;
+        var label = a.querySelector('[data-i18n]');
+        label.setAttribute('data-i18n', 'navAccount');
+        label.textContent = lang === 'en' ? EN.navAccount : KO.navAccount;
+        who.textContent = email.replace(/@patient\.local$/, '');
+        who.hidden = false;
+    }
+
     function init() {
         initMenu();
+        initAccount();
         initVideo();
         initEpisodes();
         var q = /[?&]lang=(en|ko)\b/.exec(location.search);
