@@ -308,6 +308,10 @@
                 if (v && v.refresh_token && v.user && v.user.email) { email = String(v.user.email); break; }
             }
         } catch (e) { /* 저장소를 못 읽으면 로그인 안 한 것으로 본다 */ }
+        // 유지하지 않기로 한 로그인은 브라우저를 닫으면 끝난다(세션 쿠키 snumood_live, /account/auth.js 와 같은 규칙)
+        var keep = false;
+        try { keep = localStorage.getItem('snumood_keep_login') === '1'; } catch (e) { /* 저장 불가 */ }
+        if (!keep && !/(?:^|;\s*)snumood_live=1(?:;|$)/.test(document.cookie)) email = '';
         if (!email) return;
         var label = a.querySelector('[data-i18n]');
         label.setAttribute('data-i18n', 'navAccount');

@@ -5,6 +5,32 @@
 export const PATIENT_DOMAIN = 'patient.local';
 export const MIN_NEW_PASSWORD = 12;
 
+// 로그인 유지 정책(모든 화면 공통): supabase-js 세션은 localStorage 에 남지만,
+// '이 기기에서 로그인 유지'를 고르지 않았으면 브라우저를 닫을 때 사라지는 세션 쿠키(snumood_live)가 있을 때만 유효로 본다.
+export const KEEP_KEY = 'snumood_keep_login';
+const LIVE = 'snumood_live';
+export function keepLogin() {
+    try { return localStorage.getItem(KEEP_KEY) === '1'; } catch { return false; }
+}
+function liveCookie() {
+    return document.cookie.split(';').some(c => c.trim() === LIVE + '=1');
+}
+export function markLogin(keep) {
+    try { if (keep) localStorage.setItem(KEEP_KEY, '1'); else localStorage.removeItem(KEEP_KEY); } catch { /* 저장 불가 */ }
+    document.cookie = `${LIVE}=1; Path=/; Secure; SameSite=Lax`;
+}
+export function loginStillValid() {
+    return keepLogin() || liveCookie();
+}
+// 화면을 열 때: 유지하지 않기로 한 세션이 브라우저를 다시 연 뒤 남아 있으면 끝낸다. 결과: 쓸 수 있는 세션이 있는지
+export async function enforceLoginPolicy(sb) {
+    const { data } = await sb.auth.getSession();
+    if (!data?.session) return false;
+    if (loginStillValid()) return true;
+    await signOutEverywhere(sb);
+    return false;
+}
+
 // 서버 jm_email_for 와 같은 규칙: 이메일로 바꿀 수 있는 아이디만 Auth 로 바로 로그인한다.
 const EMAIL_SAFE = /^[A-Za-z0-9][A-Za-z0-9._+-]{0,62}[A-Za-z0-9]$/;
 export function emailFor(id) {
@@ -47,13 +73,14 @@ async function callMigrate(sb, body, withSession) {
  *   reason: invalid | locked | already_migrated | collision | needs_new_username | invalid_new_username |
  *           username_taken | busy | retry_later | rate_limited | network
  */
-export async function signIn(sb, id, password, { newUsername = null } = {}) {
+export async function signIn(sb, id, password, { newUsername = null, keep = false } = {}) {
     const loginId = String(id ?? '').trim();
     if (!loginId || !password) return { ok: false, reason: 'invalid' };
     const email = emailFor(loginId);
     if (email && !newUsername) {
         const { data, error } = await sb.auth.signInWithPassword({ email, password });
         if (!error && data?.session) {
+            markLogin(keep);
             const st = await resumeJournal(sb);
             return { ok: true, migrated: false, journal: st, weak: !!data.weak_password || password.length < MIN_NEW_PASSWORD };
         }
@@ -66,6 +93,7 @@ export async function signIn(sb, id, password, { newUsername = null } = {}) {
     if (r.result !== 'migrated') return { ok: false, reason: r.result || 'retry_later' };
     const { data, error } = await sb.auth.signInWithPassword({ email: r.email, password });
     if (error || !data?.session) return { ok: false, reason: 'retry_later' };
+    markLogin(keep);
     return { ok: true, migrated: true, counts: r.counts || null, loginId: r.email.split('@')[0],
              weak: password.length < MIN_NEW_PASSWORD };
 }
@@ -86,7 +114,7 @@ export async function linkJournal(sb, legacyUsername, legacyPassword, accountPas
 }
 
 // 기분기록지 전용 새 계정(환자번호 없음). 비밀번호는 12자 이상(서버 정책).
-export async function signUpJournal(sb, id, password) {
+export async function signUpJournal(sb, id, password, { keep = false } = {}) {
     const loginId = String(id ?? '').trim();
     const email = emailFor(loginId);
     if (!email) return { ok: false, reason: 'invalid_username' };
@@ -98,6 +126,7 @@ export async function signUpJournal(sb, id, password) {
         return { ok: false, reason: error.status === 429 ? 'rate_limited' : 'retry_later' };
     }
     if (!data?.session) return { ok: false, reason: 'retry_later' };
+    markLogin(keep);
     return { ok: true };
 }
 
@@ -116,6 +145,8 @@ export async function changePassword(sb, currentPassword, newPassword) {
 // 한 출처라 로그아웃 한 번으로 기분기록지·설문·홈페이지 모두 나간다(설문 출입 쿠키 포함).
 export async function signOutEverywhere(sb) {
     try { await sb.auth.signOut({ scope: 'local' }); } catch { /* 이미 만료 */ }
+    try { localStorage.removeItem(KEEP_KEY); } catch { /* 저장 불가 */ }
+    document.cookie = `${LIVE}=; Path=/; Max-Age=0; Secure; SameSite=Lax`;
     try { await fetch('/_gate/logout', { method: 'POST', credentials: 'same-origin', keepalive: true }); } catch { /* 게이트 없음 */ }
 }
 
@@ -132,6 +163,7 @@ export const MESSAGES = {
         invalid_username: '아이디는 영문·숫자로 시작하고 끝나야 하며 2~64자여야 합니다(. _ + - 사용 가능).',
         weak_password: `비밀번호는 ${MIN_NEW_PASSWORD}자 이상이어야 합니다.`,
         same_password: '지금 비밀번호와 다른 비밀번호를 적어 주세요.',
+        password_too_long: '비밀번호가 너무 길어 자동으로 옮길 수 없습니다. 관리자에게 문의해 주세요.',
         busy: '이전 작업이 진행 중입니다. 1~2분 뒤 다시 시도해 주세요.',
         retry_later: '잠시 문제가 생겼습니다. 조금 뒤 다시 시도해 주세요.',
         network: '서버에 연결하지 못했습니다. 인터넷 연결을 확인해 주세요.',
@@ -154,6 +186,7 @@ export const MESSAGES = {
         invalid_username: 'An ID must start and end with a letter or number and be 2–64 characters (. _ + - allowed).',
         weak_password: `The password must be at least ${MIN_NEW_PASSWORD} characters.`,
         same_password: 'Please choose a password different from the current one.',
+        password_too_long: 'The password is too long to move automatically. Please contact the administrator.',
         busy: 'A move is in progress. Please try again in a minute or two.',
         retry_later: 'Something went wrong. Please try again shortly.',
         network: 'Could not reach the server. Please check your connection.',

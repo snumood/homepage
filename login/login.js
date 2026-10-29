@@ -1,6 +1,6 @@
 import { createClient } from '/vendor/supabase-js.js?v=20261030a';
 import { SB_URL, SB_KEY } from '/account/config.js?v=20261030a';
-import { signIn, resumeJournal, linkJournal, changePassword, signOutEverywhere, loginIdOf, safeNext, message, MIN_NEW_PASSWORD } from '/account/auth.js?v=20261030a';
+import { signIn, enforceLoginPolicy, keepLogin, resumeJournal, linkJournal, changePassword, signOutEverywhere, loginIdOf, safeNext, message, MIN_NEW_PASSWORD } from '/account/auth.js?v=20261030a';
 
 const sb = createClient(SB_URL, SB_KEY);
 const $ = id => document.getElementById(id);
@@ -17,7 +17,7 @@ const EN = {
     linkTitle: 'Connect mood-journal records', linkLead: 'Bring the records from your old mood journal with the same ID into this account. Both passwords are checked.',
     legacyPw: 'Old mood-journal password', accountPw: 'Current account (survey) password', linkBtn: 'Connect',
     pwTitle: 'Change password', pwOld: 'Current password', pwNew: 'New password (12 or more characters)', pwCfm: 'Confirm new password', pwBtn: 'Change',
-    signOut: 'Sign out'
+    signOut: 'Sign out', keep: 'Stay signed in on this device (not on shared devices)'
 };
 const KO = {};
 const T = {
@@ -99,7 +99,7 @@ $('signin-form').addEventListener('submit', async e => {
     btn.disabled = true;
     say(msg, t('signingIn'));
     const slow = setTimeout(() => say(msg, t('moving')), 1500);
-    const r = await signIn(sb, id, pw, { newUsername: newId || null });
+    const r = await signIn(sb, id, pw, { newUsername: newId || null, keep: $('s-keep').checked });
     clearTimeout(slow);
     btn.disabled = false;
     if (!r.ok) {
@@ -145,8 +145,8 @@ $('signout').addEventListener('click', async () => {
 });
 
 applyLang();
-const { data: s } = await sb.auth.getSession();
-if (s?.session) {
+$('s-keep').checked = keepLogin();
+if (await enforceLoginPolicy(sb)) {
     if (next) location.replace(next);
     else await showAccount();
 } else {
