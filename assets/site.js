@@ -60,6 +60,7 @@
         ep8: "Psychotherapy and mindfulness",
         ep9: "Lifestyle and circadian rhythm",
         ep10: "Symptoms that can come along",
+        aiNote: 'These videos were made with AI. The narration is AI voice synthesis based on Prof. Woojae Myung’s voice.',
         howtoTitle: 'Video: how to keep the mood journal',
         howtoP: 'Each item of the mood journal is explained with examples. (11 min, in Korean with Korean subtitles)',
         howtoAria: 'Video on how to keep the mood journal',
