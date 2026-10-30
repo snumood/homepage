@@ -234,6 +234,9 @@ p { margin: 0 0 14px; }
 .eps { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 16px; margin: 12px 0 26px; align-items: start; }
 .eps-player figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; }
 .eps-now b { display: inline-block; min-width: 1.4em; color: var(--accent); }
+.eps [hidden] { display: none !important; }
+#eps-held { padding: 32px; color: #fff; text-align: center; }
+.ep:disabled { cursor: default; opacity: .65; }
 .eps-player .hd-btn { margin-top: 0; }
 .ep-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 520px; overflow-y: auto; }
 .ep { width: 100%; display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px; border: 1px solid var(--line); border-radius: 8px; background: #fffdf8; color: var(--ink); font: 15px/1.4 var(--print); text-align: left; cursor: pointer; }
