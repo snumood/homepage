@@ -297,7 +297,7 @@
         var cur = '01', hd = false;
         function load(t, play) {
             var stem = 'illness-ep' + cur + (lang === 'en' ? '-en' : '');
-            setVideo(video, 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4'),
+            setVideo(video, 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4') + (cur === '06' && lang === 'ko' ? '?v=20261031' : ''),
                 'guide/media/' + stem + '-poster.jpg', 'guide/media/' + stem + '.' + lang + '.vtt', t, play);
         }
         mediaLang.push(function () {
