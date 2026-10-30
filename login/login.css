@@ -4,6 +4,7 @@
 .acct-home { font-size: 15px; text-decoration: none; }
 .acct-lang { font: inherit; font-size: 14px; background: none; border: 1px solid var(--line, #d8d0c0); border-radius: 6px; padding: 4px 10px; cursor: pointer; color: var(--ink); }
 .acct { max-width: 520px; margin: 0 auto; padding: 0 16px 48px; }
+.acct [hidden] { display: none !important; }
 .acct h1 { font-size: 28px; margin: 8px 0 6px; }
 .acct-lead { color: var(--ink-soft); font-size: 15px; margin: 0 0 18px; }
 .acct-card { background: #fff; border: 1px solid var(--line, #e2dacb); border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(60, 40, 20, .06); }
