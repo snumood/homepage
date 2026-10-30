@@ -19,6 +19,9 @@ const EN = {
     pwTitle: 'Change password', pwOld: 'Current password', pwNew: 'New password (12 or more characters)', pwCfm: 'Confirm new password', pwBtn: 'Change',
     notice1: 'This is a free online program for people who find it hard to use the paper mood chart. It is not a medical device, and the person who writes in it is responsible for its use. Security cannot be guaranteed, so do not write personally identifying or sensitive information. It is best not to use a user ID that could identify you. Because the program is anonymous, a lost account cannot be recovered. Back up your data to a file regularly. Your care team can see your records only if you agree.',
     notice2: '※ Do not enter personal information such as ID numbers, names or contact details',
+    pnTitle: 'Link hospital code and patient number',
+    pnLead: 'Linking the code of the hospital where you are treated and your patient number lets you take the surveys and share your journal with a clinician you choose. Linking alone does not share anything.',
+    pnCode: 'Hospital code', pnNum: 'Patient number (8 digits)', pnDob: 'Year and month of birth (e.g. 1980-05)', pnBtn: 'Link',
     signOut: 'Sign out', keep: 'Stay signed in on this device (not on shared devices)'
 };
 const KO = {};
@@ -29,7 +32,9 @@ const T = {
         weak: `비밀번호가 ${MIN_NEW_PASSWORD}자보다 짧습니다. 아래 "비밀번호 바꾸기"에서 더 긴 비밀번호로 바꾸는 것을 권합니다.`,
         resumed: '끝나지 않았던 기록 옮기기를 마쳤습니다.', linkAvail: '같은 아이디의 예전 기분기록지 기록이 있습니다. 아래 "기분기록지 기록 연결"에서 가져올 수 있어요.',
         linked: n => `기분기록지 기록 ${n}건을 연결했습니다.`, pwDone: '비밀번호를 바꿨습니다.', mismatch: '새 비밀번호가 서로 다릅니다.',
-        journalOnly: '이 계정은 기분기록지 전용입니다. 설문은 병원코드·환자번호가 연결된 뒤에 할 수 있어요.', need: '아이디와 비밀번호를 적어 주세요.'
+        journalOnly: '이 계정은 기분기록지 전용입니다. 설문은 병원코드·환자번호가 연결된 뒤에 할 수 있어요.', need: '아이디와 비밀번호를 적어 주세요.',
+        pnBad: '병원코드, 8자리 환자번호, 생년월(YYYY-MM)을 확인해 주세요.', pnDone: '병원코드와 환자번호를 연결했습니다.',
+        pnFail: '연결하지 못했습니다. 병원코드와 환자번호를 확인하거나 병원에 문의해 주세요.'
     },
     en: {
         signingIn: 'Signing in…', moving: 'Moving your old mood-journal records. Please wait…',
@@ -37,7 +42,9 @@ const T = {
         weak: `Your password is shorter than ${MIN_NEW_PASSWORD} characters. We recommend changing it below under "Change password".`,
         resumed: 'Finished moving the records that were left unfinished.', linkAvail: 'There are old mood-journal records with the same ID. You can bring them in below under "Connect mood-journal records".',
         linked: n => `Connected ${n} mood-journal records.`, pwDone: 'Your password has been changed.', mismatch: 'The new passwords do not match.',
-        journalOnly: 'This account is for the mood journal only. Surveys become available once a hospital code and patient number are linked.', need: 'Please enter your ID and password.'
+        journalOnly: 'This account is for the mood journal only. Surveys become available once a hospital code and patient number are linked.', need: 'Please enter your ID and password.',
+        pnBad: 'Please check the hospital code, the 8-digit patient number and the year-month of birth (YYYY-MM).', pnDone: 'Your hospital code and patient number are linked.',
+        pnFail: 'Could not link. Please check the hospital code and patient number, or ask the hospital.'
     }
 };
 const t = k => T[lang][k];
@@ -71,6 +78,8 @@ async function showAccount(notes = []) {
     const { data: prof } = await sb.from('profiles').select('role').eq('id', data.user.id).maybeSingle();
     const role = prof?.role || '';
     $('go-survey').hidden = role === 'journal';
+    $('pn-box').hidden = role !== 'journal';
+    if (role === 'journal' && location.hash === '#link') $('pn-box').open = true;
     if (role === 'doctor') $('go-survey').href = '/survey/doctor.html';
     if (role === 'admin') $('go-survey').href = '/survey/admin.html';
     const msgs = [...notes];
@@ -130,6 +139,18 @@ $('link-form').addEventListener('submit', async e => {
     $('link-box').open = false;
     $('link-box').hidden = true;
     say($('account-msg'), t('linked')(countOf(r.counts)), 'ok');
+});
+
+$('pn-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = $('pn-msg');
+    const code = $('p-code').value.trim().toUpperCase(), num = $('p-num').value.trim(), dob = $('p-dob').value.trim();
+    if (!code || !/^[0-9]{8}$/.test(num) || !/^(19|20)[0-9]{2}-(0[1-9]|1[0-2])$/.test(dob)) return say(msg, t('pnBad'), 'error');
+    const { data, error } = await sb.rpc('link_patient_number', { p_hospital_code: code, p_patient_number: num, p_dob: dob });
+    if (error || data?.status !== 'linked') return say(msg, t('pnFail'), 'error');
+    ['p-code', 'p-num', 'p-dob'].forEach(id => { $(id).value = ''; });
+    $('pn-box').open = false;
+    await showAccount([t('pnDone')]);
 });
 
 $('pw-form').addEventListener('submit', async e => {

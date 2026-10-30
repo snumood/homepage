@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/vendor/fonts/maruburi.css?v=20261029a">
 <link rel="stylesheet" href="/assets/site.css?v=20261029h">
 <link rel="stylesheet" href="login.css?v=20261030b">
-<script type="module" src="login.js?v=20261030b"></script>
+<script type="module" src="login.js?v=20261030c"></script>
 </head>
 <body class="acct-page">
 <header class="acct-top">
@@ -67,6 +67,21 @@
         <input id="k-account" type="password" autocomplete="current-password" required>
         <p class="acct-msg" id="link-msg" role="status" aria-live="polite"></p>
         <button class="acct-btn" type="submit" data-t="linkBtn">연결하기</button>
+      </form>
+    </details>
+
+    <details id="pn-box" hidden>
+      <summary data-t="pnTitle">병원코드·환자번호 연결</summary>
+      <p data-t="pnLead">진료받는 병원의 코드와 환자번호를 연결하면 설문을 하고, 원하는 담당 의료진에게 기분기록을 공유할 수 있어요. 연결만으로 기록이 공유되지는 않습니다.</p>
+      <form id="pn-form" novalidate>
+        <label for="p-code" data-t="pnCode">병원코드</label>
+        <input id="p-code" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+        <label for="p-num" data-t="pnNum">환자번호 (8자리 숫자)</label>
+        <input id="p-num" inputmode="numeric" autocomplete="off" pattern="[0-9]{8}" maxlength="8" required>
+        <label for="p-dob" data-t="pnDob">생년월 (예: 1980-05)</label>
+        <input id="p-dob" autocomplete="off" placeholder="YYYY-MM" pattern="(19|20)[0-9]{2}-(0[1-9]|1[0-2])" maxlength="7" required>
+        <p class="acct-msg" id="pn-msg" role="status" aria-live="polite"></p>
+        <button class="acct-btn" type="submit" data-t="pnBtn">연결하기</button>
       </form>
     </details>
 
