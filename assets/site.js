@@ -49,7 +49,7 @@
         guideD: 'How to record mood, emotional reactivity, motivation and thinking, sleep, weight, alcohol and life events, with examples.',
         read: 'Read →',
         epsTitle: 'Mood Disorder Guide videos',
-        epsP: 'The guide explained in 10 short videos. (4–6 min each, in Korean with Korean subtitles)',
+        epsP: 'Ten guide videos in English with English subtitles (4:00–13:14 each).',
         epsAria: 'Mood Disorder Guide video',
         epsList: 'Video list',
         ep1: "What kind of illness is a mood disorder?",
@@ -64,7 +64,7 @@
         ep10: "Symptoms that can come along",
         aiNote: 'These videos were made with AI. The narration is AI voice synthesis based on Prof. Woojae Myung’s voice.',
         howtoTitle: 'Video: how to keep the mood journal',
-        howtoP: 'Each item of the mood journal is explained with examples. (11 min, in Korean with Korean subtitles)',
+        howtoP: 'Each item of the mood journal is explained with examples. (11:58, in English with English subtitles)',
         howtoAria: 'Video on how to keep the mood journal',
         howtoHd: 'Switch to high quality (1080p)',
         howtoSd: 'Switch to standard quality (720p)',
@@ -120,6 +120,7 @@
     var KO = { howtoHd: '고화질(1080p)로 바꾸기', howtoSd: '표준 화질(720p)로 바꾸기', navLogin: '로그인', navAccount: '내 계정' };
     var KEY = 'snumood-lang';
     var lang = 'ko';
+    var mediaLang = [];
 
     function store(v) { try { localStorage.setItem(KEY, v); } catch (e) { /* 저장 불가 */ } }
     function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
@@ -166,6 +167,7 @@
         if (!root.hasAttribute('data-title-ko')) root.setAttribute('data-title-ko', document.title);
         document.title = en ? (root.getAttribute('data-title-en') || 'SNUBH Mood Disorders Clinic | SNUMOOD') : root.getAttribute('data-title-ko');
         syncMenuLabel();
+        mediaLang.forEach(function (sync) { sync(); });
     }
 
     var menuBtn, nav, mq;
@@ -230,21 +232,58 @@
         }
     }
 
-    // 작성방법 동영상: 페이지 안에서 화질만 바꾼다 (재생 위치 유지)
+    // Only quality changes keep the position; translated narration has different timing.
+    function setVideo(video, src, poster, subtitles, keepPosition, play) {
+        if (video._pendingMetadata) video.removeEventListener('loadedmetadata', video._pendingMetadata);
+        video._pendingMetadata = null;
+        video.pause();
+        video.hidden = !src;
+        var source = video.querySelector('source');
+        var oldTrack = video.querySelector('track');
+        var captionsOn = oldTrack && oldTrack.track && oldTrack.track.mode === 'showing';
+        if (oldTrack) oldTrack.remove();
+        if (!src) {
+            video.removeAttribute('src');
+            source.removeAttribute('src');
+            video.removeAttribute('poster');
+            video.load();
+            return;
+        }
+        var track = document.createElement('track');
+        track.kind = 'subtitles';
+        track.src = subtitles;
+        track.srclang = lang;
+        track.label = lang === 'en' ? 'English' : '한국어';
+        video.appendChild(track);
+        video.poster = poster;
+        source.src = src;
+        video.src = src;
+        video._pendingMetadata = function once() {
+            video.removeEventListener('loadedmetadata', once);
+            video._pendingMetadata = null;
+            if (keepPosition) video.currentTime = Math.min(keepPosition, video.duration || keepPosition);
+            track.track.mode = captionsOn ? 'showing' : 'disabled';
+            if (play) video.play().catch(function () { /* User can press play. */ });
+        };
+        video.addEventListener('loadedmetadata', video._pendingMetadata);
+        video.load();
+    }
+
+    // How-to: switch both the language and quality of the media.
     function initVideo() {
         var btn = document.getElementById('howto-hd');
         var video = document.querySelector('.howto video');
         if (!btn || !video) return;
+        var hd = false;
+        function sync(t, play) {
+            var stem = 'moodchart-howto' + (lang === 'en' ? '-en' : '');
+            setVideo(video, 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4'),
+                'guide/media/' + stem + '-poster.jpg', 'guide/media/' + stem + '.' + lang + '.vtt', t, play);
+        }
+        mediaLang.push(function () { sync(0, !video.paused); });
         btn.addEventListener('click', function () {
-            var hd = btn.getAttribute('aria-pressed') !== 'true';
-            var t = video.currentTime, playing = !video.paused;
-            video.src = btn.getAttribute(hd ? 'data-hd' : 'data-sd');
-            video.addEventListener('loadedmetadata', function once() {
-                video.removeEventListener('loadedmetadata', once);
-                if (t) video.currentTime = t;
-                if (playing) video.play().catch(function () { /* 다시 누르면 재생 */ });
-            });
-            video.load();
+            hd = !hd;
+            sync(video.currentTime, !video.paused);
             btn.setAttribute('aria-pressed', hd ? 'true' : 'false');
             btn.setAttribute('data-i18n', hd ? 'howtoSd' : 'howtoHd');
             btn.textContent = lang === 'en' ? EN[hd ? 'howtoSd' : 'howtoHd'] : (hd ? '표준 화질(720p)로 바꾸기' : '고화질(1080p)로 바꾸기');
@@ -255,27 +294,26 @@
     function initEpisodes() {
         var box = document.querySelector('.eps');
         if (!box) return;
-        var video = box.querySelector('video'), track = video.querySelector('track');
+        var video = box.querySelector('video');
         var btn = document.getElementById('eps-hd'), now = box.querySelector('.eps-now');
-        var cur = '01', hd = false, pending = null;
-        var url = function () { return 'https://snumood.com/media/illness-ep' + cur + (hd ? '-1080p' : '-720p') + '.mp4'; };
+        var cur = '01', hd = false;
         function load(t, play) {
-            if (pending) video.removeEventListener('loadedmetadata', pending);   // 앞서 고른 편의 재생 위치가 남지 않게
-            pending = function () {
-                video.removeEventListener('loadedmetadata', pending); pending = null;
-                if (t) video.currentTime = t;
-                if (play) video.play().catch(function () { /* 다시 누르면 재생 */ });
-            };
-            video.src = url();
-            video.addEventListener('loadedmetadata', pending);
-            video.load();
+            var stem = 'illness-ep' + cur + (lang === 'en' ? '-en' : '');
+            setVideo(video, 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4'),
+                'guide/media/' + stem + '-poster.jpg', 'guide/media/' + stem + '.' + lang + '.vtt', t, play);
         }
+        mediaLang.push(function () {
+            box.querySelectorAll('.ep').forEach(function (b) {
+                var ep = b.getAttribute('data-ep'), en = lang === 'en';
+                b.querySelector('img').src = 'guide/media/illness-ep' + ep + (en ? '-en' : '') + '-poster.jpg';
+                b.querySelector('.ep-d').textContent = b.getAttribute(en ? 'data-duration-en' : 'data-duration-ko');
+            });
+            load(0, !video.paused);
+        });
         box.querySelectorAll('.ep').forEach(function (b) {
             b.addEventListener('click', function () {
                 cur = b.getAttribute('data-ep');
                 box.querySelectorAll('.ep').forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
-                video.poster = 'guide/media/illness-ep' + cur + '-poster.jpg';
-                track.src = 'guide/media/illness-ep' + cur + '.ko.vtt';
                 var n = String(Number(cur)), k = 'ep' + n;
                 now.innerHTML = '<b></b> <span data-i18n="' + k + '"></span>';
                 now.querySelector('b').textContent = n;
