@@ -27,3 +27,7 @@
 .acct details { margin-top: 16px; border-top: 1px solid #eee6d8; padding-top: 10px; }
 .acct summary { cursor: pointer; font-weight: 700; font-size: 15px; }
 .acct details p { font-size: 14px; color: var(--ink-soft); }
+
+.acct-notice { font-size: .85rem; line-height: 1.55; color: var(--ink-soft); background: rgba(0,0,0,.035); border-radius: 10px; padding: .8rem 1rem; margin: 0 0 1rem; }
+.acct-notice p { margin: 0 0 .4rem; }
+.acct-notice .acct-warn { color: #c62828; margin: 0; }

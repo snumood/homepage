@@ -17,6 +17,8 @@ const EN = {
     linkTitle: 'Connect mood-journal records', linkLead: 'Bring the records from your old mood journal with the same ID into this account. Both passwords are checked.',
     legacyPw: 'Old mood-journal password', accountPw: 'Current account (survey) password', linkBtn: 'Connect',
     pwTitle: 'Change password', pwOld: 'Current password', pwNew: 'New password (12 or more characters)', pwCfm: 'Confirm new password', pwBtn: 'Change',
+    notice1: 'This is a free online program for people who find it hard to use the paper mood chart. It is not a medical device, and the person who writes in it is responsible for its use. Security cannot be guaranteed, so do not write personally identifying or sensitive information. It is best not to use a user ID that could identify you. Because the program is anonymous, a lost account cannot be recovered. Back up your data to a file regularly. Your care team can see your records only if you agree.',
+    notice2: '※ Do not enter personal information such as ID numbers, names or contact details',
     signOut: 'Sign out', keep: 'Stay signed in on this device (not on shared devices)'
 };
 const KO = {};
