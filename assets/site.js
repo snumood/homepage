@@ -47,7 +47,7 @@
         guideD: 'How to record mood, emotional reactivity, motivation and thinking, sleep, weight, alcohol and life events, with examples.',
         read: 'Read →',
         epsTitle: 'Mood Disorder Guide videos',
-        epsP: 'Nine guide videos in English with English subtitles (4:00–6:53 each). The revised English version of Part 6 is in preparation.',
+        epsP: 'Ten guide videos in English with English subtitles (4:00–13:14 each).',
         epsAria: 'Mood Disorder Guide video',
         epsList: 'Video list',
         ep1: "What kind of illness is a mood disorder?",
@@ -295,25 +295,16 @@
         var video = box.querySelector('video');
         var btn = document.getElementById('eps-hd'), now = box.querySelector('.eps-now');
         var cur = '01', hd = false;
-        var held = document.getElementById('eps-held');
         function load(t, play) {
-            var unavailable = lang === 'en' && cur === '06';
-            held.hidden = !unavailable;
-            btn.disabled = unavailable;
             var stem = 'illness-ep' + cur + (lang === 'en' ? '-en' : '');
-            setVideo(video, unavailable ? null : 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4'),
+            setVideo(video, 'https://snumood.com/media/' + stem + (hd ? '-1080p.mp4' : '-720p.mp4'),
                 'guide/media/' + stem + '-poster.jpg', 'guide/media/' + stem + '.' + lang + '.vtt', t, play);
         }
         mediaLang.push(function () {
             box.querySelectorAll('.ep').forEach(function (b) {
-                var ep = b.getAttribute('data-ep'), en = lang === 'en', unavailable = en && ep === '06';
-                b.disabled = unavailable;
-                var img = b.querySelector('img');
-                img.hidden = unavailable;
-                if (unavailable) img.removeAttribute('src');
-                else img.src = 'guide/media/illness-ep' + ep + (en ? '-en' : '') + '-poster.jpg';
-                var duration = b.querySelector('.ep-d');
-                duration.textContent = unavailable ? 'In preparation' : b.getAttribute(en ? 'data-duration-en' : 'data-duration-ko');
+                var ep = b.getAttribute('data-ep'), en = lang === 'en';
+                b.querySelector('img').src = 'guide/media/illness-ep' + ep + (en ? '-en' : '') + '-poster.jpg';
+                b.querySelector('.ep-d').textContent = b.getAttribute(en ? 'data-duration-en' : 'data-duration-ko');
             });
             load(0, !video.paused);
         });
