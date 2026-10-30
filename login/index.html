@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/vendor/fonts/maruburi.css?v=20261029a">
 <link rel="stylesheet" href="/assets/site.css?v=20261029h">
 <link rel="stylesheet" href="login.css?v=20261030b">
-<script type="module" src="login.js?v=20261030c"></script>
+<script type="module" src="login.js?v=20261030d"></script>
 </head>
 <body class="acct-page">
 <header class="acct-top">
@@ -21,11 +21,10 @@
 
 <main class="acct" id="content">
   <h1 data-t="title">SNUMOOD 계정</h1>
-  <p class="acct-lead" data-t="lead">기분기록지와 설문을 한 계정으로 씁니다. 예전 기분기록지 아이디·비밀번호로도 그대로 로그인할 수 있어요.</p>
 
   <div class="acct-notice" role="note">
-    <p data-t="notice1">본 프로그램은 종이기분기록지를 사용하기 어려운 분들을 위해 만든 무료 온라인 프로그램입니다. 의료용이 아니며 모든 사용 책임은 작성자에게 있습니다. 보안을 보장할 수 없으니 개인식별정보 및 민감정보를 적지 않도록 주의하세요. 신원을 특정할 수 있는 아이디를 사용하지 않는 것이 좋습니다. 익명 프로그램이므로 계정을 분실하면 복구할 수 없습니다. 주기적으로 데이터를 파일로 백업하세요. 담당 의료진은 본인이 동의한 경우에만 기록을 볼 수 있습니다.</p>
-    <p class="acct-warn" data-t="notice2">※ 주민번호, 이름, 연락처 등 개인정보는 입력하지 마세요</p>
+    <p data-t="notice1">본 프로그램은 종이기분기록지, 기분장애안내서, 기분장애임상평가 설문지를 사용하기 어려운 분들을 위해 만든 무료 온라인 프로그램입니다. 의료용이 아니며 모든 사용 책임은 작성자에게 있습니다. 보안을 보장할 수 없으니 개인식별정보 및 민감정보를 적지 않도록 주의하세요. 신원을 특정할 수 있는 아이디를 사용하지 마세요. 익명 프로그램이므로 계정을 분실하면 복구할 수 없습니다. 주기적으로 데이터를 파일로 백업하세요. 담당 의료진은 본인이 동의한 경우에만 기록을 볼 수 있습니다.</p>
+    <p class="acct-warn" data-t="notice2">※ 주민번호, 이름, 연락처 등 어떤 개인정보를 어디에도 입력하지 마세요.</p>
   </div>
 
   <section id="signin" class="acct-card" hidden>
@@ -42,11 +41,6 @@
       <p class="acct-msg" id="signin-msg" role="status" aria-live="polite"></p>
       <button class="acct-btn" type="submit" id="signin-btn" data-t="signIn">로그인</button>
     </form>
-    <ul class="acct-links">
-      <li><a href="/journal/#join" data-t="newJournal">기분기록지 새 계정 만들기</a></li>
-      <li><a href="/survey/signup-patient.html" data-t="newSurvey">설문 회원가입 (병원코드·환자번호가 있는 분)</a></li>
-      <li><a href="/survey/login.html?role=doctor" data-t="doctor">의사 로그인</a></li>
-    </ul>
   </section>
 
   <section id="account" class="acct-card" hidden>
