@@ -168,11 +168,35 @@
         document.title = en ? (root.getAttribute('data-title-en') || 'SNUBH Mood Disorders Clinic | SNUMOOD') : root.getAttribute('data-title-ko');
         syncMenuLabel();
         mediaLang.forEach(function (sync) { sync(); });
+        onLayout();
     }
 
-    var menuBtn, nav, mq;
+    var menuBtn, nav, mq, topbar, topbarIn;
 
     function menuOpen() { return menuBtn.getAttribute('aria-expanded') === 'true'; }
+    function collapsed() { return topbar.classList.contains('collapsed'); }
+
+    // 머리띠 안의 것(브랜드, 메뉴, 언어 버튼)이 한 줄에 다 들어가는지: 숨긴 것은 빼고 너비를 더한다
+    function overflows() {
+        var cs = getComputedStyle(topbarIn);
+        var avail = topbarIn.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        var gap = parseFloat(cs.columnGap) || 0, w = -gap;
+        each('.topbar-in > *', function (c) { if (getComputedStyle(c).display !== 'none') w += c.getBoundingClientRect().width + gap; });
+        return w > avail + 0.5;
+    }
+
+    // 글자가 다 들어가지 않으면(영어 메뉴, 긴 아이디) 먼저 아이디를 숨기고, 그래도 넘치면 메뉴를 접는다. 브랜드명은 줄이지 않는다.
+    // 재는 동안 펼쳐졌다 접히는 것이 보이지 않도록 전환 효과를 잠시 끈다
+    function fit() {
+        topbar.classList.add('no-anim');
+        topbar.classList.remove('fit-noid', 'collapsed');
+        if (mq.matches) topbar.classList.add('collapsed');
+        else if (overflows()) {
+            topbar.classList.add('fit-noid');
+            if (overflows()) { topbar.classList.remove('fit-noid'); topbar.classList.add('collapsed'); }
+        }
+        requestAnimationFrame(function () { requestAnimationFrame(function () { topbar.classList.remove('no-anim'); }); });
+    }
 
     function syncMenuLabel() {
         if (!menuBtn) return;
@@ -184,7 +208,7 @@
     function setMenu(open, focusBack) {
         menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         nav.classList.toggle('open', open);
-        if (mq.matches) {
+        if (collapsed()) {
             if (open) nav.removeAttribute('inert'); else nav.setAttribute('inert', '');
         }
         syncMenuLabel();
@@ -193,7 +217,9 @@
     }
 
     function onLayout() {
-        if (mq.matches) {
+        if (!menuBtn) return;
+        fit();
+        if (collapsed()) {
             if (!menuOpen()) nav.setAttribute('inert', '');
         } else {
             nav.removeAttribute('inert');
@@ -206,11 +232,20 @@
     function initMenu() {
         menuBtn = document.getElementById('menu-btn');
         nav = document.getElementById('site-nav');
+        topbar = document.querySelector('.topbar');
+        topbarIn = topbar.querySelector('.topbar-in');
         mq = window.matchMedia('(max-width: 900px)');
         onLayout();
         if (mq.addEventListener) mq.addEventListener('change', onLayout); else mq.addListener(onLayout);
+        var pending = false;
+        window.addEventListener('resize', function () {
+            if (pending) return;
+            pending = true;
+            requestAnimationFrame(function () { pending = false; onLayout(); });
+        });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(onLayout);
         menuBtn.addEventListener('click', function () { setMenu(!menuOpen(), false); });
-        nav.addEventListener('click', function (e) { if (e.target.closest('a') && mq.matches) setMenu(false, false); });
+        nav.addEventListener('click', function (e) { if (e.target.closest('a') && collapsed()) setMenu(false, false); });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOpen()) setMenu(false, true); });
         document.addEventListener('click', function (e) {
             if (menuOpen() && !nav.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false, false);
@@ -356,6 +391,7 @@
         label.textContent = lang === 'en' ? EN.navAccount : KO.navAccount;
         who.textContent = email.replace(/@patient\.local$/, '');
         who.hidden = false;
+        onLayout();
     }
 
     function init() {
